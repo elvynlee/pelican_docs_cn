@@ -51,18 +51,7 @@ Pelican 4 目前支持:
    quickstart
    install
    content
-   publish
-   settings
-   themes
-   plugins
-   pelican-themes
-   importer
-   faq
-   tips
-   contribute
-   internals
-   report
-   changelog
+   
 
 .. Links
 
