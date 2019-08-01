@@ -1,0 +1,240 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Pelican 4.1.0 &mdash; pelican_cn 4.1.0 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> pelican_cn
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Pelican 4.1.0</a><ul>
+<li><a class="reference internal" href="#id1">特点</a></li>
+<li><a class="reference internal" href="#pelican">为什么叫 “Pelican”?</a></li>
+<li><a class="reference internal" href="#source-code">Source code</a></li>
+<li><a class="reference internal" href="#how-to-get-help-contribute-or-provide-feedback">How to get help, contribute, or provide feedback</a></li>
+<li><a class="reference internal" href="#documentation">Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">pelican_cn</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Pelican 4.1.0</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pelican-release">
+<h1>Pelican 4.1.0<a class="headerlink" href="#pelican-release" title="永久链接至标题">¶</a></h1>
+<p>Pelican是一种静态网站生成器，使用Python_语言编写。 有以下特点:</p>
+<ul class="simple">
+<li>用你喜欢的文本编辑器，以 <a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructuredText</a> 格式或者 <a class="reference external" href="https://daringfireball.net/projects/markdown/">Markdown</a> 格式，直接编写你的内容</li>
+<li>包含有一个简单的命令行工具以（重新）生成你的网站内容</li>
+<li>能与版本控制系统和网络接口轻易结合</li>
+<li>静态输出，方便部署</li>
+</ul>
+<p>准备好的话，可以直接转到 <span class="xref std std-doc">快速入门</span> 部分哦。</p>
+<div class="section" id="id1">
+<h2>特点<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>Pelican 4 目前支持:</p>
+<ul class="simple">
+<li>文章页面（例如博客文章）和单独页面（例如“关于”，“项目”，“联系”等页面）。</li>
+<li>评论功能（通过第三方服务Disqus）。如果你不想评论数据放在这些第三方服务上，可以
+选择自托管评论系统。点击这个 <a class="reference external" href="https://github.com/getpelican/pelican-plugins">Pelican Plugins</a> 库可以了解更多。</li>
+<li>自定义主题 （主题模板可以使用 <a class="reference external" href="http://jinja.pocoo.org/">Jinja2</a> 创建）</li>
+<li>多种语言发布文章</li>
+<li>Atom/RSS feeds</li>
+<li>代码语法高亮</li>
+<li>从 WordPress, Dotclear, 或者 RSS feeds 中导入数据</li>
+<li>集成第三方工具: Twitter, Google Analytics 等（可选）</li>
+<li>快速重构博客（得益于内容缓存机制和可选输出写入机制）</li>
+</ul>
+</div>
+<div class="section" id="pelican">
+<h2>为什么叫 “Pelican”?<a class="headerlink" href="#pelican" title="永久链接至标题">¶</a></h2>
+<p>“Pelican” 的字母乱一下顺序即为 <em>calepin</em>, 而calepin在法语里表示notebook（记事本）啊。</p>
+</div>
+<div class="section" id="source-code">
+<h2>Source code<a class="headerlink" href="#source-code" title="永久链接至标题">¶</a></h2>
+<p>You can access the source code at: <a class="reference external" href="https://github.com/getpelican/pelican">https://github.com/getpelican/pelican</a></p>
+</div>
+<div class="section" id="how-to-get-help-contribute-or-provide-feedback">
+<h2>How to get help, contribute, or provide feedback<a class="headerlink" href="#how-to-get-help-contribute-or-provide-feedback" title="永久链接至标题">¶</a></h2>
+<p>See our <span class="xref std std-doc">feedback and contribution submission guidelines</span>.</p>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="永久链接至标题">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Elvyn
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
