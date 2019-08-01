@@ -99,7 +99,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#id13">导入现有站点</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id14">翻译</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#internal-pygments-options">语法高亮</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#syntax-highlighting">Syntax highlighting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#publishing-drafts">Publishing drafts</a></li>
 </ul>
 </li>
@@ -289,14 +289,14 @@ Feed阅读器中的Feed条目将自动更新。</p>
 <h2>页面<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>如果在content目录中创建 <cite>pages</cite> 文件夹，所有pages目录中的文件将被生成静态页面，
 例如 <strong>关于</strong> 页面或 <strong>联系人</strong> 页面。 （请参阅下面的示例文件系统的布局。）</p>
-<p>你可以设置 <code class="docutils literal notranslate"><span class="pre">DISPLAY_PAGES_ON_MENU</span></code> 来控制是否在主导航菜单中显示这些页面。（默认为 <code class="docutils literal notranslate"><span class="pre">True</span></code> 。）</p>
+<p>您可以设置 <code class="docutils literal notranslate"><span class="pre">DISPLAY_PAGES_ON_MENU</span></code> 来控制是否在主导航菜单中显示这些页面。（默认为 <code class="docutils literal notranslate"><span class="pre">True</span></code> 。）</p>
 <p>如果你想要某些页面不要在导航菜单中显示或者不要被指向，可以在页面文件的元数据中添加 <code class="docutils literal notranslate"><span class="pre">status:</span> <span class="pre">hidden</span></code> 属性。
 比如制作一个配合主题风格的404静态页面时，就可以给这个页面作这样的设置。</p>
 </div>
 <div class="section" id="id6">
 <h2>静态内容<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <p>静态文件是除了文章和页面之外的文件，这些文件不需要处理，会直接被复制到output输出文件夹。
-你可以在项目配置文件 <code class="docutils literal notranslate"><span class="pre">pelicanconf.py</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">STATIC_PATHS</span></code> 指定静态文件。
+您可以在项目配置文件 <code class="docutils literal notranslate"><span class="pre">pelicanconf.py</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">STATIC_PATHS</span></code> 指定静态文件。
 Pelican默认设置了 <code class="docutils literal notranslate"><span class="pre">images</span></code> 为静态文件目录，其他目录则需要你手动添加。
 此外，还包括明确链接到的静态文件（见下文）。</p>
 <div class="section" id="id7">
@@ -454,23 +454,21 @@ Pelican的版本以及从项目中添加，修改或删除文档等综合因素�
 <h2>翻译<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
 <p>可以翻译文章。如要此功能，需要在文章/页面的元数据中添加一个 <code class="docutils literal notranslate"><span class="pre">lang</span></code> 属性，
 并设置项目中 <code class="docutils literal notranslate"><span class="pre">DEFAULT_LANG</span></code> 的值（默认为[en]）。
-使用这些设置后，显示将只显示出默认语言的文章，而每篇文章将附有一个其他翻译版本的列表。</p>
-<div class="admonition note">
-<p class="first admonition-title">注解</p>
-<p class="last">这个Pelican的核心功能不会为每种语言创建带有翻译模板的子站点
-（例如 <code class="docutils literal notranslate"><span class="pre">example.com/de</span></code> ）。 要使用这种高级功能，可以使用 <a class="reference external" href="https://github.com/getpelican/pelican-plugins/tree/master/i18n_subsites">i18n_subsites
-plugin</a> 插件。</p>
+使用这些设置后，显示将只显示出默认语言的文章，而每篇文章将附有可用的翻译版本。</p>
+<div class="admonition attention">
+<p class="first admonition-title">注意</p>
+<p class="last">This core Pelican functionality does not create sub-sites
+(e.g. <code class="docutils literal notranslate"><span class="pre">example.com/de</span></code>) with translated templates for each
+language. For such advanced functionality the <a class="reference external" href="https://github.com/getpelican/pelican-plugins/tree/master/i18n_subsites">i18n_subsites
+plugin</a> can be used.</p>
 </div>
-<p>默认情况下，Pelican使用文章URL的”slug”来确定两篇或多篇文章是否是彼此之间的翻译版本。
-（这可以通过设置 <code class="docutils literal notranslate"><span class="pre">ARTICLE_TRANSLATION_ID</span></code> 进行更改。）
-可以在文件的元数据中手动输入 slug ；如果没有明确设置，Pelican将自动生成文章标题中的slug。</p>
-<div class="admonition note">
-<p class="first admonition-title">注解</p>
-<p class="last">Elvyn注：此处的slug可以理解成一串字符串，作用是作为识别id，比如”pelican-4-cn-translation”，
-在这里的用处就是用来告诉系统拥有同一个slug的某几个文件是相互之间不同的语言翻译版本，而不是不同的博客文章。</p>
-</div>
-<p>以下是两篇文章的例子，一篇用英文，另一篇用法文。</p>
-<p>英文文章:</p>
+<p>By default, Pelican uses the article’s URL “slug” to determine if two or more
+articles are translations of one another. (This can be changed with the
+<code class="docutils literal notranslate"><span class="pre">ARTICLE_TRANSLATION_ID</span></code> setting.) The slug can be set manually in the file’s
+metadata; if not set explicitly, Pelican will auto-generate the slug from the
+title of the article.</p>
+<p>Here is an example of two articles, one in English and the other in French.</p>
+<p>The English article:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Foobar</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">dead</span>
 <span class="c1">##################</span>
 
@@ -480,7 +478,7 @@ plugin</a> 插件。</p>
 <span class="n">That</span><span class="s1">&#39;s true, foobar is still alive!</span>
 </pre></div>
 </div>
-<p>文章法语版本:</p>
+<p>And the French version:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Foobar n&#39;est pas mort !
 #######################
 
@@ -490,11 +488,14 @@ plugin</a> 插件。</p>
 Oui oui, foobar est toujours vivant !
 </pre></div>
 </div>
-<p>可以看到两篇文章中相同的地方只有slug的值，
-它在这里起到标识符的作用。 如果不想以这种方式明确定义slug，
-则必须确保不同的翻译版本它们的标题相同，因为slug会从文章标题中自动生成。</p>
-<p>如果你不希望通过 <code class="docutils literal notranslate"><span class="pre">DEFAULT_LANG</span></code> 值来检测哪个特定文章为原始版本的话，
-可以在文章中使用 <code class="docutils literal notranslate"><span class="pre">translation</span></code> 元数据来指定哪些是翻译版本:</p>
+<p>Post content quality notwithstanding, you can see that only item in common
+between the two articles is the slug, which is functioning here as an
+identifier. If you’d rather not explicitly define the slug this way, you must
+then instead ensure that the translated article titles are identical, since the
+slug will be auto-generated from the article title.</p>
+<p>If you do not want the original version of one specific article to be detected
+by the <code class="docutils literal notranslate"><span class="pre">DEFAULT_LANG</span></code> setting, use the <code class="docutils literal notranslate"><span class="pre">translation</span></code> metadata to specify
+which posts are translations:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Foobar</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">dead</span>
 <span class="c1">##################</span>
 
@@ -506,8 +507,8 @@ Oui oui, foobar est toujours vivant !
 </pre></div>
 </div>
 </div>
-<div class="section" id="internal-pygments-options">
-<span id="id15"></span><h2>语法高亮<a class="headerlink" href="#internal-pygments-options" title="永久链接至标题">¶</a></h2>
+<div class="section" id="syntax-highlighting">
+<span id="internal-pygments-options"></span><h2>Syntax highlighting<a class="headerlink" href="#syntax-highlighting" title="永久链接至标题">¶</a></h2>
 <p>Pelican can provide colorized syntax highlighting for your code blocks.
 To do so, you must use the following conventions inside your content files.</p>
 <p>For reStructuredText, use the <code class="docutils literal notranslate"><span class="pre">code-block</span></code> directive to specify the type

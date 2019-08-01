@@ -142,7 +142,7 @@ Feed阅读器中的Feed条目将自动更新。
 如果在content目录中创建 `pages` 文件夹，所有pages目录中的文件将被生成静态页面，
 例如 **关于** 页面或 **联系人** 页面。 （请参阅下面的示例文件系统的布局。）
 
-你可以设置 ``DISPLAY_PAGES_ON_MENU`` 来控制是否在主导航菜单中显示这些页面。（默认为 ``True`` 。）
+您可以设置 ``DISPLAY_PAGES_ON_MENU`` 来控制是否在主导航菜单中显示这些页面。（默认为 ``True`` 。）
 
 如果你想要某些页面不要在导航菜单中显示或者不要被指向，可以在页面文件的元数据中添加 ``status: hidden`` 属性。
 比如制作一个配合主题风格的404静态页面时，就可以给这个页面作这样的设置。
@@ -151,7 +151,7 @@ Feed阅读器中的Feed条目将自动更新。
 ==============
 
 静态文件是除了文章和页面之外的文件，这些文件不需要处理，会直接被复制到output输出文件夹。
-你可以在项目配置文件 ``pelicanconf.py`` 中的 ``STATIC_PATHS`` 指定静态文件。 
+您可以在项目配置文件 ``pelicanconf.py`` 中的 ``STATIC_PATHS`` 指定静态文件。 
 Pelican默认设置了 ``images`` 为静态文件目录，其他目录则需要你手动添加。
 此外，还包括明确链接到的静态文件（见下文）。
 
@@ -341,14 +341,11 @@ Pelican的版本以及从项目中添加，修改或删除文档等综合因素�
 （这可以通过设置 ``ARTICLE_TRANSLATION_ID`` 进行更改。）
 可以在文件的元数据中手动输入 slug ；如果没有明确设置，Pelican将自动生成文章标题中的slug。
 
-.. note::
+（*Elvyn注*：此处的slug可以理解成一串字符串，作用是作为识别id，比如"pelican-4-cn-translation"，
+在这里的用处就是用来告诉系统拥有一个相同的slug的某几个文件是相互之间不同的语言翻译版本，而不是不同的博客文章。
+Here is an example of two articles, one in English and the other in French.
 
-    Elvyn注：此处的slug可以理解成一串字符串，作用是作为识别id，比如"pelican-4-cn-translation"，
-    在这里的用处就是用来告诉系统拥有同一个slug的某几个文件是相互之间不同的语言翻译版本，而不是不同的博客文章。
-
-以下是两篇文章的例子，一篇用英文，另一篇用法文。
-
-英文文章::
+The English article::
 
     Foobar is not dead
     ##################
@@ -358,7 +355,7 @@ Pelican的版本以及从项目中添加，修改或删除文档等综合因素�
 
     That's true, foobar is still alive!
 
-文章法语版本::
+And the French version::
 
     Foobar n'est pas mort !
     #######################
@@ -368,12 +365,15 @@ Pelican的版本以及从项目中添加，修改或删除文档等综合因素�
 
     Oui oui, foobar est toujours vivant !
 
-可以看到两篇文章中相同的地方只有slug的值，
-它在这里起到标识符的作用。 如果不想以这种方式明确定义slug，
-则必须确保不同的翻译版本它们的标题相同，因为slug会从文章标题中自动生成。
+Post content quality notwithstanding, you can see that only item in common
+between the two articles is the slug, which is functioning here as an
+identifier. If you'd rather not explicitly define the slug this way, you must
+then instead ensure that the translated article titles are identical, since the
+slug will be auto-generated from the article title.
 
-如果你不希望通过 ``DEFAULT_LANG`` 值来检测哪个特定文章为原始版本的话，
-可以在文章中使用 ``translation`` 元数据来指定哪些是翻译版本::
+If you do not want the original version of one specific article to be detected
+by the ``DEFAULT_LANG`` setting, use the ``translation`` metadata to specify
+which posts are translations::
 
     Foobar is not dead
     ##################
@@ -387,7 +387,7 @@ Pelican的版本以及从项目中添加，修改或删除文档等综合因素�
 
 .. _internal_pygments_options:
 
-语法高亮
+Syntax highlighting
 ===================
 
 Pelican can provide colorized syntax highlighting for your code blocks.

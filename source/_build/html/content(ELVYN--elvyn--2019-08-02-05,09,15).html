@@ -34,8 +34,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
-    <link rel="search" title="搜索" href="search.html" />
-    <link rel="prev" title="安装 Pelican" href="install.html" /> 
+    <link rel="search" title="搜索" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -79,30 +78,10 @@
               
             
             
-              <ul class="current">
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">安装 Pelican</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">编写内容</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">文章和页面</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#internal-metadata">文件元数据</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">页面</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">静态内容</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id7">同一目录中的混合内容</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#ref-linking-to-internal-content">链接到内部内容</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id9">链接到固定文件</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id10">附加静态文件</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id11">链接到作者，分类，索引和标签</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id12">不推荐使用的内部链接语法</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#id13">导入现有站点</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id14">翻译</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#internal-pygments-options">语法高亮</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#publishing-drafts">Publishing drafts</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="content.html">编写内容</a></li>
 </ul>
 
             
@@ -154,7 +133,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/content.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/content(ELVYN--elvyn--2019-08-02-05,09,15).rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -289,14 +268,14 @@ Feed阅读器中的Feed条目将自动更新。</p>
 <h2>页面<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>如果在content目录中创建 <cite>pages</cite> 文件夹，所有pages目录中的文件将被生成静态页面，
 例如 <strong>关于</strong> 页面或 <strong>联系人</strong> 页面。 （请参阅下面的示例文件系统的布局。）</p>
-<p>你可以设置 <code class="docutils literal notranslate"><span class="pre">DISPLAY_PAGES_ON_MENU</span></code> 来控制是否在主导航菜单中显示这些页面。（默认为 <code class="docutils literal notranslate"><span class="pre">True</span></code> 。）</p>
+<p>您可以设置 <code class="docutils literal notranslate"><span class="pre">DISPLAY_PAGES_ON_MENU</span></code> 来控制是否在主导航菜单中显示这些页面。（默认为 <code class="docutils literal notranslate"><span class="pre">True</span></code> 。）</p>
 <p>如果你想要某些页面不要在导航菜单中显示或者不要被指向，可以在页面文件的元数据中添加 <code class="docutils literal notranslate"><span class="pre">status:</span> <span class="pre">hidden</span></code> 属性。
 比如制作一个配合主题风格的404静态页面时，就可以给这个页面作这样的设置。</p>
 </div>
 <div class="section" id="id6">
 <h2>静态内容<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <p>静态文件是除了文章和页面之外的文件，这些文件不需要处理，会直接被复制到output输出文件夹。
-你可以在项目配置文件 <code class="docutils literal notranslate"><span class="pre">pelicanconf.py</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">STATIC_PATHS</span></code> 指定静态文件。
+您可以在项目配置文件 <code class="docutils literal notranslate"><span class="pre">pelicanconf.py</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">STATIC_PATHS</span></code> 指定静态文件。
 Pelican默认设置了 <code class="docutils literal notranslate"><span class="pre">images</span></code> 为静态文件目录，其他目录则需要你手动添加。
 此外，还包括明确链接到的静态文件（见下文）。</p>
 <div class="section" id="id7">
@@ -376,7 +355,7 @@ Date: 2012-12-01 10:02
 <div class="section" id="id10">
 <h3>附加静态文件<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
 <p>从Pelican 3.5开始，可以使用语法  <code class="docutils literal notranslate"><span class="pre">{attach}path/to/file</span></code> 将静态文件作为链接目标“附加”到页面或文章，
-其作用跟 <code class="docutils literal notranslate"><span class="pre">{static}</span></code> 一样，不同的是它还将静态文件‘重定位’复制到链接源文档的输出目录中。
+其作用跟 <code class="docutils literal notranslate"><span class="pre">{static}</span></code> 一样，不同的是它还将静态文件复制到链接源文档的输出目录中。
 如果静态文件原本是在链接源文档所在目录的子目录中，则保留这种目录结构关系，否则静态文件与链接源文档处在同一目录下。</p>
 <p>这仅适用于链接到静态文件。</p>
 <p>比如，假设一个Pelican项目的content目录框架如下:</p>
@@ -417,60 +396,71 @@ Date: 2014-10-31
     └── test-post.html
 </pre></div>
 </div>
-<p>所有被用 <code class="docutils literal notranslate"><span class="pre">{attach}</span></code> 语法链接的文件最终被复制到了文章的目录下。</p>
-<p>如果有多个链接指向了同一个静态文件，则 <code class="docutils literal notranslate"><span class="pre">{attach}</span></code> 的重定位复制功能只在处理第一个链接时起作用。
-在处理第一个链接后，Pelican会将其余的 <code class="docutils literal notranslate"><span class="pre">{attach}</span></code> 视为 <code class="docutils literal notranslate"><span class="pre">{static}</span></code> 。
-这样避免破坏之前的链接结构。</p>
-<p><strong>从多个文件链接到同一个文件时要小心：</strong>
-由于处理第一个链接时就确定了这个文件最终的位置，而Pelican是不固定处理文档的顺序的，
-所以当有多个文档用 <code class="docutils literal notranslate"><span class="pre">{attach}</span></code> 链接到同一文件的情况时，这个文件可能会在每次生成站点后位置都不一样。
-（实际在实践中是否会发生这种事将取决于操作系统，文件系统，
-Pelican的版本以及从项目中添加，修改或删除文档等综合因素。）
-这样会导致外部对这个文件的链接指向在站点更新时产生链接错误。
-<strong>因此，要对某个文件的使用 {attach} ，只有在所有链接都使用 {attach} 并且这些链接源文件都在同一目录中时才建议使用。</strong>
-只有这样，这个文件的输出位置才固定不变。如果无法使用这种预防措施，可以考虑使用 <code class="docutils literal notranslate"><span class="pre">{static}</span></code> 而不是 <code class="docutils literal notranslate"><span class="pre">{attach}</span></code> ，
-让项目设置中的 <code class="docutils literal notranslate"><span class="pre">STATIC_SAVE_AS</span></code> 和 <code class="docutils literal notranslate"><span class="pre">STATIC_URL</span></code> 来确定文件的保存位置。
-（每个文件优先的 <code class="docutils literal notranslate"><span class="pre">save_as</span></code> 和 <code class="docutils literal notranslate"><span class="pre">url</span></code> 覆盖仍然可以在 <code class="docutils literal notranslate"><span class="pre">EXTRA_PATH_METADATA</span></code> 中设定。）</p>
+<p>Notice that all the files linked using <code class="docutils literal notranslate"><span class="pre">{attach}</span></code> ended up in or beneath
+the article’s output directory.</p>
+<p>If a static file is linked multiple times, the relocating feature of
+<code class="docutils literal notranslate"><span class="pre">{attach}</span></code> will only work in the first of those links to be processed.
+After the first link, Pelican will treat <code class="docutils literal notranslate"><span class="pre">{attach}</span></code> like <code class="docutils literal notranslate"><span class="pre">{static}</span></code>.
+This avoids breaking the already-processed links.</p>
+<p><strong>Be careful when linking to a file from multiple documents:</strong>
+Since the first link to a file finalizes its location and Pelican does
+not define the order in which documents are processed, using <code class="docutils literal notranslate"><span class="pre">{attach}</span></code> on a
+file linked by multiple documents can cause its location to change from one
+site build to the next. (Whether this happens in practice will depend on the
+operating system, file system, version of Pelican, and documents being added,
+modified, or removed from the project.) Any external sites linking to the
+file’s old location might then find their links broken. <strong>It is therefore
+advisable to use {attach} only if you use it in all links to a file, and only
+if the linking documents share a single directory.</strong> Under these conditions,
+the file’s output location will not change in future builds. In cases where
+these precautions are not possible, consider using <code class="docutils literal notranslate"><span class="pre">{static}</span></code> links instead
+of <code class="docutils literal notranslate"><span class="pre">{attach}</span></code>, and letting the file’s location be determined by the project’s
+<code class="docutils literal notranslate"><span class="pre">STATIC_SAVE_AS</span></code> and <code class="docutils literal notranslate"><span class="pre">STATIC_URL</span></code> settings. (Per-file <code class="docutils literal notranslate"><span class="pre">save_as</span></code> and
+<code class="docutils literal notranslate"><span class="pre">url</span></code> overrides can still be set in <code class="docutils literal notranslate"><span class="pre">EXTRA_PATH_METADATA</span></code>.)</p>
 </div>
-<div class="section" id="id11">
-<h3>链接到作者，分类，索引和标签<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
-<p>可以使用 <code class="docutils literal notranslate"><span class="pre">{author}name</span></code>， <code class="docutils literal notranslate"><span class="pre">{category}foobar</span></code> ， <code class="docutils literal notranslate"><span class="pre">{index}</span></code> 和 <code class="docutils literal notranslate"><span class="pre">{tag}tagname</span></code> 语法链接到作者，分类，索引和标签。</p>
+<div class="section" id="linking-to-authors-categories-index-and-tags">
+<h3>Linking to authors, categories, index and tags<a class="headerlink" href="#linking-to-authors-categories-index-and-tags" title="永久链接至标题">¶</a></h3>
+<p>You can link to authors, categories, index and tags using the <code class="docutils literal notranslate"><span class="pre">{author}name</span></code>,
+<code class="docutils literal notranslate"><span class="pre">{category}foobar</span></code>, <code class="docutils literal notranslate"><span class="pre">{index}</span></code> and <code class="docutils literal notranslate"><span class="pre">{tag}tagname</span></code> syntax.</p>
 </div>
-<div class="section" id="id12">
-<h3>不推荐使用的内部链接语法<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
-<p>为了与早期版本保持兼容，Pelican仍然支持在站内链接使用 (<code class="docutils literal notranslate"><span class="pre">||</span></code>) 以及 (<code class="docutils literal notranslate"><span class="pre">{}</span></code>) 。
-例如： <code class="docutils literal notranslate"><span class="pre">|filename|an_article.rst</span></code> , <code class="docutils literal notranslate"><span class="pre">|tag|tagname</span></code> , <code class="docutils literal notranslate"><span class="pre">|category|foobar</span></code> 。
-语法从 <code class="docutils literal notranslate"><span class="pre">||</span></code> 改为 <code class="docutils literal notranslate"><span class="pre">{}</span></code> 是为了避免与Markdown扩展或reST指令冲突。
-同样的，Pelican仍支持使用 <code class="docutils literal notranslate"><span class="pre">{filename}</span></code> 链接到静态内容。
-现在改为 <code class="docutils literal notranslate"><span class="pre">{static}</span></code> 以允许链接指向到生成的文章和页面及其相关的静态源内容。</p>
-<p>可能会最终删除对旧语法的支持。</p>
+<div class="section" id="deprecated-internal-link-syntax">
+<h3>Deprecated internal link syntax<a class="headerlink" href="#deprecated-internal-link-syntax" title="永久链接至标题">¶</a></h3>
+<p>To remain compatible with earlier versions, Pelican still supports vertical
+bars (<code class="docutils literal notranslate"><span class="pre">||</span></code>) in addition to curly braces (<code class="docutils literal notranslate"><span class="pre">{}</span></code>) for internal links. For
+example: <code class="docutils literal notranslate"><span class="pre">|filename|an_article.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">|tag|tagname</span></code>, <code class="docutils literal notranslate"><span class="pre">|category|foobar</span></code>.
+The syntax was changed from <code class="docutils literal notranslate"><span class="pre">||</span></code> to <code class="docutils literal notranslate"><span class="pre">{}</span></code> to avoid collision with Markdown
+extensions or reST directives. Similarly, Pelican also still supports linking
+to static content with <code class="docutils literal notranslate"><span class="pre">{filename}</span></code>. The syntax was changed to <code class="docutils literal notranslate"><span class="pre">{static}</span></code>
+to allow linking to both generated articles and pages and their static sources.</p>
+<p>Support for the old syntax may eventually be removed.</p>
 </div>
 </div>
-<div class="section" id="id13">
-<h2>导入现有站点<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
-<p>可以使用简单的脚本从WordPress，Tumblr，Dotclear和RSS源导入你的站点。请参阅 <span class="xref std std-ref">import</span>.</p>
+<div class="section" id="importing-an-existing-site">
+<h2>Importing an existing site<a class="headerlink" href="#importing-an-existing-site" title="永久链接至标题">¶</a></h2>
+<p>It is possible to import your site from WordPress, Tumblr, Dotclear, and RSS
+feeds using a simple script. See <span class="xref std std-ref">import</span>.</p>
 </div>
-<div class="section" id="id14">
-<h2>翻译<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
-<p>可以翻译文章。如要此功能，需要在文章/页面的元数据中添加一个 <code class="docutils literal notranslate"><span class="pre">lang</span></code> 属性，
-并设置项目中 <code class="docutils literal notranslate"><span class="pre">DEFAULT_LANG</span></code> 的值（默认为[en]）。
-使用这些设置后，显示将只显示出默认语言的文章，而每篇文章将附有一个其他翻译版本的列表。</p>
+<div class="section" id="translations">
+<h2>Translations<a class="headerlink" href="#translations" title="永久链接至标题">¶</a></h2>
+<p>It is possible to translate articles. To do so, you need to add a <code class="docutils literal notranslate"><span class="pre">lang</span></code> meta
+attribute to your articles/pages and set a <code class="docutils literal notranslate"><span class="pre">DEFAULT_LANG</span></code> setting (which is
+English [en] by default). With those settings in place, only articles with the
+default language will be listed, and each article will be accompanied by a list
+of available translations for that article.</p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">这个Pelican的核心功能不会为每种语言创建带有翻译模板的子站点
-（例如 <code class="docutils literal notranslate"><span class="pre">example.com/de</span></code> ）。 要使用这种高级功能，可以使用 <a class="reference external" href="https://github.com/getpelican/pelican-plugins/tree/master/i18n_subsites">i18n_subsites
-plugin</a> 插件。</p>
+<p class="last">This core Pelican functionality does not create sub-sites
+(e.g. <code class="docutils literal notranslate"><span class="pre">example.com/de</span></code>) with translated templates for each
+language. For such advanced functionality the <a class="reference external" href="https://github.com/getpelican/pelican-plugins/tree/master/i18n_subsites">i18n_subsites
+plugin</a> can be used.</p>
 </div>
-<p>默认情况下，Pelican使用文章URL的”slug”来确定两篇或多篇文章是否是彼此之间的翻译版本。
-（这可以通过设置 <code class="docutils literal notranslate"><span class="pre">ARTICLE_TRANSLATION_ID</span></code> 进行更改。）
-可以在文件的元数据中手动输入 slug ；如果没有明确设置，Pelican将自动生成文章标题中的slug。</p>
-<div class="admonition note">
-<p class="first admonition-title">注解</p>
-<p class="last">Elvyn注：此处的slug可以理解成一串字符串，作用是作为识别id，比如”pelican-4-cn-translation”，
-在这里的用处就是用来告诉系统拥有同一个slug的某几个文件是相互之间不同的语言翻译版本，而不是不同的博客文章。</p>
-</div>
-<p>以下是两篇文章的例子，一篇用英文，另一篇用法文。</p>
-<p>英文文章:</p>
+<p>By default, Pelican uses the article’s URL “slug” to determine if two or more
+articles are translations of one another. (This can be changed with the
+<code class="docutils literal notranslate"><span class="pre">ARTICLE_TRANSLATION_ID</span></code> setting.) The slug can be set manually in the file’s
+metadata; if not set explicitly, Pelican will auto-generate the slug from the
+title of the article.</p>
+<p>Here is an example of two articles, one in English and the other in French.</p>
+<p>The English article:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Foobar</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">dead</span>
 <span class="c1">##################</span>
 
@@ -480,7 +470,7 @@ plugin</a> 插件。</p>
 <span class="n">That</span><span class="s1">&#39;s true, foobar is still alive!</span>
 </pre></div>
 </div>
-<p>文章法语版本:</p>
+<p>And the French version:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Foobar n&#39;est pas mort !
 #######################
 
@@ -490,11 +480,14 @@ plugin</a> 插件。</p>
 Oui oui, foobar est toujours vivant !
 </pre></div>
 </div>
-<p>可以看到两篇文章中相同的地方只有slug的值，
-它在这里起到标识符的作用。 如果不想以这种方式明确定义slug，
-则必须确保不同的翻译版本它们的标题相同，因为slug会从文章标题中自动生成。</p>
-<p>如果你不希望通过 <code class="docutils literal notranslate"><span class="pre">DEFAULT_LANG</span></code> 值来检测哪个特定文章为原始版本的话，
-可以在文章中使用 <code class="docutils literal notranslate"><span class="pre">translation</span></code> 元数据来指定哪些是翻译版本:</p>
+<p>Post content quality notwithstanding, you can see that only item in common
+between the two articles is the slug, which is functioning here as an
+identifier. If you’d rather not explicitly define the slug this way, you must
+then instead ensure that the translated article titles are identical, since the
+slug will be auto-generated from the article title.</p>
+<p>If you do not want the original version of one specific article to be detected
+by the <code class="docutils literal notranslate"><span class="pre">DEFAULT_LANG</span></code> setting, use the <code class="docutils literal notranslate"><span class="pre">translation</span></code> metadata to specify
+which posts are translations:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Foobar</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">dead</span>
 <span class="c1">##################</span>
 
@@ -506,8 +499,8 @@ Oui oui, foobar est toujours vivant !
 </pre></div>
 </div>
 </div>
-<div class="section" id="internal-pygments-options">
-<span id="id15"></span><h2>语法高亮<a class="headerlink" href="#internal-pygments-options" title="永久链接至标题">¶</a></h2>
+<div class="section" id="syntax-highlighting">
+<span id="internal-pygments-options"></span><h2>Syntax highlighting<a class="headerlink" href="#syntax-highlighting" title="永久链接至标题">¶</a></h2>
 <p>Pelican can provide colorized syntax highlighting for your code blocks.
 To do so, you must use the following conventions inside your content files.</p>
 <p>For reStructuredText, use the <code class="docutils literal notranslate"><span class="pre">code-block</span></code> directive to specify the type
@@ -671,13 +664,6 @@ metadata to include <code class="docutils literal notranslate"><span class="pre"
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-      
-        <a href="install.html" class="btn btn-neutral float-left" title="安装 Pelican" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
