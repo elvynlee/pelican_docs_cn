@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; pelican_cn 4.1.0 文档</title>
+  <title>编写内容 &mdash; pelican_cn 4.1.0 文档</title>
   
 
   
@@ -35,8 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="publish.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="install.html" /> 
+    <link rel="prev" title="安装 Pelican" href="install.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -80,10 +79,22 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul class="simple">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">安装 Pelican</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">编写内容</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">文章和页面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#internal-metadata">文件元数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">页面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">静态内容</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">同一目录中的混合内容</a></li>
 </ul>
-</div>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ref-linking-to-internal-content">链接到内部内容</a></li>
+</ul>
+</li>
+</ul>
+
             
           
         </div>
@@ -127,7 +138,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>编写内容</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -146,7 +157,157 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
+  <div class="section" id="id1">
+<h1>编写内容<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>文章和页面<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>在Pelican中，”文章” 是按时间顺序的内容，好比博客中的文章，因此它与日期相关联。</p>
+<p>而”页面”则是不经常更改的内容（比如 “关于”页面，或者“联系”页面）。</p>
+<p>你可以在Pelican官方库的 <code class="docutils literal notranslate"><span class="pre">samples/content/</span></code> 找到相关的范例。</p>
+</div>
+<div class="section" id="internal-metadata">
+<span id="id3"></span><h2>文件元数据<a class="headerlink" href="#internal-metadata" title="永久链接至标题">¶</a></h2>
+<p>Pelican 会自动尝试从文件系统中获取需要的信息（例如你的文章的分类类目），
+然而有一些信息仍需要你在文件中以元数据的形式提供。</p>
+<p>如果你用reStructuredText格式写文章，你可以通过以下语法在文件内提供元数据
+（文件扩展名为 <code class="docutils literal notranslate"><span class="pre">.rst</span></code> ）:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>标题标题标题
+##############
+
+:date: 2010-10-03 10:20
+:modified: 2010-10-04 18:40
+:tags: thats, awesome
+:category: yeah
+:slug: my-super-post
+:authors: Alexis Metaireau, Conan Doyle
+:summary: 摘要摘要，供索引及feeds用
+</pre></div>
+</div>
+<p>其中的作者列表Authors和标签列表tags，可以用分号当分隔符，这样单个作者名中或tag中可以包含逗号:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="n">pelican</span><span class="p">,</span> <span class="n">publishing</span> <span class="n">tool</span><span class="p">;</span> <span class="n">pelican</span><span class="p">,</span> <span class="n">bird</span>
+<span class="p">:</span><span class="n">authors</span><span class="p">:</span> <span class="n">Metaireau</span><span class="p">,</span> <span class="n">Alexis</span><span class="p">;</span> <span class="n">Doyle</span><span class="p">,</span> <span class="n">Conan</span>
+</pre></div>
+</div>
+<p>Pelican实现扩展支持reStructuredText文件中使用 <code class="docutils literal notranslate"><span class="pre">abbr</span></code> HTML标签. 如果要使用的话，在文件中类似下面这样写:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>这里的内容会被编译 :abbr:`HTML (HyperText Markup Language)`.
+</pre></div>
+</div>
+<p>你还可以用Markdown编写（扩展名为 <code class="docutils literal notranslate"><span class="pre">.md</span></code>, <code class="docutils literal notranslate"><span class="pre">.markdown</span></code>, <code class="docutils literal notranslate"><span class="pre">.mkd</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">.mdown</span></code> 的文件）。
+不过需要确保安装了 <code class="docutils literal notranslate"><span class="pre">Markdown</span></code> 模块（通过命令 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">Markdown</span></code> 安装）。</p>
+<p>Pelican也支持Markdown的扩展 <a class="reference external" href="https://python-markdown.github.io/extensions/">Markdown Extensions</a> ，如果这些扩展没有被包含在 <code class="docutils literal notranslate"><span class="pre">Markdown</span></code> 模块中的话，
+则需要单独安装， 安装后可以在  <code class="docutils literal notranslate"><span class="pre">Markdown</span></code> 设置中加载。</p>
+<p>Markdown中写元数据的语法如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Title</span><span class="p">:</span> <span class="n">标题标题</span>
+<span class="n">Date</span><span class="p">:</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">03</span> <span class="mi">10</span><span class="p">:</span><span class="mi">20</span>
+<span class="n">Modified</span><span class="p">:</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">05</span> <span class="mi">19</span><span class="p">:</span><span class="mi">30</span>
+<span class="n">Category</span><span class="p">:</span> <span class="n">Python</span>
+<span class="n">Tags</span><span class="p">:</span> <span class="n">pelican</span><span class="p">,</span> <span class="n">publishing</span>
+<span class="n">Slug</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="nb">super</span><span class="o">-</span><span class="n">post</span>
+<span class="n">Authors</span><span class="p">:</span> <span class="n">Alexis</span> <span class="n">Metaireau</span><span class="p">,</span> <span class="n">Conan</span> <span class="n">Doyle</span>
+<span class="n">Summary</span><span class="p">:</span> <span class="n">摘要摘要</span>
+
+<span class="n">正文内容内容</span>
+</pre></div>
+</div>
+<p>你还可以在python模板中使用自己的元数据关键字（只要它们不与保留的元数据关键字冲突）。 以下是元数据保留关键字列表:</p>
+<ul class="simple">
+<li><cite>Title</cite></li>
+<li><cite>Tags</cite></li>
+<li><cite>Date</cite></li>
+<li><cite>Modified</cite></li>
+<li><cite>Status</cite></li>
+<li><cite>Category</cite></li>
+<li><cite>Author</cite></li>
+<li><cite>Authors</cite></li>
+<li><cite>Slug</cite></li>
+<li><cite>Summary</cite></li>
+<li><cite>Template</cite></li>
+<li><cite>Save_as</cite></li>
+<li><cite>Url</cite></li>
+</ul>
+<p>其他文件格式（如 <a class="reference external" href="http://www.methods.co.nz/asciidoc/">AsciiDoc</a> ）可通过插件获得。 请参阅Pelican官方库中 <a class="reference external" href="https://github.com/getpelican/pelican-plugins">pelican-plugins</a> 部分。</p>
+<p>Pelican还可以处理以``.html``和``.htm``结尾的HTML文件。 Pelican以非常简单的方式解释HTML，
+从 <code class="docutils literal notranslate"><span class="pre">meta</span></code> 标签读取元数据，从 <code class="docutils literal notranslate"><span class="pre">title</span></code> 标签读取标题，从 <code class="docutils literal notranslate"><span class="pre">body</span></code> 标签读取正文:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">My</span> <span class="nb">super</span> <span class="n">title</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">meta</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;tags&quot;</span> <span class="n">content</span><span class="o">=</span><span class="s2">&quot;thats, awesome&quot;</span> <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="n">meta</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;date&quot;</span> <span class="n">content</span><span class="o">=</span><span class="s2">&quot;2012-07-09 22:28&quot;</span> <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="n">meta</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;modified&quot;</span> <span class="n">content</span><span class="o">=</span><span class="s2">&quot;2012-07-10 20:14&quot;</span> <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="n">meta</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;category&quot;</span> <span class="n">content</span><span class="o">=</span><span class="s2">&quot;yeah&quot;</span> <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="n">meta</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;authors&quot;</span> <span class="n">content</span><span class="o">=</span><span class="s2">&quot;Alexis Métaireau, Conan Doyle&quot;</span> <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="n">meta</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;summary&quot;</span> <span class="n">content</span><span class="o">=</span><span class="s2">&quot;Short version for index and feeds&quot;</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+        <span class="n">This</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">content</span> <span class="n">of</span> <span class="n">my</span> <span class="nb">super</span> <span class="n">blog</span> <span class="n">post</span><span class="o">.</span>
+    <span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>HTML的标准元数据中有一个要注意的地方：标签tag在Pelican标准中是通过 <code class="docutils literal notranslate"><span class="pre">tags</span></code> 元数据指定的；
+而在HTML标准中则通过 <code class="docutils literal notranslate"><span class="pre">keywords</span></code> 元数据指定。这两者可以互换使用。</p>
+<p>请注意，除标题必需外，其他元数据都不是必需的：
+如果没有指定日期并且 <code class="docutils literal notranslate"><span class="pre">DEFAULT_DATE</span></code> 设置为 <code class="docutils literal notranslate"><span class="pre">'fs'</span></code> 的话，Pelican将根据文件的 “mtime” 时间戳生成日期；
+而分类则会根据文件所在的目录决定。例如，位于 <code class="docutils literal notranslate"><span class="pre">python/foobar/myfoobar.rst</span></code> 的文件将被归类为 <code class="docutils literal notranslate"><span class="pre">foobar</span></code> 。
+如果你不想Pelican用子目录分类，而想以其他方式组织文件，你可以设置 <code class="docutils literal notranslate"><span class="pre">USE_FOLDER_AS_CATEGORY</span></code> 设置为 <code class="docutils literal notranslate"><span class="pre">False</span></code> 。
+在解析日期元数据时，Pelican遵循W3C标准  <a class="reference external" href="https://www.w3.org/TR/NOTE-datetime">suggested subset ISO 8601</a> 。</p>
+<p>所以标题是唯一需要的元数据。如果这个也让你不爽，不用担心。
+你可以使用文章的文件名作为标题，而不是每次在文件内的元数据部分手动指定。例如，一篇Markdown文章的文件名为 <code class="docutils literal notranslate"><span class="pre">Publishing</span> <span class="pre">via</span> <span class="pre">Pelican.md</span></code> ，
+系统自动提取出 <em>Publishing via Pelican</em> 作为文章的标题title。
+你可以将下面这条语句添加到设置文件中以启用这个功能:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FILENAME_METADATA</span> <span class="o">=</span> <span class="s1">&#39;(?P&lt;title&gt;.*)&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">在尝试不同的设置（尤其是元数据设置）时，有可能会受缓存干扰，作的修改可能不见生效。
+在这种情况下，可以使用 <code class="docutils literal notranslate"><span class="pre">LOAD_CONTENT_CACHE</span> <span class="pre">=</span> <span class="pre">False</span></code> 禁用缓存或
+使用 <code class="docutils literal notranslate"><span class="pre">--ignore-cache</span></code> 命令行开关。</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">modified</span></code> 记录的应该是你对文章最后的一次更新，如果没有其它指定默认为 <code class="docutils literal notranslate"><span class="pre">date</span></code> 。
+此外，你可以在模板中显示 <code class="docutils literal notranslate"><span class="pre">modified</span></code> ，当你修改文章后将 <code class="docutils literal notranslate"><span class="pre">modified</span></code> 设置为当前日期时，
+Feed阅读器中的Feed条目将自动更新。</p>
+<p><code class="docutils literal notranslate"><span class="pre">authors</span></code> 是以逗号分隔的文章作者列表。如果只有一个作者，你可以使用 <code class="docutils literal notranslate"><span class="pre">author</span></code> 字段。</p>
+<p>如果不想在文件中写摘要提供summary元数据，则可以使用 <code class="docutils literal notranslate"><span class="pre">SUMMARY_MAX_LENGTH</span></code> 来设置从文章起始读取多少个字数作
+为文章的摘要。</p>
+<p>在设置 <code class="docutils literal notranslate"><span class="pre">FILENAME_METADATA</span></code> 属性这里，你可以用正则表达式从文件名中提取出元数据。
+匹配的所有命名组都将设置在元数据对象中。 <code class="docutils literal notranslate"><span class="pre">FILENAME_METADATA</span></code> 设置的默认值是仅从文件名中提取日期。
+例如，如果你想提取日期date和slug，你可以这样写： <code class="docutils literal notranslate"><span class="pre">'(?P&lt;date&gt;\d{4}-\d{2}-\d{2})_(?P&lt;slug&gt;.*)'</span></code></p>
+<p>请注意，文件中可用的元数据优先于从文件名中提取的元数据。</p>
+</div>
+<div class="section" id="id5">
+<h2>页面<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>如果在content目录中创建 <cite>pages</cite> 文件夹，所有pages目录中的文件将被生成静态页面，
+例如 <strong>关于</strong> 页面或 <strong>联系人</strong> 页面。 （请参阅下面的示例文件系统的布局。）</p>
+<p>您可以设置 <code class="docutils literal notranslate"><span class="pre">DISPLAY_PAGES_ON_MENU</span></code> 来控制是否在主导航菜单中显示这些页面。（默认为 <code class="docutils literal notranslate"><span class="pre">True</span></code> 。）</p>
+<p>如果你想要某些页面不要在导航菜单中显示或者不要被指向，可以在页面文件的元数据中添加 <code class="docutils literal notranslate"><span class="pre">status:</span> <span class="pre">hidden</span></code> 属性。
+比如制作一个配合主题风格的404静态页面时，就可以给这个页面作这样的设置。</p>
+</div>
+<div class="section" id="id6">
+<h2>静态内容<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>静态文件是除了文章和页面之外的文件，这些文件不需要处理，会直接被复制到output输出文件夹。
+您可以在项目配置文件 <code class="docutils literal notranslate"><span class="pre">pelicanconf.py</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">STATIC_PATHS</span></code> 指定静态文件。
+Pelican默认设置了 <code class="docutils literal notranslate"><span class="pre">images</span></code> 为静态文件目录，其他目录则需要你手动添加。
+此外，还包括明确链接到的静态文件（见下文）。</p>
+<div class="section" id="id7">
+<h3>同一目录中的混合内容<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>从Pelican 3.5开始，静态文件可以安全地与页面源文件共享同一目录，而不会在生成的站点中公开页面源文件。
+这种目录必须同时被添加到 <code class="docutils literal notranslate"><span class="pre">STATIC_PATHS</span></code> 和 <code class="docutils literal notranslate"><span class="pre">PAGE_PATHS</span></code>
+（或者 <code class="docutils literal notranslate"><span class="pre">STATIC_PATHS</span></code> 和 <code class="docutils literal notranslate"><span class="pre">ARTICLE_PATHS</span></code> ）中。
+Pelican将正常识别和处理页面源文件并复制其余文件，就像将其余文件视为是在单独目录中的静态文件一样。</p>
+<p>注意：将静态文件和内容源文件放在同一源目录中并不能保证它们最终会在生成的站点中的同一位置。
+最简单的方法是使用 <code class="docutils literal notranslate"><span class="pre">{attach}</span></code> 链接语法（如下所述）。又或者，
+可以设置 <code class="docutils literal notranslate"><span class="pre">STATIC_SAVE_AS</span></code> ， <code class="docutils literal notranslate"><span class="pre">PAGE_SAVE_AS</span></code> 和 <code class="docutils literal notranslate"><span class="pre">ARTICLE_SAVE_AS</span></code> 这三个属性
+（以及相应的 <code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">_URL</span></code> 属性）将不同类型的文件放在一起，就像早期版本的Pelican一样。</p>
+</div>
+</div>
+<div class="section" id="ref-linking-to-internal-content">
+<span id="id8"></span><h2>链接到内部内容<a class="headerlink" href="#ref-linking-to-internal-content" title="永久链接至标题">¶</a></h2>
+<p>从Pelican 3.1开始，可以在 <em>源内容</em> 层次结构中指定文件的站点内链接，而不用在 <em>生成内容</em> 层次结构中指定。
+这样可以更容易地从当前文章链接到可能与该文章并列的其他内容（而不必去确定每次生成站点时那些”其他内容”会被放在何处）。</p>
+</div>
+</div>
+
 
            </div>
            
@@ -155,10 +316,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="publish.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="install.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="install.html" class="btn btn-neutral float-left" title="安装 Pelican" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
