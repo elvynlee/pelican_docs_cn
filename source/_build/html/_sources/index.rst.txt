@@ -51,6 +51,7 @@ Pelican 4 目前支持:
    quickstart
    install
    content
+   publish
    
 
 .. Links
