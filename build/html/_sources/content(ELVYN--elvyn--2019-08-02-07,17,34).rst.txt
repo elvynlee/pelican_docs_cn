@@ -142,7 +142,7 @@ Feed阅读器中的Feed条目将自动更新。
 如果在content目录中创建 `pages` 文件夹，所有pages目录中的文件将被生成静态页面，
 例如 **关于** 页面或 **联系人** 页面。 （请参阅下面的示例文件系统的布局。）
 
-你可以设置 ``DISPLAY_PAGES_ON_MENU`` 来控制是否在主导航菜单中显示这些页面。（默认为 ``True`` ）
+你可以设置 ``DISPLAY_PAGES_ON_MENU`` 来控制是否在主导航菜单中显示这些页面。（默认为 ``True`` 。）
 
 如果你想要某些页面不要在导航菜单中显示或者不要被指向，可以在页面文件的元数据中添加 ``status: hidden`` 属性。
 比如制作一个配合主题风格的404静态页面时，就可以给这个页面作这样的设置。
@@ -297,8 +297,8 @@ Pelican将正常识别和处理页面源文件并复制其余文件，就像将�
 （实际在实践中是否会发生这种事将取决于操作系统，文件系统，
 Pelican的版本以及从项目中添加，修改或删除文档等综合因素。）
 这样会导致外部对这个文件的链接指向在站点更新时产生链接错误。
-**因此，要对某个文件使用 {attach} ，只有在所有链接都使用 {attach} 并且这些链接源文件都在同一目录中时才建议使用。**
-只有这样，这个文件的输出位置才固定不变。如果无法这样做，则可以考虑使用 ``{static}`` 而不是 ``{attach}`` ，
+**因此，要对某个文件的使用 {attach} ，只有在所有链接都使用 {attach} 并且这些链接源文件都在同一目录中时才建议使用。**
+只有这样，这个文件的输出位置才固定不变。如果无法使用这种预防措施，可以考虑使用 ``{static}`` 而不是 ``{attach}`` ，
 让项目设置中的 ``STATIC_SAVE_AS`` 和 ``STATIC_URL`` 来确定文件的保存位置。 
 （每个文件优先的 ``save_as`` 和 ``url`` 覆盖仍然可以在 ``EXTRA_PATH_METADATA`` 中设定。）
 
@@ -391,7 +391,7 @@ Pelican的版本以及从项目中添加，修改或删除文档等综合因素�
 ===================
 
 Pelican 可以为代码块提供语法高亮显示。
-要使用语法高亮，你需要在你的内容文件中遵循以下约定。
+为此，你需要在你的内容文件中使用以下约定。
 
 对于reStructuredText格式，使用 ``code-block`` 指令来指定要高亮显示的代码类型
 （在下面的示例中我们将使用 ``python`` ）::
@@ -431,19 +431,26 @@ linenos         string        为一个"table"输出行号，如果值为"inline
                               则在内部输出。 "none"则不输出行号。
 linenospecial   number        如果赋值，则每n行将应用css类'special'。
 linenostart     number        高亮第一行行号。
-linenostep      number        打印每第n行行号。
-lineseparator   string        在代码行之间打印字符串，默认值为'\n' 。
-linespans       string        使用span带字符串值和-linenumber包裹每一行
-nobackground    N/A           如果赋值，则不显示被包裹元素的背景颜色
-nowrap          N/A           不允许包裹
-tagsfile        string        用于名称定义的ctags文件
-tagurlformat    string        ctag链接的格式
+linenostep      number        Print every nth line number.
+lineseparator   string        String to print between lines of code,
+                              '\n' by default.
+linespans       string        Wrap each line in a span using this and
+                              -linenumber.
+nobackground    N/A           If set do not output background color for
+                              the wrapping element
+nowrap          N/A           If set do not wrap the tokens at all.
+tagsfile        string        ctags file to use for name definitions.
+tagurlformat    string        format for the ctag links.
 =============   ============  =========================================
 
-注意，根据版本不同，上面的选项Pygments模块不一定全部支持， 
-有关每个选项的更多详细信息，请参阅 `Pygments 文档 <http://pygments.org/docs/formatters/>`_ 的 *HtmlFormatter* 部分。
+Note that, depending on the version, your Pygments module might not have
+all of these options available. Refer to the *HtmlFormatter* section of the
+`Pygments documentation <http://pygments.org/docs/formatters/>`_ for more
+details on each of the options.
 
-例如，以下代码块从153行开始显示行号，并为Pygments的CSS类添加 *pgcss* 前缀，以避免名称跟其他CSS的类名称冲突::
+For example, the following code block enables line numbers, starting at 153,
+and prefixes the Pygments CSS classes with *pgcss* to make the names
+more unique and avoid possible CSS conflicts::
 
     .. code-block:: identifier
         :classprefix: pgcss
@@ -452,28 +459,36 @@ tagurlformat    string        ctag链接的格式
 
        <indented code block goes here>
 
-也可以在Pelican设置文件中赋值变量 ``PYGMENTS_RST_OPTIONS`` ，其值表示自动应用于每个代码块的选项。
+It is also possible to specify the ``PYGMENTS_RST_OPTIONS`` variable in your
+Pelican settings file to include options that will be automatically applied to
+every code block.
 
-例如，如果想要每个代码块都显示行号并且CSS都带前缀，可以设置为以下值::
+For example, if you want to have line numbers displayed for every code block
+and a CSS prefix you would set this variable to::
 
     PYGMENTS_RST_OPTIONS = {'classprefix': 'pgcss', 'linenos': 'table'}
 
-如果某代码块有单独的设置，则将覆盖设置文件中的值。
+If specified, settings for individual code blocks will override the defaults in
+your settings file.
 
-发布草稿
+Publishing drafts
 =================
 
-如果要将文章或页面作为草稿发布（例如，在发布之前给朋友核查），可以在文件中的元数据
-添加 ``Status: draft`` 属性。该文章将输出到 ``drafts`` 文件夹，并且不会在任何索引页，
-分类页或标签页中显示。
+If you want to publish an article or a page as a draft (for friends to review
+before publishing, for example), you can add a ``Status: draft`` attribute to
+its metadata. That article will then be output to the ``drafts`` folder and not
+listed on the index page nor on any category or tag page.
 
-如果你想文章自动发布为草稿（以便在完成编写前不会意外地发布出去），请在``DEFAULT_METADATA`` 中赋值::
+If your articles should be automatically published as a draft (to not
+accidentally publish an article before it is finished) include the status in
+the ``DEFAULT_METADATA``::
 
     DEFAULT_METADATA = {
         'status': 'draft',
     }
 
-而如果要将默认状态为 ``draft`` 的文章发布出去的话，可以给文章添加一项元数据 ``Status: published`` 。
+To publish a post when the default status is ``draft``, update the post's
+metadata to include ``Status: published``.
 
 .. _W3C ISO 8601: https://www.w3.org/TR/NOTE-datetime
 .. _AsciiDoc: http://www.methods.co.nz/asciidoc/

@@ -34,8 +34,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
-    <link rel="search" title="搜索" href="search.html" />
-    <link rel="prev" title="安装 Pelican" href="install.html" /> 
+    <link rel="search" title="搜索" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -79,30 +78,10 @@
               
             
             
-              <ul class="current">
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">安装 Pelican</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">编写内容</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">文章和页面</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#internal-metadata">文件元数据</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">页面</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">静态内容</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id7">同一目录中的混合内容</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#ref-linking-to-internal-content">链接到内部内容</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id9">链接到固定文件</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id10">附加静态文件</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id11">链接到作者，分类，索引和标签</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id12">不推荐使用的内部链接语法</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#id13">导入现有站点</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id14">翻译</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#internal-pygments-options">语法高亮</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id16">发布草稿</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="content.html">编写内容</a></li>
 </ul>
 
             
@@ -154,7 +133,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/content.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/content(ELVYN--elvyn--2019-08-02-06,50,17).rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -289,7 +268,7 @@ Feed阅读器中的Feed条目将自动更新。</p>
 <h2>页面<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>如果在content目录中创建 <cite>pages</cite> 文件夹，所有pages目录中的文件将被生成静态页面，
 例如 <strong>关于</strong> 页面或 <strong>联系人</strong> 页面。 （请参阅下面的示例文件系统的布局。）</p>
-<p>你可以设置 <code class="docutils literal notranslate"><span class="pre">DISPLAY_PAGES_ON_MENU</span></code> 来控制是否在主导航菜单中显示这些页面。（默认为 <code class="docutils literal notranslate"><span class="pre">True</span></code> ）</p>
+<p>你可以设置 <code class="docutils literal notranslate"><span class="pre">DISPLAY_PAGES_ON_MENU</span></code> 来控制是否在主导航菜单中显示这些页面。（默认为 <code class="docutils literal notranslate"><span class="pre">True</span></code> 。）</p>
 <p>如果你想要某些页面不要在导航菜单中显示或者不要被指向，可以在页面文件的元数据中添加 <code class="docutils literal notranslate"><span class="pre">status:</span> <span class="pre">hidden</span></code> 属性。
 比如制作一个配合主题风格的404静态页面时，就可以给这个页面作这样的设置。</p>
 </div>
@@ -427,8 +406,8 @@ Date: 2014-10-31
 （实际在实践中是否会发生这种事将取决于操作系统，文件系统，
 Pelican的版本以及从项目中添加，修改或删除文档等综合因素。）
 这样会导致外部对这个文件的链接指向在站点更新时产生链接错误。
-<strong>因此，要对某个文件使用 {attach} ，只有在所有链接都使用 {attach} 并且这些链接源文件都在同一目录中时才建议使用。</strong>
-只有这样，这个文件的输出位置才固定不变。如果无法这样做，则可以考虑使用 <code class="docutils literal notranslate"><span class="pre">{static}</span></code> 而不是 <code class="docutils literal notranslate"><span class="pre">{attach}</span></code> ，
+<strong>因此，要对某个文件的使用 {attach} ，只有在所有链接都使用 {attach} 并且这些链接源文件都在同一目录中时才建议使用。</strong>
+只有这样，这个文件的输出位置才固定不变。如果无法使用这种预防措施，可以考虑使用 <code class="docutils literal notranslate"><span class="pre">{static}</span></code> 而不是 <code class="docutils literal notranslate"><span class="pre">{attach}</span></code> ，
 让项目设置中的 <code class="docutils literal notranslate"><span class="pre">STATIC_SAVE_AS</span></code> 和 <code class="docutils literal notranslate"><span class="pre">STATIC_URL</span></code> 来确定文件的保存位置。
 （每个文件优先的 <code class="docutils literal notranslate"><span class="pre">save_as</span></code> 和 <code class="docutils literal notranslate"><span class="pre">url</span></code> 覆盖仍然可以在 <code class="docutils literal notranslate"><span class="pre">EXTRA_PATH_METADATA</span></code> 中设定。）</p>
 </div>
@@ -509,7 +488,7 @@ Oui oui, foobar est toujours vivant !
 <div class="section" id="internal-pygments-options">
 <span id="id15"></span><h2>语法高亮<a class="headerlink" href="#internal-pygments-options" title="永久链接至标题">¶</a></h2>
 <p>Pelican 可以为代码块提供语法高亮显示。
-要使用语法高亮，你需要在你的内容文件中遵循以下约定。</p>
+为此，你需要在你的内容文件中使用以下约定。</p>
 <p>对于reStructuredText格式，使用 <code class="docutils literal notranslate"><span class="pre">code-block</span></code> 指令来指定要高亮显示的代码类型
 （在下面的示例中我们将使用 <code class="docutils literal notranslate"><span class="pre">python</span></code> ）:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="p">::</span> <span class="n">python</span>
@@ -530,86 +509,102 @@ Oui oui, foobar est toujours vivant !
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The path-less shebang syntax *will* show line numbers.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>语言标识符的标准拼写 (如 <code class="docutils literal notranslate"><span class="pre">python</span></code> ， <code class="docutils literal notranslate"><span class="pre">ruby</span></code>) 参照 <a class="reference external" href="http://pygments.org/docs/lexers/">词法分析器lexers列表</a>.</p>
-<p>用reStructuredText格式时，code-block指令的内容有以下选项:</p>
+<p>语言标识符 (如 <code class="docutils literal notranslate"><span class="pre">python</span></code> ， <code class="docutils literal notranslate"><span class="pre">ruby</span></code>) 参照 <a class="reference external" href="http://pygments.org/docs/lexers/">词法分析器lexers列表</a>.</p>
+<p>When using reStructuredText the following options are available in the
+code-block directive:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="19%" />
-<col width="17%" />
-<col width="64%" />
+<col width="20%" />
+<col width="18%" />
+<col width="62%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">选项</th>
-<th class="head">有效值</th>
-<th class="head">描述</th>
+<tr class="row-odd"><th class="head">Option</th>
+<th class="head">Valid values</th>
+<th class="head">Description</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>anchorlinenos</td>
 <td>N/A</td>
-<td>高亮&lt;a&gt;标签中的换行号</td>
+<td>If present wrap line numbers in &lt;a&gt; tags.</td>
 </tr>
 <tr class="row-odd"><td>classprefix</td>
 <td>string</td>
-<td>高亮添加到标记类名称的字符串</td>
+<td>String to prepend to token class names</td>
 </tr>
 <tr class="row-even"><td>hl_lines</td>
 <td>numbers</td>
-<td>高亮显示行列表，其中要高亮显示的行号由空格分
-隔。类似Sphinx中的 <code class="docutils literal notranslate"><span class="pre">emphasisize-lines</span></code>
-但不支持由连字符分隔的一系列行号或逗号分
-隔的行号。</td>
+<td>List of lines to be highlighted, where
+line numbers to highlight are separated
+by a space. This is similar to
+<code class="docutils literal notranslate"><span class="pre">emphasize-lines</span></code> in Sphinx, but it
+does not support a range of line numbers
+separated by a hyphen, or comma-separated
+line numbers.</td>
 </tr>
 <tr class="row-odd"><td>lineanchors</td>
 <td>string</td>
-<td>使用字符串值和-linenumber包裹锚点中的每一行</td>
+<td>Wrap each line in an anchor using this
+string and -linenumber.</td>
 </tr>
 <tr class="row-even"><td>linenos</td>
 <td>string</td>
-<td>为一个”table”输出行号，如果值为”inline”，
-则在内部输出。 “none”则不输出行号。</td>
+<td>If present or set to “table” output line
+numbers in a table, if set to
+“inline” output them inline. “none” means
+do not output the line numbers for this
+table.</td>
 </tr>
 <tr class="row-odd"><td>linenospecial</td>
 <td>number</td>
-<td>如果赋值，则每n行将应用css类’special’。</td>
+<td>If set every nth line will be given the
+‘special’ css class.</td>
 </tr>
 <tr class="row-even"><td>linenostart</td>
 <td>number</td>
-<td>高亮第一行行号。</td>
+<td>Line number for the first line.</td>
 </tr>
 <tr class="row-odd"><td>linenostep</td>
 <td>number</td>
-<td>打印每第n行行号。</td>
+<td>Print every nth line number.</td>
 </tr>
 <tr class="row-even"><td>lineseparator</td>
 <td>string</td>
-<td>在代码行之间打印字符串，默认值为’n’ 。</td>
+<td>String to print between lines of code,
+‘n’ by default.</td>
 </tr>
 <tr class="row-odd"><td>linespans</td>
 <td>string</td>
-<td>使用span带字符串值和-linenumber包裹每一行</td>
+<td>Wrap each line in a span using this and
+-linenumber.</td>
 </tr>
 <tr class="row-even"><td>nobackground</td>
 <td>N/A</td>
-<td>如果赋值，则不显示被包裹元素的背景颜色</td>
+<td>If set do not output background color for
+the wrapping element</td>
 </tr>
 <tr class="row-odd"><td>nowrap</td>
 <td>N/A</td>
-<td>不允许包裹</td>
+<td>If set do not wrap the tokens at all.</td>
 </tr>
 <tr class="row-even"><td>tagsfile</td>
 <td>string</td>
-<td>用于名称定义的ctags文件</td>
+<td>ctags file to use for name definitions.</td>
 </tr>
 <tr class="row-odd"><td>tagurlformat</td>
 <td>string</td>
-<td>ctag链接的格式</td>
+<td>format for the ctag links.</td>
 </tr>
 </tbody>
 </table>
-<p>注意，根据版本不同，上面的选项Pygments模块不一定全部支持，
-有关每个选项的更多详细信息，请参阅 <a class="reference external" href="http://pygments.org/docs/formatters/">Pygments 文档</a> 的 <em>HtmlFormatter</em> 部分。</p>
-<p>例如，以下代码块从153行开始显示行号，并为Pygments的CSS类添加 <em>pgcss</em> 前缀，以避免名称跟其他CSS的类名称冲突:</p>
+<p>Note that, depending on the version, your Pygments module might not have
+all of these options available. Refer to the <em>HtmlFormatter</em> section of the
+<a class="reference external" href="http://pygments.org/docs/formatters/">Pygments documentation</a> for more
+details on each of the options.</p>
+<p>For example, the following code block enables line numbers, starting at 153,
+and prefixes the Pygments CSS classes with <em>pgcss</em> to make the names
+more unique and avoid possible CSS conflicts:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="p">::</span> <span class="n">identifier</span>
     <span class="p">:</span><span class="n">classprefix</span><span class="p">:</span> <span class="n">pgcss</span>
     <span class="p">:</span><span class="n">linenos</span><span class="p">:</span> <span class="n">table</span>
@@ -618,25 +613,33 @@ Oui oui, foobar est toujours vivant !
    <span class="o">&lt;</span><span class="n">indented</span> <span class="n">code</span> <span class="n">block</span> <span class="n">goes</span> <span class="n">here</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>也可以在Pelican设置文件中赋值变量 <code class="docutils literal notranslate"><span class="pre">PYGMENTS_RST_OPTIONS</span></code> ，其值表示自动应用于每个代码块的选项。</p>
-<p>例如，如果想要每个代码块都显示行号并且CSS都带前缀，可以设置为以下值:</p>
+<p>It is also possible to specify the <code class="docutils literal notranslate"><span class="pre">PYGMENTS_RST_OPTIONS</span></code> variable in your
+Pelican settings file to include options that will be automatically applied to
+every code block.</p>
+<p>For example, if you want to have line numbers displayed for every code block
+and a CSS prefix you would set this variable to:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PYGMENTS_RST_OPTIONS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;classprefix&#39;</span><span class="p">:</span> <span class="s1">&#39;pgcss&#39;</span><span class="p">,</span> <span class="s1">&#39;linenos&#39;</span><span class="p">:</span> <span class="s1">&#39;table&#39;</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>如果某代码块有单独的设置，则将覆盖设置文件中的值。</p>
+<p>If specified, settings for individual code blocks will override the defaults in
+your settings file.</p>
 </div>
-<div class="section" id="id16">
-<h2>发布草稿<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h2>
-<p>如果要将文章或页面作为草稿发布（例如，在发布之前给朋友核查），可以在文件中的元数据
-添加 <code class="docutils literal notranslate"><span class="pre">Status:</span> <span class="pre">draft</span></code> 属性。该文章将输出到 <code class="docutils literal notranslate"><span class="pre">drafts</span></code> 文件夹，并且不会在任何索引页，
-分类页或标签页中显示。</p>
-<p>如果你想文章自动发布为草稿（以便在完成编写前不会意外地发布出去），请在``DEFAULT_METADATA`` 中赋值:</p>
+<div class="section" id="publishing-drafts">
+<h2>Publishing drafts<a class="headerlink" href="#publishing-drafts" title="永久链接至标题">¶</a></h2>
+<p>If you want to publish an article or a page as a draft (for friends to review
+before publishing, for example), you can add a <code class="docutils literal notranslate"><span class="pre">Status:</span> <span class="pre">draft</span></code> attribute to
+its metadata. That article will then be output to the <code class="docutils literal notranslate"><span class="pre">drafts</span></code> folder and not
+listed on the index page nor on any category or tag page.</p>
+<p>If your articles should be automatically published as a draft (to not
+accidentally publish an article before it is finished) include the status in
+the <code class="docutils literal notranslate"><span class="pre">DEFAULT_METADATA</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DEFAULT_METADATA</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;draft&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>而如果要将默认状态为 <code class="docutils literal notranslate"><span class="pre">draft</span></code> 的文章发布出去的话，可以给文章添加一项元数据 <code class="docutils literal notranslate"><span class="pre">Status:</span> <span class="pre">published</span></code> 。</p>
+<p>To publish a post when the default status is <code class="docutils literal notranslate"><span class="pre">draft</span></code>, update the post’s
+metadata to include <code class="docutils literal notranslate"><span class="pre">Status:</span> <span class="pre">published</span></code>.</p>
 </div>
 </div>
 
@@ -645,13 +648,6 @@ Oui oui, foobar est toujours vivant !
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-      
-        <a href="install.html" class="btn btn-neutral float-left" title="安装 Pelican" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
