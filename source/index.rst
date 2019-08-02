@@ -52,6 +52,7 @@ Pelican 4 目前支持:
    install
    content
    publish
+   settings
    
 
 .. Links

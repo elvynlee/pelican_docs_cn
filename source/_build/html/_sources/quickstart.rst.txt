@@ -69,5 +69,5 @@
 脚注
 ---------
 
-.. [#tzlocal_fn] 您可以通过安装可选模块 `tzlocal <https://pypi.python.org/pypi/tzlocal>`_
+.. [#tzlocal_fn] 你可以通过安装可选模块 `tzlocal <https://pypi.python.org/pypi/tzlocal>`_
                  来帮助本地化默认字段。

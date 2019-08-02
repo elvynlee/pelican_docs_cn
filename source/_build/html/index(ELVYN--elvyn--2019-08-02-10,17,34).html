@@ -1,0 +1,297 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Pelican 4.1.0 &mdash; pelican_cn 4.1.0 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="快速入门" href="quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> pelican_cn
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">安装 Pelican</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content.html">编写内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publish.html">发布网站</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">设置</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">pelican_cn</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Pelican 4.1.0</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pelican-release">
+<h1>Pelican 4.1.0<a class="headerlink" href="#pelican-release" title="永久链接至标题">¶</a></h1>
+<p>Pelican是一种静态网站生成器，使用Python_语言编写。 有以下特点:</p>
+<ul class="simple">
+<li>用你喜欢的文本编辑器，以 <a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructuredText</a> 格式或者 <a class="reference external" href="https://daringfireball.net/projects/markdown/">Markdown</a> 格式，直接编写你的内容</li>
+<li>包含有一个简单的命令行工具以（重新）生成你的网站内容</li>
+<li>能与版本控制系统和网络接口轻易结合</li>
+<li>静态输出，方便部署</li>
+</ul>
+<p>准备好的话，可以直接转到 <a class="reference internal" href="quickstart.html"><span class="doc">快速入门</span></a> 部分哦。</p>
+<div class="section" id="id1">
+<h2>特点<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>Pelican 4 目前支持:</p>
+<ul class="simple">
+<li>文章页面（例如博客文章）和单独页面（例如“关于”，“项目”，“联系”等页面）。</li>
+<li>评论功能（通过第三方服务Disqus）。如果你不想评论数据放在这些第三方服务上，可以
+选择自托管评论系统。点击这个 <a class="reference external" href="https://github.com/getpelican/pelican-plugins">Pelican Plugins</a> 库可以了解更多。</li>
+<li>自定义主题 （主题模板可以使用 <a class="reference external" href="http://jinja.pocoo.org/">Jinja2</a> 创建）</li>
+<li>多种语言发布文章</li>
+<li>Atom/RSS feeds</li>
+<li>代码语法高亮</li>
+<li>从 WordPress, Dotclear, 或者 RSS feeds 中导入数据</li>
+<li>集成第三方工具: Twitter, Google Analytics 等（可选）</li>
+<li>快速重构博客（得益于内容缓存机制和可选输出写入机制）</li>
+</ul>
+</div>
+<div class="section" id="pelican">
+<h2>为什么叫 “Pelican”?<a class="headerlink" href="#pelican" title="永久链接至标题">¶</a></h2>
+<p>“Pelican” 由 <em>calepin</em> 这个单词调乱字母顺序变成, 而calepin在法语里表示notebook（记事本）啊。</p>
+</div>
+<div class="section" id="id2">
+<h2>源代码<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>你可以在这个地址获取到项目源码: <a class="reference external" href="https://github.com/getpelican/pelican">https://github.com/getpelican/pelican</a></p>
+</div>
+<div class="section" id="id3">
+<h2>寻求帮助，贡献代码或者反馈意见<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>可以查看这里 <span class="xref std std-doc">反馈意见和贡献代码提交指南</span>.</p>
+</div>
+<div class="section" id="id4">
+<h2>文档目录<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#id2">安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#id3">创建一个项目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#id5">创建一篇文章</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#id6">生成站点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#id7">预览站点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#id8">脚注</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">安装 Pelican</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#id1">可选模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#id2">依赖项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#id3">升级</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#id4">开始建站</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content.html">编写内容</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content.html#id2">文章和页面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content.html#internal-metadata">文件元数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content.html#id5">页面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content.html#id6">静态内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content.html#ref-linking-to-internal-content">链接到内部内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content.html#id13">导入现有站点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content.html#id14">翻译</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content.html#internal-pygments-options">语法高亮</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content.html#id16">发布草稿</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="publish.html">发布网站</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="publish.html#site-generation">生成网站</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html#id4">部署网站</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html#id5">自动化</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">设置</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#basic-settings">Basic settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#url-settings">URL settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#time-and-date">Time and Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#template-pages">Template pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#metadata">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#feed-settings">Feed settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#pagination">Pagination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#translations">Translations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#ordering-content">Ordering content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#themes">Themes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#logging">Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#reading-only-modified-content">Reading only modified content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#writing-only-selected-content">Writing only selected content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#example-settings">Example settings</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="quickstart.html" class="btn btn-neutral float-right" title="快速入门" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Elvyn
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
