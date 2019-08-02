@@ -67,68 +67,62 @@
 
 .. data:: OUTPUT_RETENTION = []
 
-   A list of filenames that should be retained and not deleted from the output
-   directory. One use case would be the preservation of version control data.
+   值为一个文件名列表，表示在output目录中的这些/这类文件将被保留不会删除。
+   其中一个用法是保存版本控制数据。
 
-   Example::
+   示例::
 
       OUTPUT_RETENTION = [".hg", ".git", ".bzr"]
 
 .. data:: JINJA_ENVIRONMENT = {'trim_blocks': True, 'lstrip_blocks': True}
 
-   A dictionary of custom Jinja2 environment variables you want to use. This
-   also includes a list of extensions you may want to include. See `Jinja
-   Environment documentation`_.
+   给使用的Jinja2自定义环境变量，还可以包含使用的扩展列表，
+   详情参照 `Jinja Environment documentation`_
 
 .. data:: JINJA_FILTERS = {}
 
-   A dictionary of custom Jinja2 filters you want to use.  The dictionary
-   should map the filtername to the filter function.
+   给使用的Jinja2自定义过滤器，字典类型。
+   数据为过滤器名称对应过滤器函数。
 
-   Example::
+   示例::
 
     JINJA_FILTERS = {'urlencode': urlencode_filter}
 
-   See `Jinja custom filters documentation`_.
+   参考 `Jinja custom filters documentation`_
 
 .. data:: LOG_FILTER = []
 
-   A list of tuples containing the logging level (up to ``warning``) and the
-   message to be ignored.
+   包含日志记录级别（最高为"warning"）和要忽略的消息的元组列表。
 
-   Example::
+   示例::
 
       LOG_FILTER = [(logging.WARN, 'TAG_SAVE_AS is set to False')]
 
 .. data:: READERS = {}
 
-   A dictionary of file extensions / Reader classes for Pelican to process or
-   ignore.
+   Pelican要处理或忽略的文件扩展名或Reader类。
 
-   For example, to avoid processing .html files, set::
+   例如, 为了避免处理.html文件，设置::
 
       READERS = {'html': None}
 
-   To add a custom reader for the ``foo`` extension, set::
+   为 ``foo`` 扩展添加自定义阅读器，设置::
 
       READERS = {'foo': FooReader}
 
 .. data:: IGNORE_FILES = ['.#*']
 
-   A list of glob patterns.  Files and directories matching any of these
-   patterns will be ignored by the processor. For example, the default
-   ``['.#*']`` will ignore emacs lock files, and ``['__pycache__']`` would
-   ignore Python 3's bytecode caches.
+   一个全局模式列表。 处理器将忽略这里匹配出的文件和目录。
+   例如，默认值 ``['.#*']`` 表示将忽略emacs锁定文件，
+   而 ``['__pycache__']`` 表示忽略Python 3的缓存文件。
 
 .. data:: MARKDOWN = {...}
 
-   Extra configuration settings for the Markdown processor. Refer to the Python
-   Markdown documentation's `Options section
-   <https://python-markdown.github.io/reference/#markdown>`_ for a complete
-   list of supported options. The ``extensions`` option will be automatically
-   computed from the ``extension_configs`` option.
+   Markdown处理器的额外配置。 有关支持的选项的完整列表，请参阅Python Markdown文档
+   的 `选项部分 <https://python-markdown.github.io/reference/#markdown>`_ 。
+   ``extensions`` 选项将从 ``extension_configs`` 选项中自动计算出来
 
-   Defaults to::
+   默认为::
 
         MARKDOWN = {
             'extension_configs': {
@@ -140,166 +134,149 @@
         }
 
    .. Note::
-      The dictionary defined in your settings file will replace this default
-      one.
+      在设置文件中赋值会覆盖这里的默认值。
 
 .. data:: OUTPUT_PATH = 'output/'
 
-   Where to output the generated files.
+   定义生成的文件的保存路径
 
 .. data:: PATH
 
-   Path to content directory to be processed by Pelican. If undefined, and
-   content path is not specified via an argument to the ``pelican`` command,
-   Pelican will use the current working directory.
+   Pelican要处理的内容目录的路径。
+   如果未定义，并且没有通过 ``pelican`` 命令的参数指定路径，
+   Pelican将使用当前的工作目录。
 
 .. data:: PAGE_PATHS = ['pages']
 
-   A list of directories and files to look at for pages, relative to ``PATH``.
+   '页面'的目录和文件列表，为相对于 ``PATH`` 的相对路径。
 
 .. data:: PAGE_EXCLUDES = []
 
-   A list of directories to exclude when looking for pages in addition to
-   ``ARTICLE_PATHS``.
+   除了 ``ARTICLE_PATHS`` 之外，在查找'页面'时要排除的目录列表。
 
 .. data:: ARTICLE_PATHS = ['']
 
-   A list of directories and files to look at for articles, relative to
-   ``PATH``.
+   '文章'的目录和文件列表, 为相对于 ``PATH`` 的相对路径。
 
 .. data:: ARTICLE_EXCLUDES = []
 
-   A list of directories to exclude when looking for articles in addition to
-   ``PAGE_PATHS``.
+   除了 ``PAGE_PATHS`` 之外，在查找'文章'时要排除的目录列表。
 
 .. data:: OUTPUT_SOURCES = False
 
-   Set to True if you want to copy the articles and pages in their original
-   format (e.g. Markdown or reStructuredText) to the specified ``OUTPUT_PATH``.
+   如果要将文章和页面以其原始格式（例如Markdown或reStructuredText）复制到指
+   定的  ``OUTPUT_PATH`` ，则设置为True。
 
 .. data:: OUTPUT_SOURCES_EXTENSION = '.text'
 
-   Controls the extension that will be used by the SourcesGenerator.  Defaults
-   to ``.text``. If not a valid string the default value will be used.
+   控制SourcesGenerator将使用的扩展名。 默认为 ``.text`` 。 
+   如果不是有效字符串，则将使用默认值。
 
 .. data:: PLUGINS = []
 
-   The list of plugins to load. See :ref:`plugins`.
+   加载的插件列表。参考 :ref:`plugins`.
 
 .. data:: PLUGIN_PATHS = []
 
-   A list of directories where to look for plugins. See :ref:`plugins`.
+   查找插件的目录列表. 参考 :ref:`plugins`.
 
 .. data:: SITENAME = 'A Pelican Blog'
 
-   Your site name
+   你的站点名称
 
 .. data:: SITEURL
 
-   Base URL of your web site. Not defined by default, so it is best to specify
-   your SITEURL; if you do not, feeds will not be generated with
-   properly-formed URLs. If your site is available via HTTPS, this setting
-   should begin with ``https://`` — otherwise use ``http://``. Then append your
-   domain, with no trailing slash at the end. Example: ``SITEURL =
-   'https://example.com'``
+   你的网站的基本网址。默认情况下为未定义，因此最好指定你的网站URL；如果不指定，
+   则不能使用格式正确的URL生成订阅源。如果你的网站可以通过HTTPS访问，这里的值
+   应该以 ``https://`` 开头，否则以 ``http://`` 开头。 然后加上你的域名，最后没有斜杠。
+   示例: ``SITEURL = 'https://example.com'``
 
 .. data:: STATIC_PATHS = ['images']
 
-   A list of directories (relative to ``PATH``) in which to look for static
-   files. Such files will be copied to the output directory without
-   modification. Articles, pages, and other content source files will normally
-   be skipped, so it is safe for a directory to appear both here and in
-   ``PAGE_PATHS`` or ``ARTICLE_PATHS``.  Pelican's default settings include the
-   "images" directory here.
+   一个用于存放静态文件的目录列表 (相对于 ``PATH`` ) 。这些文件会直接被复制到output
+   目录而不作修改，通常会跳过文章，页面和其他内容源文件，所以同一个目录出现在这里和
+   ``PAGE_PATHS`` 或 ``ARTICLE_PATHS`` 是没问题的。默认值为"images" 目录
 
 .. data:: STATIC_EXCLUDES = []
 
-   A list of directories to exclude when looking for static files.
+   在查找静态文件时要排除的目录列表。
 
 .. data:: STATIC_EXCLUDE_SOURCES = True
 
-   If set to False, content source files will not be skipped when copying files
-   found in ``STATIC_PATHS``. This setting is for backward compatibility with
-   Pelican releases before version 3.5.  It has no effect unless
-   ``STATIC_PATHS`` contains a directory that is also in ``ARTICLE_PATHS`` or
-   ``PAGE_PATHS``. If you are trying to publish your site's source files,
-   consider using the ``OUTPUT_SOURCES`` setting instead.
+   如果设置为False，则在复制 ``STATIC_PATHS`` 中找到的文件时不会跳过内容源文件。
+   此设置用于向后兼容3.5版之前的Pelican版本。
+   除非 ``STATIC_PATHS`` 包含一个同样位于 ``ARTICLE_PATHS`` 或 ``PAGE_PATHS`` 的
+   目录，不然此设置不会生效。如果您尝试发布站点的源文件，
+   请考虑使用 ``OUTPUT_SOURCES`` 设置。
 
 .. data:: STATIC_CREATE_LINKS = False
 
-   Create links instead of copying files. If the content and output directories
-   are on the same device, then create hard links.  Falls back to symbolic
-   links if the output directory is on a different filesystem. If symlinks are
-   created, don't forget to add the ``-L`` or ``--copy-links`` option to rsync
-   when uploading your site.
+   为静态文件创建链接而不是复制文件。如果content目录和output目录位于同一设备上，
+   则创建硬链接。 如果这两个目录在不同的文件系统上，用符号链接。如果创建了符号链接，
+   记得在上传站点时向rsync添加 ``-L`` 或 ``--copy-links`` 选项。
 
 .. data:: STATIC_CHECK_IF_MODIFIED = False
 
-   If set to ``True``, and ``STATIC_CREATE_LINKS`` is ``False``, compare mtimes
-   of content and output files, and only copy content files that are newer than
-   existing output files.
+   如果设置为 ``True`` ，并且 ``STATIC_CREATE_LINKS`` 为 ``False`` ，
+   则比较内容和输出文件的mtimes时间戳，只复制比现有输出文件更新的内容文件。
 
 .. data:: TYPOGRIFY = False
 
-   If set to True, several typographical improvements will be incorporated into
-   the generated HTML via the `Typogrify
-   <https://pypi.python.org/pypi/typogrify>`_ library, which can be installed
-   via: ``pip install typogrify``
+   如果设置为True, 则通过 `Typogrify <https://pypi.python.org/pypi/typogrify>`_ 库
+   将几个排版改进合并到生成的HTML中，
+   Typogrify库可以用这句命令安装: ``pip install typogrify`` 。
 
 .. data:: TYPOGRIFY_IGNORE_TAGS = []
 
-   A list of tags for Typogrify to ignore. By default Typogrify will ignore
-   ``pre`` and ``code`` tags. This requires that Typogrify version 2.0.4 or
-   later is installed
+   要忽略的Typogrify标记列表。默认情况下，Typogrify将忽略 ``pre`` 和 ``code`` 标签。 
+   这需要安装Typogrify版本2.0.4或更高版本
 
 .. data:: SUMMARY_MAX_LENGTH = 50
 
-   When creating a short summary of an article, this will be the default length
+   创建文章摘要时的字数，默认50（以单词测量）。这仅适用于您的内容未另外指定摘要的情况。
+   设置为 ``None`` 的话将使摘要成为原始内容的副本。
    (measured in words) of the text created.  This only applies if your content
    does not otherwise specify a summary. Setting to ``None`` will cause the
    summary to be a copy of the original content.
 
 .. data:: WITH_FUTURE_DATES = True
 
-   If disabled, content with dates in the future will get a default status of
-   ``draft``. See :ref:`reading_only_modified_content` for caveats.
+   如果禁用，则在文件中指定日期为未来的日期时会使文件默认状态为草稿 ``draft`` 。
+   参考 :ref:`reading_only_modified_content` 
 
 .. data:: INTRASITE_LINK_REGEX = '[{|](?P<what>.*?)[|}]'
 
-   Regular expression that is used to parse internal links. Default syntax when
-   linking to internal files, tags, etc., is to enclose the identifier, say
-   ``filename``, in ``{}`` or ``||``. Identifier between ``{`` and ``}`` goes
-   into the ``what`` capturing group.  For details see
-   :ref:`ref-linking-to-internal-content`.
+   用于解析内部链接的正则表达式。链接到内部文件，标签等时的默认语法是
+   在 ``{}`` 或 ``||`` 中包含标识符，比如 ``filename`` 。 ``{`` 和 ``}`` 之
+   间的标识符进入 ``what`` 捕获组。详情见 :ref:`ref-linking-to-internal-content`.
 
 .. data:: PYGMENTS_RST_OPTIONS = []
 
-   A list of default Pygments settings for your reStructuredText code blocks.
-   See :ref:`internal_pygments_options` for a list of supported options.
+   reStructuredText代码块的默认Pygments（语法高亮）设置列表。
+   请参阅 :ref:`internal_pygments_options` 以获取支持的选项列表。
 
 .. data:: SLUGIFY_SOURCE = 'title'
 
-   Specifies where you want the slug to be automatically generated from. Can be
-   set to ``title`` to use the 'Title:' metadata tag or ``basename`` to use the
-   article's file name when creating the slug.
+   指定从中里自动生成slug内容。 可以设置为 ``title`` 以使用'Title：'元数据标签
+   或者使用 ``basename`` 以使用文章的文件名来创建slug。
 
 .. data:: CACHE_CONTENT = False
 
-   If ``True``, saves content in caches.  See
-   :ref:`reading_only_modified_content` for details about caching.
+   如果设置 ``True``, 则将内容保存在缓存中。有关缓存的详细信息，
+   参考 :ref:`reading_only_modified_content` 。
 
 .. data:: CONTENT_CACHING_LAYER = 'reader'
 
-   If set to ``'reader'``, save only the raw content and metadata returned by
-   readers. If set to ``'generator'``, save processed content objects.
+   如果设为 ``'reader'`` , 则仅保存阅读器返回的原始内容和元数据。
+   如果设为 ``'generator'``, 则保存已处理的内容对象。
 
 .. data:: CACHE_PATH = 'cache'
 
-   Directory in which to store cache files.
+   用于存储缓存文件的目录。
 
 .. data:: GZIP_CACHE = True
 
-   If ``True``, use gzip to (de)compress the cache files.
+   如果设为 ``True``, 使用gzip来压缩/解压缩缓存文件。
 
 .. data:: CHECK_MODIFIED_METHOD = 'mtime'
 

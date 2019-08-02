@@ -241,9 +241,9 @@
 <dl class="data">
 <dt>
 <code class="descname">OUTPUT_RETENTION = []</code></dt>
-<dd><p>A list of filenames that should be retained and not deleted from the output
-directory. One use case would be the preservation of version control data.</p>
-<p>Example:</p>
+<dd><p>值为一个文件名列表，表示在output目录中的这些/这类文件将被保留不会删除。
+其中一个用法是保存版本控制数据。</p>
+<p>示例:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OUTPUT_RETENTION</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;.hg&quot;</span><span class="p">,</span> <span class="s2">&quot;.git&quot;</span><span class="p">,</span> <span class="s2">&quot;.bzr&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -252,29 +252,27 @@ directory. One use case would be the preservation of version control data.</p>
 <dl class="data">
 <dt>
 <code class="descname">JINJA_ENVIRONMENT = {'trim_blocks': True, 'lstrip_blocks': True}</code></dt>
-<dd><p>A dictionary of custom Jinja2 environment variables you want to use. This
-also includes a list of extensions you may want to include. See <a class="reference external" href="http://jinja.pocoo.org/docs/dev/api/#jinja2.Environment">Jinja
-Environment documentation</a>.</p>
+<dd><p>给使用的Jinja2自定义环境变量，还可以包含使用的扩展列表，
+详情参照 <a class="reference external" href="http://jinja.pocoo.org/docs/dev/api/#jinja2.Environment">Jinja Environment documentation</a></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">JINJA_FILTERS = {}</code></dt>
-<dd><p>A dictionary of custom Jinja2 filters you want to use.  The dictionary
-should map the filtername to the filter function.</p>
-<p>Example:</p>
+<dd><p>给使用的Jinja2自定义过滤器，字典类型。
+数据为过滤器名称对应过滤器函数。</p>
+<p>示例:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JINJA_FILTERS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;urlencode&#39;</span><span class="p">:</span> <span class="n">urlencode_filter</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>See <a class="reference external" href="http://jinja.pocoo.org/docs/api/#custom-filters">Jinja custom filters documentation</a>.</p>
+<p>参考 <a class="reference external" href="http://jinja.pocoo.org/docs/api/#custom-filters">Jinja custom filters documentation</a></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">LOG_FILTER = []</code></dt>
-<dd><p>A list of tuples containing the logging level (up to <code class="docutils literal notranslate"><span class="pre">warning</span></code>) and the
-message to be ignored.</p>
-<p>Example:</p>
+<dd><p>包含日志记录级别（最高为”warning”）和要忽略的消息的元组列表。</p>
+<p>示例:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LOG_FILTER</span> <span class="o">=</span> <span class="p">[(</span><span class="n">logging</span><span class="o">.</span><span class="n">WARN</span><span class="p">,</span> <span class="s1">&#39;TAG_SAVE_AS is set to False&#39;</span><span class="p">)]</span>
 </pre></div>
 </div>
@@ -283,13 +281,12 @@ message to be ignored.</p>
 <dl class="data">
 <dt>
 <code class="descname">READERS = {}</code></dt>
-<dd><p>A dictionary of file extensions / Reader classes for Pelican to process or
-ignore.</p>
-<p>For example, to avoid processing .html files, set:</p>
+<dd><p>Pelican要处理或忽略的文件扩展名或Reader类。</p>
+<p>例如, 为了避免处理.html文件，设置:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">READERS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;html&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>To add a custom reader for the <code class="docutils literal notranslate"><span class="pre">foo</span></code> extension, set:</p>
+<p>为 <code class="docutils literal notranslate"><span class="pre">foo</span></code> 扩展添加自定义阅读器，设置:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">READERS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;foo&#39;</span><span class="p">:</span> <span class="n">FooReader</span><span class="p">}</span>
 </pre></div>
 </div>
@@ -298,20 +295,18 @@ ignore.</p>
 <dl class="data">
 <dt>
 <code class="descname">IGNORE_FILES = ['.#*']</code></dt>
-<dd><p>A list of glob patterns.  Files and directories matching any of these
-patterns will be ignored by the processor. For example, the default
-<code class="docutils literal notranslate"><span class="pre">['.#*']</span></code> will ignore emacs lock files, and <code class="docutils literal notranslate"><span class="pre">['__pycache__']</span></code> would
-ignore Python 3’s bytecode caches.</p>
+<dd><p>一个全局模式列表。 处理器将忽略这里匹配出的文件和目录。
+例如，默认值 <code class="docutils literal notranslate"><span class="pre">['.#*']</span></code> 表示将忽略emacs锁定文件，
+而 <code class="docutils literal notranslate"><span class="pre">['__pycache__']</span></code> 表示忽略Python 3的缓存文件。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">MARKDOWN = {...}</code></dt>
-<dd><p>Extra configuration settings for the Markdown processor. Refer to the Python
-Markdown documentation’s <a class="reference external" href="https://python-markdown.github.io/reference/#markdown">Options section</a> for a complete
-list of supported options. The <code class="docutils literal notranslate"><span class="pre">extensions</span></code> option will be automatically
-computed from the <code class="docutils literal notranslate"><span class="pre">extension_configs</span></code> option.</p>
-<p>Defaults to:</p>
+<dd><p>Markdown处理器的额外配置。 有关支持的选项的完整列表，请参阅Python Markdown文档
+的 <a class="reference external" href="https://python-markdown.github.io/reference/#markdown">选项部分</a> 。
+<code class="docutils literal notranslate"><span class="pre">extensions</span></code> 选项将从 <code class="docutils literal notranslate"><span class="pre">extension_configs</span></code> 选项中自动计算出来</p>
+<p>默认为:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MARKDOWN</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;extension_configs&#39;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s1">&#39;markdown.extensions.codehilite&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;css_class&#39;</span><span class="p">:</span> <span class="s1">&#39;highlight&#39;</span><span class="p">},</span>
@@ -324,161 +319,148 @@ computed from the <code class="docutils literal notranslate"><span class="pre">e
 </div>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">The dictionary defined in your settings file will replace this default
-one.</p>
+<p class="last">在设置文件中赋值会覆盖这里的默认值。</p>
 </div>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">OUTPUT_PATH = 'output/'</code></dt>
-<dd><p>Where to output the generated files.</p>
+<dd><p>定义生成的文件的保存路径</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="PATH">
 <code class="descname">PATH</code><a class="headerlink" href="#PATH" title="永久链接至目标">¶</a></dt>
-<dd><p>Path to content directory to be processed by Pelican. If undefined, and
-content path is not specified via an argument to the <code class="docutils literal notranslate"><span class="pre">pelican</span></code> command,
-Pelican will use the current working directory.</p>
+<dd><p>Pelican要处理的内容目录的路径。
+如果未定义，并且没有通过 <code class="docutils literal notranslate"><span class="pre">pelican</span></code> 命令的参数指定路径，
+Pelican将使用当前的工作目录。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">PAGE_PATHS = ['pages']</code></dt>
-<dd><p>A list of directories and files to look at for pages, relative to <code class="docutils literal notranslate"><span class="pre">PATH</span></code>.</p>
+<dd><p>‘页面’的目录和文件列表，为相对于 <code class="docutils literal notranslate"><span class="pre">PATH</span></code> 的相对路径。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">PAGE_EXCLUDES = []</code></dt>
-<dd><p>A list of directories to exclude when looking for pages in addition to
-<code class="docutils literal notranslate"><span class="pre">ARTICLE_PATHS</span></code>.</p>
+<dd><p>除了 <code class="docutils literal notranslate"><span class="pre">ARTICLE_PATHS</span></code> 之外，在查找’页面’时要排除的目录列表。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">ARTICLE_PATHS = ['']</code></dt>
-<dd><p>A list of directories and files to look at for articles, relative to
-<code class="docutils literal notranslate"><span class="pre">PATH</span></code>.</p>
+<dd><p>‘文章’的目录和文件列表, 为相对于 <code class="docutils literal notranslate"><span class="pre">PATH</span></code> 的相对路径。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">ARTICLE_EXCLUDES = []</code></dt>
-<dd><p>A list of directories to exclude when looking for articles in addition to
-<code class="docutils literal notranslate"><span class="pre">PAGE_PATHS</span></code>.</p>
+<dd><p>除了 <code class="docutils literal notranslate"><span class="pre">PAGE_PATHS</span></code> 之外，在查找’文章’时要排除的目录列表。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">OUTPUT_SOURCES = False</code></dt>
-<dd><p>Set to True if you want to copy the articles and pages in their original
-format (e.g. Markdown or reStructuredText) to the specified <code class="docutils literal notranslate"><span class="pre">OUTPUT_PATH</span></code>.</p>
+<dd><p>如果要将文章和页面以其原始格式（例如Markdown或reStructuredText）复制到指
+定的  <code class="docutils literal notranslate"><span class="pre">OUTPUT_PATH</span></code> ，则设置为True。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">OUTPUT_SOURCES_EXTENSION = '.text'</code></dt>
-<dd><p>Controls the extension that will be used by the SourcesGenerator.  Defaults
-to <code class="docutils literal notranslate"><span class="pre">.text</span></code>. If not a valid string the default value will be used.</p>
+<dd><p>控制SourcesGenerator将使用的扩展名。 默认为 <code class="docutils literal notranslate"><span class="pre">.text</span></code> 。
+如果不是有效字符串，则将使用默认值。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">PLUGINS = []</code></dt>
-<dd><p>The list of plugins to load. See <span class="xref std std-ref">plugins</span>.</p>
+<dd><p>加载的插件列表。参考 <span class="xref std std-ref">plugins</span>.</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">PLUGIN_PATHS = []</code></dt>
-<dd><p>A list of directories where to look for plugins. See <span class="xref std std-ref">plugins</span>.</p>
+<dd><p>查找插件的目录列表. 参考 <span class="xref std std-ref">plugins</span>.</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">SITENAME = 'A Pelican Blog'</code></dt>
-<dd><p>Your site name</p>
+<dd><p>你的站点名称</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="SITEURL">
 <code class="descname">SITEURL</code><a class="headerlink" href="#SITEURL" title="永久链接至目标">¶</a></dt>
-<dd><p>Base URL of your web site. Not defined by default, so it is best to specify
-your SITEURL; if you do not, feeds will not be generated with
-properly-formed URLs. If your site is available via HTTPS, this setting
-should begin with <code class="docutils literal notranslate"><span class="pre">https://</span></code> — otherwise use <code class="docutils literal notranslate"><span class="pre">http://</span></code>. Then append your
-domain, with no trailing slash at the end. Example: <code class="docutils literal notranslate"><span class="pre">SITEURL</span> <span class="pre">=</span>
-<span class="pre">'https://example.com'</span></code></p>
+<dd><p>你的网站的基本网址。默认情况下为未定义，因此最好指定你的网站URL；如果不指定，
+则不能使用格式正确的URL生成订阅源。如果你的网站可以通过HTTPS访问，这里的值
+应该以 <code class="docutils literal notranslate"><span class="pre">https://</span></code> 开头，否则以 <code class="docutils literal notranslate"><span class="pre">http://</span></code> 开头。 然后加上你的域名，最后没有斜杠。
+示例: <code class="docutils literal notranslate"><span class="pre">SITEURL</span> <span class="pre">=</span> <span class="pre">'https://example.com'</span></code></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">STATIC_PATHS = ['images']</code></dt>
-<dd><p>A list of directories (relative to <code class="docutils literal notranslate"><span class="pre">PATH</span></code>) in which to look for static
-files. Such files will be copied to the output directory without
-modification. Articles, pages, and other content source files will normally
-be skipped, so it is safe for a directory to appear both here and in
-<code class="docutils literal notranslate"><span class="pre">PAGE_PATHS</span></code> or <code class="docutils literal notranslate"><span class="pre">ARTICLE_PATHS</span></code>.  Pelican’s default settings include the
-“images” directory here.</p>
+<dd><p>一个用于存放静态文件的目录列表 (相对于 <code class="docutils literal notranslate"><span class="pre">PATH</span></code> ) 。这些文件会直接被复制到output
+目录而不作修改，通常会跳过文章，页面和其他内容源文件，所以同一个目录出现在这里和
+<code class="docutils literal notranslate"><span class="pre">PAGE_PATHS</span></code> 或 <code class="docutils literal notranslate"><span class="pre">ARTICLE_PATHS</span></code> 是没问题的。默认值为”images” 目录</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">STATIC_EXCLUDES = []</code></dt>
-<dd><p>A list of directories to exclude when looking for static files.</p>
+<dd><p>在查找静态文件时要排除的目录列表。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">STATIC_EXCLUDE_SOURCES = True</code></dt>
-<dd><p>If set to False, content source files will not be skipped when copying files
-found in <code class="docutils literal notranslate"><span class="pre">STATIC_PATHS</span></code>. This setting is for backward compatibility with
-Pelican releases before version 3.5.  It has no effect unless
-<code class="docutils literal notranslate"><span class="pre">STATIC_PATHS</span></code> contains a directory that is also in <code class="docutils literal notranslate"><span class="pre">ARTICLE_PATHS</span></code> or
-<code class="docutils literal notranslate"><span class="pre">PAGE_PATHS</span></code>. If you are trying to publish your site’s source files,
-consider using the <code class="docutils literal notranslate"><span class="pre">OUTPUT_SOURCES</span></code> setting instead.</p>
+<dd><p>如果设置为False，则在复制 <code class="docutils literal notranslate"><span class="pre">STATIC_PATHS</span></code> 中找到的文件时不会跳过内容源文件。
+此设置用于向后兼容3.5版之前的Pelican版本。
+除非 <code class="docutils literal notranslate"><span class="pre">STATIC_PATHS</span></code> 包含一个同样位于 <code class="docutils literal notranslate"><span class="pre">ARTICLE_PATHS</span></code> 或 <code class="docutils literal notranslate"><span class="pre">PAGE_PATHS</span></code> 的
+目录，不然此设置不会生效。如果您尝试发布站点的源文件，
+请考虑使用 <code class="docutils literal notranslate"><span class="pre">OUTPUT_SOURCES</span></code> 设置。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">STATIC_CREATE_LINKS = False</code></dt>
-<dd><p>Create links instead of copying files. If the content and output directories
-are on the same device, then create hard links.  Falls back to symbolic
-links if the output directory is on a different filesystem. If symlinks are
-created, don’t forget to add the <code class="docutils literal notranslate"><span class="pre">-L</span></code> or <code class="docutils literal notranslate"><span class="pre">--copy-links</span></code> option to rsync
-when uploading your site.</p>
+<dd><p>为静态文件创建链接而不是复制文件。如果content目录和output目录位于同一设备上，
+则创建硬链接。 如果这两个目录在不同的文件系统上，用符号链接。如果创建了符号链接，
+记得在上传站点时向rsync添加 <code class="docutils literal notranslate"><span class="pre">-L</span></code> 或 <code class="docutils literal notranslate"><span class="pre">--copy-links</span></code> 选项。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">STATIC_CHECK_IF_MODIFIED = False</code></dt>
-<dd><p>If set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, and <code class="docutils literal notranslate"><span class="pre">STATIC_CREATE_LINKS</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, compare mtimes
-of content and output files, and only copy content files that are newer than
-existing output files.</p>
+<dd><p>如果设置为 <code class="docutils literal notranslate"><span class="pre">True</span></code> ，并且 <code class="docutils literal notranslate"><span class="pre">STATIC_CREATE_LINKS</span></code> 为 <code class="docutils literal notranslate"><span class="pre">False</span></code> ，
+则比较内容和输出文件的mtimes时间戳，只复制比现有输出文件更新的内容文件。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">TYPOGRIFY = False</code></dt>
-<dd><p>If set to True, several typographical improvements will be incorporated into
-the generated HTML via the <a class="reference external" href="https://pypi.python.org/pypi/typogrify">Typogrify</a> library, which can be installed
-via: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">typogrify</span></code></p>
+<dd><p>如果设置为True, 则通过 <a class="reference external" href="https://pypi.python.org/pypi/typogrify">Typogrify</a> 库
+将几个排版改进合并到生成的HTML中，
+Typogrify库可以用这句命令安装: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">typogrify</span></code> 。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">TYPOGRIFY_IGNORE_TAGS = []</code></dt>
-<dd><p>A list of tags for Typogrify to ignore. By default Typogrify will ignore
-<code class="docutils literal notranslate"><span class="pre">pre</span></code> and <code class="docutils literal notranslate"><span class="pre">code</span></code> tags. This requires that Typogrify version 2.0.4 or
-later is installed</p>
+<dd><p>要忽略的Typogrify标记列表。默认情况下，Typogrify将忽略 <code class="docutils literal notranslate"><span class="pre">pre</span></code> 和 <code class="docutils literal notranslate"><span class="pre">code</span></code> 标签。
+这需要安装Typogrify版本2.0.4或更高版本</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">SUMMARY_MAX_LENGTH = 50</code></dt>
-<dd><p>When creating a short summary of an article, this will be the default length
+<dd><p>创建文章摘要时的字数，默认50（以单词测量）。这仅适用于您的内容未另外指定摘要的情况。
+设置为 <code class="docutils literal notranslate"><span class="pre">None</span></code> 的话将使摘要成为原始内容的副本。
 (measured in words) of the text created.  This only applies if your content
 does not otherwise specify a summary. Setting to <code class="docutils literal notranslate"><span class="pre">None</span></code> will cause the
 summary to be a copy of the original content.</p>
@@ -487,59 +469,56 @@ summary to be a copy of the original content.</p>
 <dl class="data">
 <dt>
 <code class="descname">WITH_FUTURE_DATES = True</code></dt>
-<dd><p>If disabled, content with dates in the future will get a default status of
-<code class="docutils literal notranslate"><span class="pre">draft</span></code>. See <a class="reference internal" href="#reading-only-modified-content"><span class="std std-ref">Reading only modified content</span></a> for caveats.</p>
+<dd><p>如果禁用，则在文件中指定日期为未来的日期时会使文件默认状态为草稿 <code class="docutils literal notranslate"><span class="pre">draft</span></code> 。
+参考 <a class="reference internal" href="#reading-only-modified-content"><span class="std std-ref">Reading only modified content</span></a></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">INTRASITE_LINK_REGEX = '[{|](?P&lt;what&gt;.*?)[|}]'</code></dt>
-<dd><p>Regular expression that is used to parse internal links. Default syntax when
-linking to internal files, tags, etc., is to enclose the identifier, say
-<code class="docutils literal notranslate"><span class="pre">filename</span></code>, in <code class="docutils literal notranslate"><span class="pre">{}</span></code> or <code class="docutils literal notranslate"><span class="pre">||</span></code>. Identifier between <code class="docutils literal notranslate"><span class="pre">{</span></code> and <code class="docutils literal notranslate"><span class="pre">}</span></code> goes
-into the <code class="docutils literal notranslate"><span class="pre">what</span></code> capturing group.  For details see
-<a class="reference internal" href="content.html#ref-linking-to-internal-content"><span class="std std-ref">链接到内部内容</span></a>.</p>
+<dd><p>用于解析内部链接的正则表达式。链接到内部文件，标签等时的默认语法是
+在 <code class="docutils literal notranslate"><span class="pre">{}</span></code> 或 <code class="docutils literal notranslate"><span class="pre">||</span></code> 中包含标识符，比如 <code class="docutils literal notranslate"><span class="pre">filename</span></code> 。 <code class="docutils literal notranslate"><span class="pre">{</span></code> 和 <code class="docutils literal notranslate"><span class="pre">}</span></code> 之
+间的标识符进入 <code class="docutils literal notranslate"><span class="pre">what</span></code> 捕获组。详情见 <a class="reference internal" href="content.html#ref-linking-to-internal-content"><span class="std std-ref">链接到内部内容</span></a>.</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">PYGMENTS_RST_OPTIONS = []</code></dt>
-<dd><p>A list of default Pygments settings for your reStructuredText code blocks.
-See <a class="reference internal" href="content.html#internal-pygments-options"><span class="std std-ref">语法高亮</span></a> for a list of supported options.</p>
+<dd><p>reStructuredText代码块的默认Pygments（语法高亮）设置列表。
+请参阅 <a class="reference internal" href="content.html#internal-pygments-options"><span class="std std-ref">语法高亮</span></a> 以获取支持的选项列表。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">SLUGIFY_SOURCE = 'title'</code></dt>
-<dd><p>Specifies where you want the slug to be automatically generated from. Can be
-set to <code class="docutils literal notranslate"><span class="pre">title</span></code> to use the ‘Title:’ metadata tag or <code class="docutils literal notranslate"><span class="pre">basename</span></code> to use the
-article’s file name when creating the slug.</p>
+<dd><p>指定从中里自动生成slug内容。 可以设置为 <code class="docutils literal notranslate"><span class="pre">title</span></code> 以使用’Title：’元数据标签
+或者使用 <code class="docutils literal notranslate"><span class="pre">basename</span></code> 以使用文章的文件名来创建slug。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">CACHE_CONTENT = False</code></dt>
-<dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, saves content in caches.  See
-<a class="reference internal" href="#reading-only-modified-content"><span class="std std-ref">Reading only modified content</span></a> for details about caching.</p>
+<dd><p>如果设置 <code class="docutils literal notranslate"><span class="pre">True</span></code>, 则将内容保存在缓存中。有关缓存的详细信息，
+参考 <a class="reference internal" href="#reading-only-modified-content"><span class="std std-ref">Reading only modified content</span></a> 。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">CONTENT_CACHING_LAYER = 'reader'</code></dt>
-<dd><p>If set to <code class="docutils literal notranslate"><span class="pre">'reader'</span></code>, save only the raw content and metadata returned by
-readers. If set to <code class="docutils literal notranslate"><span class="pre">'generator'</span></code>, save processed content objects.</p>
+<dd><p>如果设为 <code class="docutils literal notranslate"><span class="pre">'reader'</span></code> , 则仅保存阅读器返回的原始内容和元数据。
+如果设为 <code class="docutils literal notranslate"><span class="pre">'generator'</span></code>, 则保存已处理的内容对象。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">CACHE_PATH = 'cache'</code></dt>
-<dd><p>Directory in which to store cache files.</p>
+<dd><p>用于存储缓存文件的目录。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">GZIP_CACHE = True</code></dt>
-<dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, use gzip to (de)compress the cache files.</p>
+<dd><p>如果设为 <code class="docutils literal notranslate"><span class="pre">True</span></code>, 使用gzip来压缩/解压缩缓存文件。</p>
 </dd></dl>
 
 <dl class="data">
@@ -989,7 +968,7 @@ the <code class="docutils literal notranslate"><span class="pre">LOCALE</span></
 <dl class="data">
 <dt id="LOCALE">
 <code class="descname">LOCALE</code><a class="headerlink" href="#LOCALE" title="永久链接至目标">¶</a></dt>
-<dd><p>Change the locale <a class="footnote-reference" href="#id5" id="id4">[1]</a>. A list of locales can be provided here or a single
+<dd><p>Change the locale <a class="footnote-reference" href="#id6" id="id5">[1]</a>. A list of locales can be provided here or a single
 string representing one locale.  When providing a list, all the locales will
 be tried until one works.</p>
 <p>You can set locale to further control date format:</p>
@@ -1003,15 +982,15 @@ Unix/Linux, use the <code class="docutils literal notranslate"><span class="pre"
 <a class="reference external" href="https://linux.die.net/man/1/locale">locale(1)</a> for more information.</p>
 </dd></dl>
 
-<table class="docutils footnote" frame="void" id="id5" rules="none">
+<table class="docutils footnote" frame="void" id="id6" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[1]</a></td><td>Default is the system locale.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id5">[1]</a></td><td>Default is the system locale.</td></tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="template-pages">
-<span id="id6"></span><h2>Template pages<a class="headerlink" href="#template-pages" title="永久链接至标题">¶</a></h2>
+<span id="id7"></span><h2>Template pages<a class="headerlink" href="#template-pages" title="永久链接至标题">¶</a></h2>
 <dl class="data">
 <dt>
 <code class="descname">TEMPLATE_PAGES = None</code></dt>
@@ -1196,14 +1175,14 @@ both for save location and URL.</p>
 <dl class="data">
 <dt>
 <code class="descname">CATEGORY_FEED_ATOM = 'feeds/{slug}.atom.xml'</code></dt>
-<dd><p>The location to save the category Atom feeds. <a class="footnote-reference" href="#id17" id="id7">[2]</a></p>
+<dd><p>The location to save the category Atom feeds. <a class="footnote-reference" href="#id18" id="id8">[2]</a></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">CATEGORY_FEED_ATOM_URL = None</code></dt>
 <dd><p>Relative URL of the category Atom feeds, including the <code class="docutils literal notranslate"><span class="pre">{slug}</span></code>
-placeholder. <a class="footnote-reference" href="#id17" id="id8">[2]</a> If not set, <code class="docutils literal notranslate"><span class="pre">CATEGORY_FEED_ATOM</span></code> is used both for save
+placeholder. <a class="footnote-reference" href="#id18" id="id9">[2]</a> If not set, <code class="docutils literal notranslate"><span class="pre">CATEGORY_FEED_ATOM</span></code> is used both for save
 location and URL.</p>
 </dd></dl>
 
@@ -1211,56 +1190,56 @@ location and URL.</p>
 <dt>
 <code class="descname">CATEGORY_FEED_RSS = None, i.e. no RSS</code></dt>
 <dd><p>The location to save the category RSS feeds, including the <code class="docutils literal notranslate"><span class="pre">{slug}</span></code>
-placeholder. <a class="footnote-reference" href="#id17" id="id9">[2]</a></p>
+placeholder. <a class="footnote-reference" href="#id18" id="id10">[2]</a></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">CATEGORY_FEED_RSS_URL = None</code></dt>
 <dd><p>Relative URL of the category RSS feeds, including the <code class="docutils literal notranslate"><span class="pre">{slug}</span></code>
-placeholder. <a class="footnote-reference" href="#id17" id="id10">[2]</a> If not set, <code class="docutils literal notranslate"><span class="pre">CATEGORY_FEED_RSS</span></code> is used both for save
+placeholder. <a class="footnote-reference" href="#id18" id="id11">[2]</a> If not set, <code class="docutils literal notranslate"><span class="pre">CATEGORY_FEED_RSS</span></code> is used both for save
 location and URL.</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">AUTHOR_FEED_ATOM = 'feeds/{slug}.atom.xml'</code></dt>
-<dd><p>The location to save the author Atom feeds. <a class="footnote-reference" href="#id17" id="id11">[2]</a></p>
+<dd><p>The location to save the author Atom feeds. <a class="footnote-reference" href="#id18" id="id12">[2]</a></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">AUTHOR_FEED_ATOM_URL = None</code></dt>
 <dd><p>Relative URL of the author Atom feeds, including the <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> placeholder.
-<a class="footnote-reference" href="#id17" id="id12">[2]</a> If not set, <code class="docutils literal notranslate"><span class="pre">AUTHOR_FEED_ATOM</span></code> is used both for save location and
+<a class="footnote-reference" href="#id18" id="id13">[2]</a> If not set, <code class="docutils literal notranslate"><span class="pre">AUTHOR_FEED_ATOM</span></code> is used both for save location and
 URL.</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">AUTHOR_FEED_RSS = 'feeds/{slug}.rss.xml'</code></dt>
-<dd><p>The location to save the author RSS feeds. <a class="footnote-reference" href="#id17" id="id13">[2]</a></p>
+<dd><p>The location to save the author RSS feeds. <a class="footnote-reference" href="#id18" id="id14">[2]</a></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">AUTHOR_FEED_RSS_URL = None</code></dt>
 <dd><p>Relative URL of the author RSS feeds, including the <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> placeholder.
-<a class="footnote-reference" href="#id17" id="id14">[2]</a> If not set, <code class="docutils literal notranslate"><span class="pre">AUTHOR_FEED_RSS</span></code> is used both for save location and URL.</p>
+<a class="footnote-reference" href="#id18" id="id15">[2]</a> If not set, <code class="docutils literal notranslate"><span class="pre">AUTHOR_FEED_RSS</span></code> is used both for save location and URL.</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">TAG_FEED_ATOM = None, i.e. no tag feed</code></dt>
 <dd><p>The location to save the tag Atom feed, including the <code class="docutils literal notranslate"><span class="pre">{slug}</span></code>
-placeholder. <a class="footnote-reference" href="#id17" id="id15">[2]</a></p>
+placeholder. <a class="footnote-reference" href="#id18" id="id16">[2]</a></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">TAG_FEED_ATOM_URL = None</code></dt>
 <dd><p>Relative URL of the tag Atom feed, including the <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> placeholder.
-<a class="footnote-reference" href="#id17" id="id16">[2]</a></p>
+<a class="footnote-reference" href="#id18" id="id17">[2]</a></p>
 </dd></dl>
 
 <dl class="data">
@@ -1288,10 +1267,10 @@ doesn’t affect Atom feeds, only RSS ones.</p>
 
 <p>If you don’t want to generate some or any of these feeds, set the above
 variables to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-<table class="docutils footnote" frame="void" id="id17" rules="none">
+<table class="docutils footnote" frame="void" id="id18" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id7">1</a>, <a class="fn-backref" href="#id8">2</a>, <a class="fn-backref" href="#id9">3</a>, <a class="fn-backref" href="#id10">4</a>, <a class="fn-backref" href="#id11">5</a>, <a class="fn-backref" href="#id12">6</a>, <a class="fn-backref" href="#id13">7</a>, <a class="fn-backref" href="#id14">8</a>, <a class="fn-backref" href="#id15">9</a>, <a class="fn-backref" href="#id16">10</a>)</em> <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> is replaced by name of the category / author / tag.</td></tr>
+<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id8">1</a>, <a class="fn-backref" href="#id9">2</a>, <a class="fn-backref" href="#id10">3</a>, <a class="fn-backref" href="#id11">4</a>, <a class="fn-backref" href="#id12">5</a>, <a class="fn-backref" href="#id13">6</a>, <a class="fn-backref" href="#id14">7</a>, <a class="fn-backref" href="#id15">8</a>, <a class="fn-backref" href="#id16">9</a>, <a class="fn-backref" href="#id17">10</a>)</em> <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> is replaced by name of the category / author / tag.</td></tr>
 </tbody>
 </table>
 </div>
@@ -1390,14 +1369,14 @@ one another. May be a string or a collection of strings. Set to <code class="doc
 <dl class="data">
 <dt>
 <code class="descname">TRANSLATION_FEED_ATOM = 'feeds/all-{lang}.atom.xml'</code></dt>
-<dd><p>The location to save the Atom feed for translations. <a class="footnote-reference" href="#id21" id="id18">[3]</a></p>
+<dd><p>The location to save the Atom feed for translations. <a class="footnote-reference" href="#id22" id="id19">[3]</a></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">TRANSLATION_FEED_ATOM_URL = None</code></dt>
 <dd><p>Relative URL of the Atom feed for translations, including the <code class="docutils literal notranslate"><span class="pre">{lang}</span></code>
-placeholder. <a class="footnote-reference" href="#id21" id="id19">[3]</a> If not set, <code class="docutils literal notranslate"><span class="pre">TRANSLATION_FEED_ATOM</span></code> is used both for
+placeholder. <a class="footnote-reference" href="#id22" id="id20">[3]</a> If not set, <code class="docutils literal notranslate"><span class="pre">TRANSLATION_FEED_ATOM</span></code> is used both for
 save location and URL.</p>
 </dd></dl>
 
@@ -1411,14 +1390,14 @@ save location and URL.</p>
 <dt>
 <code class="descname">TRANSLATION_FEED_RSS_URL = None</code></dt>
 <dd><p>Relative URL of the RSS feed for translations, including the <code class="docutils literal notranslate"><span class="pre">{lang}</span></code>
-placeholder. <a class="footnote-reference" href="#id21" id="id20">[3]</a> If not set, <code class="docutils literal notranslate"><span class="pre">TRANSLATION_FEED_RSS</span></code> is used both for save
+placeholder. <a class="footnote-reference" href="#id22" id="id21">[3]</a> If not set, <code class="docutils literal notranslate"><span class="pre">TRANSLATION_FEED_RSS</span></code> is used both for save
 location and URL.</p>
 </dd></dl>
 
-<table class="docutils footnote" frame="void" id="id21" rules="none">
+<table class="docutils footnote" frame="void" id="id22" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[3]</td><td><em>(<a class="fn-backref" href="#id18">1</a>, <a class="fn-backref" href="#id19">2</a>, <a class="fn-backref" href="#id20">3</a>)</em> {lang} is the language code</td></tr>
+<tr><td class="label">[3]</td><td><em>(<a class="fn-backref" href="#id19">1</a>, <a class="fn-backref" href="#id20">2</a>, <a class="fn-backref" href="#id21">3</a>)</em> {lang} is the language code</td></tr>
 </tbody>
 </table>
 </div>
@@ -1672,7 +1651,7 @@ unintentionally filter out multiple message types with the same template
 </div>
 </div>
 <div class="section" id="reading-only-modified-content">
-<span id="id22"></span><h2>Reading only modified content<a class="headerlink" href="#reading-only-modified-content" title="永久链接至标题">¶</a></h2>
+<span id="id23"></span><h2>Reading only modified content<a class="headerlink" href="#reading-only-modified-content" title="永久链接至标题">¶</a></h2>
 <p>To speed up the build process, Pelican can optionally read only articles and
 pages with modified content.</p>
 <p>When Pelican is about to read some content source file:</p>
@@ -1731,7 +1710,7 @@ Therefore, <code class="docutils literal notranslate"><span class="pre">rsync</s
 option.</p>
 </div>
 <div class="section" id="writing-only-selected-content">
-<span id="id23"></span><h2>Writing only selected content<a class="headerlink" href="#writing-only-selected-content" title="永久链接至标题">¶</a></h2>
+<span id="id24"></span><h2>Writing only selected content<a class="headerlink" href="#writing-only-selected-content" title="永久链接至标题">¶</a></h2>
 <p>When only working on a single article or page, or making tweaks to your theme,
 it is often desirable to generate and review your work as quickly as possible.
 In such cases, generating and writing the entire site output is often
