@@ -280,35 +280,32 @@
 
 .. data:: CHECK_MODIFIED_METHOD = 'mtime'
 
-   Controls how files are checked for modifications.
+   控制如何检查对文件的修改。
 
 .. data:: LOAD_CONTENT_CACHE = False
 
-   If ``True``, load unmodified content from caches.
+   如果设为 ``True``, 从缓存中加载未修改的内容。
 
 .. data:: WRITE_SELECTED = []
 
-   If this list is not empty, **only** output files with their paths in this
-   list are written. Paths should be either absolute or relative to the current
-   Pelican working directory. For possible use cases see
-   :ref:`writing_only_selected_content`.
+   如果列表不为空, 则 **只** 写入此列表中列出的路径的输出文件。
+   路径应该是当前Pelican工作目录的绝对路径或相对路径。
+   有关可能的用法示例，请参阅 :ref:`writing_only_selected_content`.
 
 .. data:: FORMATTED_FIELDS = ['summary']
 
-   A list of metadata fields containing reST/Markdown content to be parsed and
-   translated to HTML.
+   包含要解析并转换为HTML的reST / Markdown内容的元数据字段列表。
 
 .. data:: PORT = 8000
 
-   The TCP port to serve content from the output folder via HTTP when pelican
-   is run with --listen
+   当运行pelican命令带参数 --listen时，启动的web服务的端口
 
 .. data:: BIND = ''
 
-   The IP to which to bind the HTTP server.
+   要绑定HTTP服务器的IP。
 
 
-URL settings
+URL设置
 ============
 
 The first thing to understand is that there are currently two supported methods

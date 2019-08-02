@@ -86,7 +86,7 @@
 <li class="toctree-l1"><a class="reference internal" href="publish.html">发布网站</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">设置</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id3">基本设置</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#url-settings">URL settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#url">URL设置</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#time-and-date">Time and Date</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#template-pages">Template pages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#metadata">Metadata</a></li>
@@ -524,47 +524,44 @@ summary to be a copy of the original content.</p>
 <dl class="data">
 <dt>
 <code class="descname">CHECK_MODIFIED_METHOD = 'mtime'</code></dt>
-<dd><p>Controls how files are checked for modifications.</p>
+<dd><p>控制如何检查对文件的修改。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">LOAD_CONTENT_CACHE = False</code></dt>
-<dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, load unmodified content from caches.</p>
+<dd><p>如果设为 <code class="docutils literal notranslate"><span class="pre">True</span></code>, 从缓存中加载未修改的内容。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">WRITE_SELECTED = []</code></dt>
-<dd><p>If this list is not empty, <strong>only</strong> output files with their paths in this
-list are written. Paths should be either absolute or relative to the current
-Pelican working directory. For possible use cases see
-<a class="reference internal" href="#writing-only-selected-content"><span class="std std-ref">Writing only selected content</span></a>.</p>
+<dd><p>如果列表不为空, 则 <strong>只</strong> 写入此列表中列出的路径的输出文件。
+路径应该是当前Pelican工作目录的绝对路径或相对路径。
+有关可能的用法示例，请参阅 <a class="reference internal" href="#writing-only-selected-content"><span class="std std-ref">Writing only selected content</span></a>.</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">FORMATTED_FIELDS = ['summary']</code></dt>
-<dd><p>A list of metadata fields containing reST/Markdown content to be parsed and
-translated to HTML.</p>
+<dd><p>包含要解析并转换为HTML的reST / Markdown内容的元数据字段列表。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">PORT = 8000</code></dt>
-<dd><p>The TCP port to serve content from the output folder via HTTP when pelican
-is run with –listen</p>
+<dd><p>当运行pelican命令带参数 –listen时，启动的web服务的端口</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">BIND = ''</code></dt>
-<dd><p>The IP to which to bind the HTTP server.</p>
+<dd><p>要绑定HTTP服务器的IP。</p>
 </dd></dl>
 
 </div>
-<div class="section" id="url-settings">
-<h2>URL settings<a class="headerlink" href="#url-settings" title="永久链接至标题">¶</a></h2>
+<div class="section" id="url">
+<h2>URL设置<a class="headerlink" href="#url" title="永久链接至标题">¶</a></h2>
 <p>The first thing to understand is that there are currently two supported methods
 for URL formation: <em>relative</em> and <em>absolute</em>. Relative URLs are useful when
 testing locally, and absolute URLs are reliable and most useful when
