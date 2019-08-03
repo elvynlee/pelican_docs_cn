@@ -938,37 +938,33 @@ Pelican 提供了一种翻译文章的方法。请参阅 :doc:`Content <content>
 .. [3] {lang} 是指语言代码
 
 
-Ordering content
+整理内容
 ================
 
 .. data:: NEWEST_FIRST_ARCHIVES = True
 
-   Order archives by newest first by date. (False: orders by date with older
-   articles first.)
+   按日期排序存档，最新的排最前。（False: 按旧文章排前的顺序。）
 
 .. data:: REVERSE_CATEGORY_ORDER = False
 
-   Reverse the category order. (True: lists by reverse alphabetical order;
-   default lists alphabetically.)
+   反转分类的排序。（True: 列表按字母倒序排序；默认列表按字母顺序排序。）
 
 .. data:: ARTICLE_ORDER_BY = 'reversed-date'
 
-   Defines how the articles (``articles_page.object_list`` in the template) are
-   sorted. Valid options are: metadata as a string (use ``reversed-`` prefix
-   the reverse the sort order), special option ``'basename'`` which will use
-   the basename of the file (without path) or a custom function to extract the
-   sorting key from articles. The default value, ``'reversed-date'``, will sort
-   articles by date in reverse order (i.e. newest article comes first).
+   定义文章（模板中的 ``articles_page.object_list`` ）的排序方式。 
+   有效选项有：元数据作为字符串（使用 ``reversed-`` 前缀，则反向排序），
+   特殊选项 ``'basename'`` 将使用文件基本的名称（没有路径）或自定义函数从文章中提取排序的key。 
+   默认值 ``'reversed-date'`` 将基于日期按相反的顺序对文章进行排序（即最新的文章排前头）。
 
 .. data:: PAGE_ORDER_BY = 'basename'
 
-   Defines how the pages (``pages`` variable in the template) are sorted.
-   Options are same as ``ARTICLE_ORDER_BY``.  The default value, ``'basename'``
-   will sort pages by their basename.
+   定义pages页(模板中的 ``pages`` 变量)的排序方式。
+   可选项与上面的 ``ARTICLE_ORDER_BY`` 相同。 
+   默认值 ``'basename'`` 将按页面基本的名称来排序。
 
 
 
-Themes
+主题
 ======
 
 Creating Pelican themes is addressed in a dedicated section (see
