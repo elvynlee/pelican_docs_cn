@@ -99,7 +99,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#id28">整理内容</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id29">主题</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id30">日志</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#reading-only-modified-content">Reading only modified content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reading-only-modified-content">仅读取已修改的内容</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#writing-only-selected-content">Writing only selected content</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#example-settings">Example settings</a></li>
 </ul>
@@ -470,7 +470,7 @@ summary to be a copy of the original content.</p>
 <dt>
 <code class="descname">WITH_FUTURE_DATES = True</code></dt>
 <dd><p>如果禁用，则在文件中指定日期为未来的日期时会使文件默认状态为草稿 <code class="docutils literal notranslate"><span class="pre">draft</span></code> 。
-参考 <a class="reference internal" href="#reading-only-modified-content"><span class="std std-ref">Reading only modified content</span></a></p>
+参考 <a class="reference internal" href="#reading-only-modified-content"><span class="std std-ref">仅读取已修改的内容</span></a></p>
 </dd></dl>
 
 <dl class="data">
@@ -499,7 +499,7 @@ summary to be a copy of the original content.</p>
 <dt>
 <code class="descname">CACHE_CONTENT = False</code></dt>
 <dd><p>如果设置 <code class="docutils literal notranslate"><span class="pre">True</span></code>, 则将内容保存在缓存中。有关缓存的详细信息，
-参考 <a class="reference internal" href="#reading-only-modified-content"><span class="std std-ref">Reading only modified content</span></a> 。</p>
+参考 <a class="reference internal" href="#reading-only-modified-content"><span class="std std-ref">仅读取已修改的内容</span></a> 。</p>
 </dd></dl>
 
 <dl class="data">
@@ -1527,39 +1527,37 @@ create a GitHub ribbon.</p>
 </div>
 <div class="section" id="id30">
 <h2>日志<a class="headerlink" href="#id30" title="永久链接至标题">¶</a></h2>
-<p>Sometimes, a long list of warnings may appear during site generation. Finding
-the <strong>meaningful</strong> error message in the middle of tons of annoying log output
-can be quite tricky. In order to filter out redundant log messages, Pelican
-comes with the <code class="docutils literal notranslate"><span class="pre">LOG_FILTER</span></code> setting.</p>
-<p><code class="docutils literal notranslate"><span class="pre">LOG_FILTER</span></code> should be a list of tuples <code class="docutils literal notranslate"><span class="pre">(level,</span> <span class="pre">msg)</span></code>, each of them being
-composed of the logging level (up to <code class="docutils literal notranslate"><span class="pre">warning</span></code>) and the message to be
-ignored. Simply populate the list with the log messages you want to hide, and
-they will be filtered out.</p>
-<p>For example:</p>
+<p>有时,在生成网站时可能会出现许多警告信息。
+在大量恼人的日志中找到**有意义的**错误消息可能相当棘手。
+为了过滤掉冗余日志消息，Pelican 附带了 <code class="docutils literal notranslate"><span class="pre">LOG_FILTER</span></code> 设置。</p>
+<blockquote>
+<div><code class="docutils literal notranslate"><span class="pre">LOG_FILTER</span></code> 应为一个列表，其中的值为元组tuples <code class="docutils literal notranslate"><span class="pre">(level,</span> <span class="pre">msg)</span></code> ,</div></blockquote>
+<p>每个元组由日志级别（最高为 <code class="docutils literal notranslate"><span class="pre">warning</span></code> ）和要忽略的消息组成。
+只需要将想隐藏掉的消息填进这个列表，它们就会被过滤掉。</p>
+<p>例如:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
 <span class="n">LOG_FILTER</span> <span class="o">=</span> <span class="p">[(</span><span class="n">logging</span><span class="o">.</span><span class="n">WARN</span><span class="p">,</span> <span class="s1">&#39;TAG_SAVE_AS is set to False&#39;</span><span class="p">)]</span>
 </pre></div>
 </div>
-<p>It is possible to filter out messages by a template. Check out source code to
-obtain a template.</p>
-<p>For example:</p>
+<p>可以通过模板来筛选消息。可以去查看源代码获取其中的模板。</p>
+<p>例如:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
 <span class="n">LOG_FILTER</span> <span class="o">=</span> <span class="p">[(</span><span class="n">logging</span><span class="o">.</span><span class="n">WARN</span><span class="p">,</span> <span class="s1">&#39;Empty alt attribute for image </span><span class="si">%s</span><span class="s1"> in </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">)]</span>
 </pre></div>
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
-<p class="last">Silencing messages by templates is a dangerous feature. It is possible to
-unintentionally filter out multiple message types with the same template
-(including messages from future Pelican versions). Proceed with caution.</p>
+<p class="last">按模板来过滤信息是项危险的操作。
+有可能会无意中筛选掉具有相同模板的多个消息类型（包括未来的pelican版本的信息）
+所以要小心对待。</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">This option does nothing if <code class="docutils literal notranslate"><span class="pre">--debug</span></code> is passed.</p>
+<p class="last">如果传递了 <code class="docutils literal notranslate"><span class="pre">--debug</span></code> ，则此选项不执行任何操作。</p>
 </div>
 </div>
 <div class="section" id="reading-only-modified-content">
-<span id="id31"></span><h2>Reading only modified content<a class="headerlink" href="#reading-only-modified-content" title="永久链接至标题">¶</a></h2>
+<span id="id31"></span><h2>仅读取已修改的内容<a class="headerlink" href="#reading-only-modified-content" title="永久链接至标题">¶</a></h2>
 <p>To speed up the build process, Pelican can optionally read only articles and
 pages with modified content.</p>
 <p>When Pelican is about to read some content source file:</p>

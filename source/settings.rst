@@ -1102,43 +1102,40 @@ Pelican附带 :doc:`pelican-themes` ，一个用于管理主题的小脚本。
 日志
 =======
 
-Sometimes, a long list of warnings may appear during site generation. Finding
-the **meaningful** error message in the middle of tons of annoying log output
-can be quite tricky. In order to filter out redundant log messages, Pelican
-comes with the ``LOG_FILTER`` setting.
+有时,在生成网站时可能会出现许多警告信息。
+在大量恼人的日志中找到**有意义的**错误消息可能相当棘手。
+为了过滤掉冗余日志消息，Pelican 附带了 ``LOG_FILTER`` 设置。
 
-``LOG_FILTER`` should be a list of tuples ``(level, msg)``, each of them being
-composed of the logging level (up to ``warning``) and the message to be
-ignored. Simply populate the list with the log messages you want to hide, and
-they will be filtered out.
+ ``LOG_FILTER`` 应为一个列表，其中的值为元组tuples ``(level, msg)`` ,
+每个元组由日志级别（最高为 ``warning`` ）和要忽略的消息组成。
+只需要将想隐藏掉的消息填进这个列表，它们就会被过滤掉。
 
-For example::
+例如::
     
    import logging
    LOG_FILTER = [(logging.WARN, 'TAG_SAVE_AS is set to False')]
 
-It is possible to filter out messages by a template. Check out source code to
-obtain a template.
+可以通过模板来筛选消息。可以去查看源代码获取其中的模板。
 
-For example::
+例如::
 
    import logging
    LOG_FILTER = [(logging.WARN, 'Empty alt attribute for image %s in %s')]
 
 .. Warning::
 
-   Silencing messages by templates is a dangerous feature. It is possible to
-   unintentionally filter out multiple message types with the same template
-   (including messages from future Pelican versions). Proceed with caution.
+   按模板来过滤信息是项危险的操作。
+   有可能会无意中筛选掉具有相同模板的多个消息类型（包括未来的pelican版本的信息）
+   所以要小心对待。
 
 .. note::
 
-    This option does nothing if ``--debug`` is passed.
+    如果传递了 ``--debug`` ，则此选项不执行任何操作。
 
 .. _reading_only_modified_content:
 
 
-Reading only modified content
+仅读取已修改的内容
 =============================
 
 To speed up the build process, Pelican can optionally read only articles and
