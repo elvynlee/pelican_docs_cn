@@ -100,7 +100,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#id29">主题</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id30">日志</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reading-only-modified-content">仅读取已修改的内容</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#writing-only-selected-content">Writing only selected content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#writing-only-selected-content">仅写入选定内容</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#example-settings">Example settings</a></li>
 </ul>
 </li>
@@ -538,7 +538,7 @@ summary to be a copy of the original content.</p>
 <code class="descname">WRITE_SELECTED = []</code></dt>
 <dd><p>如果列表不为空, 则 <strong>只</strong> 写入此列表中列出的路径的输出文件。
 路径应该是当前Pelican工作目录的绝对路径或相对路径。
-有关可能的用法示例，请参阅 <a class="reference internal" href="#writing-only-selected-content"><span class="std std-ref">Writing only selected content</span></a>.</p>
+有关可能的用法示例，请参阅 <a class="reference internal" href="#writing-only-selected-content"><span class="std std-ref">仅写入选定内容</span></a>.</p>
 </dd></dl>
 
 <dl class="data">
@@ -1553,70 +1553,54 @@ create a GitHub ribbon.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">如果传递了 <code class="docutils literal notranslate"><span class="pre">--debug</span></code> ，则此选项不执行任何操作。</p>
+<p class="last">如果传递了 <code class="docutils literal notranslate"><span class="pre">--debug</span></code> 参数，则此选项不执行任何操作。</p>
 </div>
 </div>
 <div class="section" id="reading-only-modified-content">
 <span id="id31"></span><h2>仅读取已修改的内容<a class="headerlink" href="#reading-only-modified-content" title="永久链接至标题">¶</a></h2>
-<p>To speed up the build process, Pelican can optionally read only articles and
-pages with modified content.</p>
-<p>When Pelican is about to read some content source file:</p>
+<p>为了加快构建过程，Pelican可以选择只读取修改过的文章和页面。</p>
+<p>当Pelican即将读取某些内容源文件时:</p>
 <ol class="arabic">
-<li><p class="first">The hash or modification time information for the file from a
-previous build are loaded from a cache file if <code class="docutils literal notranslate"><span class="pre">LOAD_CONTENT_CACHE</span></code> is
-<code class="docutils literal notranslate"><span class="pre">True</span></code>. These files are stored in the <code class="docutils literal notranslate"><span class="pre">CACHE_PATH</span></code> directory.  If the
-file has no record in the cache file, it is read as usual.</p>
+<li><p class="first">如果 <code class="docutils literal notranslate"><span class="pre">LOAD_CONTENT_CACHE</span></code> 值为 <code class="docutils literal notranslate"><span class="pre">True</span></code> ，则从缓存文件中加载来自先前构建版
+本的文件的哈希信息或修改时间信息。这些文件存储在 <code class="docutils literal notranslate"><span class="pre">CACHE_PATH</span></code> 目录中。
+如果文件在缓存文件中没有记录，则照常读取该文件。</p>
 </li>
-<li><p class="first">The file is checked according to <code class="docutils literal notranslate"><span class="pre">CHECK_MODIFIED_METHOD</span></code>:</p>
+<li><p class="first">根据 <code class="docutils literal notranslate"><span class="pre">CHECK_MODIFIED_METHOD</span></code> 的设置来检查文件:</p>
 <blockquote>
 <div><ul class="simple">
-<li>If set to <code class="docutils literal notranslate"><span class="pre">'mtime'</span></code>, the modification time of the file is
-checked.</li>
-<li>If set to a name of a function provided by the <code class="docutils literal notranslate"><span class="pre">hashlib</span></code>
-module, e.g. <code class="docutils literal notranslate"><span class="pre">'md5'</span></code>, the file hash is checked.</li>
-<li>If set to anything else or the necessary information about the
-file cannot be found in the cache file, the content is read as usual.</li>
+<li>如果设为 <code class="docutils literal notranslate"><span class="pre">'mtime'</span></code>, 则检查文件的修改时间。</li>
+<li>如果设置为由 <code class="docutils literal notranslate"><span class="pre">hashlib</span></code> 模块提供的某个函数的名称，比如  <code class="docutils literal notranslate"><span class="pre">'md5'</span></code> ，
+则检查文件哈希值。</li>
+<li>如果设置为任何其他内容或在缓存文件中找不到有关该文件的必要信息，则内容将照常读取。</li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">If the file is considered unchanged, the content data saved in a
-previous build corresponding to the file is loaded from the cache, and the
-file is not read.</p>
+<li><p class="first">如果系统认为文件未经修改过，则从缓存加载以前生成时保存的内容数据，并且不会读取该文件。</p>
 </li>
-<li><p class="first">If the file is considered changed, the file is read and the new
-modification information and the content data are saved to the cache if
-<code class="docutils literal notranslate"><span class="pre">CACHE_CONTENT</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<li><p class="first">如果系统认为文件被修改过，则读取该文件，如果 <code class="docutils literal notranslate"><span class="pre">CACHE_CONTENT</span></code> 的值为 <code class="docutils literal notranslate"><span class="pre">True</span></code> ，则
+会将新的修改信息和内容数据保存到缓存中。</p>
 </li>
 </ol>
-<p>If <code class="docutils literal notranslate"><span class="pre">CONTENT_CACHING_LAYER</span></code> is set to <code class="docutils literal notranslate"><span class="pre">'reader'</span></code> (the default), the raw
-content and metadata returned by a reader are cached. If this setting is
-instead set to <code class="docutils literal notranslate"><span class="pre">'generator'</span></code>, the processed content object is cached. Caching
-the processed content object may conflict with plugins (as some reading related
-signals may be skipped) and the <code class="docutils literal notranslate"><span class="pre">WITH_FUTURE_DATES</span></code> functionality (as the
-<code class="docutils literal notranslate"><span class="pre">draft</span></code> status of the cached content objects would not change automatically
-over time).</p>
-<p>Checking modification times is faster than comparing file hashes, but it is not
-as reliable because <code class="docutils literal notranslate"><span class="pre">mtime</span></code> information can be lost, e.g., when copying
-content source files using the <code class="docutils literal notranslate"><span class="pre">cp</span></code> or <code class="docutils literal notranslate"><span class="pre">rsync</span></code> commands without the
-<code class="docutils literal notranslate"><span class="pre">mtime</span></code> preservation mode (which for <code class="docutils literal notranslate"><span class="pre">rsync</span></code> can be invoked by passing the
-<code class="docutils literal notranslate"><span class="pre">--archive</span></code> flag).</p>
-<p>The cache files are Python pickles, so they may not be readable by different
-versions of Python as the pickle format often changes. If such an error is
-encountered, it is caught and the cache file is rebuilt automatically in the
-new format. The cache files will also be rebuilt after the <code class="docutils literal notranslate"><span class="pre">GZIP_CACHE</span></code>
-setting has been changed.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">--ignore-cache</span></code> command-line option is useful when the whole cache needs
-to be regenerated, such as when making modifications to the settings file that
-will affect the cached content, or just for debugging purposes. When Pelican
-runs in autoreload mode, modification of the settings file will make it ignore
-the cache automatically if <code class="docutils literal notranslate"><span class="pre">AUTORELOAD_IGNORE_CACHE</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
-<p>Note that even when using cached content, all output is always written, so the
-modification times of the generated <code class="docutils literal notranslate"><span class="pre">*.html</span></code> files will always change.
-Therefore, <code class="docutils literal notranslate"><span class="pre">rsync</span></code>-based uploading may benefit from the <code class="docutils literal notranslate"><span class="pre">--checksum</span></code>
-option.</p>
+<p>如果将 <code class="docutils literal notranslate"><span class="pre">CONTENT_CACHING_LAYER</span></code> 的值是设为 <code class="docutils literal notranslate"><span class="pre">'reader'</span></code> (默认值)，则将reader阅读
+器返回的原始内容和元数据添加至缓存。如果此设置改为 <code class="docutils literal notranslate"><span class="pre">'generator'</span></code> ，则将已处理的内容
+对象添加至缓存。缓存已处理的内容对象可能会与插件和 <code class="docutils literal notranslate"><span class="pre">WITH_FUTURE_DATES</span></code> 功能都有冲突
+(与插件起冲突是因为可能会跳过某些读取相关信号)，(与 <code class="docutils literal notranslate"><span class="pre">WITH_FUTURE_DATES</span></code> 功能冲突是
+因为缓存内容对象的``draft`` 草稿状态不会随时间自动更改)。</p>
+<p>检查修改时间相比对比文件哈希值更快， 但检查修改时间有时并不可靠，因为 <code class="docutils literal notranslate"><span class="pre">mtime</span></code> 时间戳
+信息有可能会丢失，例如，当使用 <code class="docutils literal notranslate"><span class="pre">cp</span></code> 或 <code class="docutils literal notranslate"><span class="pre">rsync</span></code> 命令复制内容源文件却没有
+用 <code class="docutils literal notranslate"><span class="pre">mtime</span></code> 保留模式时（ <code class="docutils literal notranslate"><span class="pre">rsync</span></code> 可以通过传递 <code class="docutils literal notranslate"><span class="pre">--archive</span></code> 标志来调用)。</p>
+<p>缓存文件的格式是Python的pickles格式，不同版本的Python可能无法读取这些文件，因为
+pickle的格式经常改变。如果遇到此类错误，系统会捕获该错误，并且以新格式自动重新生
+成缓存文件。更改 <code class="docutils literal notranslate"><span class="pre">GZIP_CACHE</span></code> 的设置也会重新生成缓存文件。</p>
+<p>对于 <code class="docutils literal notranslate"><span class="pre">--ignore-cache</span></code> 命令行参数的使用，在需要重新生成整个缓存时（例如,在修改将影响缓存内容的设置文件时,
+或仅用于调试目的时），非常有用。
+当Pelican在自动重新加载模式下运行时，如果 <code class="docutils literal notranslate"><span class="pre">AUTORELOAD_IGNORE_CACHE</span></code> 的值为 <code class="docutils literal notranslate"><span class="pre">True</span></code> ，
+则修改设置文件将自动忽略缓存。</p>
+<p>请注意，即使使用缓存的内容，所有输也都会每次重写一遍，因此生成的 <code class="docutils literal notranslate"><span class="pre">*.html</span></code> 文件的修改次数将一直改变。
+因此，用 <code class="docutils literal notranslate"><span class="pre">rsync</span></code> 上传时带上 <code class="docutils literal notranslate"><span class="pre">--checksum</span></code> 参数很有用。</p>
 </div>
 <div class="section" id="writing-only-selected-content">
-<span id="id32"></span><h2>Writing only selected content<a class="headerlink" href="#writing-only-selected-content" title="永久链接至标题">¶</a></h2>
+<span id="id32"></span><h2>仅写入选定内容<a class="headerlink" href="#writing-only-selected-content" title="永久链接至标题">¶</a></h2>
 <p>When only working on a single article or page, or making tweaks to your theme,
 it is often desirable to generate and review your work as quickly as possible.
 In such cases, generating and writing the entire site output is often

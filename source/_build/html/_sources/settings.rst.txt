@@ -1130,7 +1130,7 @@ Pelican附带 :doc:`pelican-themes` ，一个用于管理主题的小脚本。
 
 .. note::
 
-    如果传递了 ``--debug`` ，则此选项不执行任何操作。
+    如果传递了 ``--debug`` 参数，则此选项不执行任何操作。
 
 .. _reading_only_modified_content:
 
@@ -1138,66 +1138,50 @@ Pelican附带 :doc:`pelican-themes` ，一个用于管理主题的小脚本。
 仅读取已修改的内容
 =============================
 
-To speed up the build process, Pelican can optionally read only articles and
-pages with modified content.
+为了加快构建过程，Pelican可以选择只读取修改过的文章和页面。
 
-When Pelican is about to read some content source file:
+当Pelican即将读取某些内容源文件时:
 
-1. The hash or modification time information for the file from a
-   previous build are loaded from a cache file if ``LOAD_CONTENT_CACHE`` is
-   ``True``. These files are stored in the ``CACHE_PATH`` directory.  If the
-   file has no record in the cache file, it is read as usual.
-2. The file is checked according to ``CHECK_MODIFIED_METHOD``:
+1. 如果 ``LOAD_CONTENT_CACHE`` 值为 ``True`` ，则从缓存文件中加载来自先前构建版
+   本的文件的哈希信息或修改时间信息。这些文件存储在 ``CACHE_PATH`` 目录中。 
+   如果文件在缓存文件中没有记录，则照常读取该文件。
+2. 根据 ``CHECK_MODIFIED_METHOD`` 的设置来检查文件:
 
-    - If set to ``'mtime'``, the modification time of the file is
-      checked.
-    - If set to a name of a function provided by the ``hashlib``
-      module, e.g. ``'md5'``, the file hash is checked.
-    - If set to anything else or the necessary information about the
-      file cannot be found in the cache file, the content is read as usual.
+    - 如果设为 ``'mtime'``, 则检查文件的修改时间。
+    - 如果设置为由 ``hashlib`` 模块提供的某个函数的名称，比如  ``'md5'`` ，
+      则检查文件哈希值。
+    - 如果设置为任何其他内容或在缓存文件中找不到有关该文件的必要信息，则内容将照常读取。
 
-3. If the file is considered unchanged, the content data saved in a
-   previous build corresponding to the file is loaded from the cache, and the
-   file is not read.
-4. If the file is considered changed, the file is read and the new
-   modification information and the content data are saved to the cache if
-   ``CACHE_CONTENT`` is ``True``.
+3. 如果系统认为文件未经修改过，则从缓存加载以前生成时保存的内容数据，并且不会读取该文件。
+4. 如果系统认为文件被修改过，则读取该文件，如果 ``CACHE_CONTENT`` 的值为 ``True`` ，则
+   会将新的修改信息和内容数据保存到缓存中。
 
-If ``CONTENT_CACHING_LAYER`` is set to ``'reader'`` (the default), the raw
-content and metadata returned by a reader are cached. If this setting is
-instead set to ``'generator'``, the processed content object is cached. Caching
-the processed content object may conflict with plugins (as some reading related
-signals may be skipped) and the ``WITH_FUTURE_DATES`` functionality (as the
-``draft`` status of the cached content objects would not change automatically
-over time).
+如果将 ``CONTENT_CACHING_LAYER`` 的值是设为 ``'reader'`` (默认值)，则将reader阅读
+器返回的原始内容和元数据添加至缓存。如果此设置改为 ``'generator'`` ，则将已处理的内容
+对象添加至缓存。缓存已处理的内容对象可能会与插件和 ``WITH_FUTURE_DATES`` 功能都有冲突
+(与插件起冲突是因为可能会跳过某些读取相关信号)，(与 ``WITH_FUTURE_DATES`` 功能冲突是
+因为缓存内容对象的``draft`` 草稿状态不会随时间自动更改)。
 
-Checking modification times is faster than comparing file hashes, but it is not
-as reliable because ``mtime`` information can be lost, e.g., when copying
-content source files using the ``cp`` or ``rsync`` commands without the
-``mtime`` preservation mode (which for ``rsync`` can be invoked by passing the
-``--archive`` flag).
+检查修改时间相比对比文件哈希值更快， 但检查修改时间有时并不可靠，因为 ``mtime`` 时间戳
+信息有可能会丢失，例如，当使用 ``cp`` 或 ``rsync`` 命令复制内容源文件却没有
+用 ``mtime`` 保留模式时（ ``rsync`` 可以通过传递 ``--archive`` 标志来调用)。
 
-The cache files are Python pickles, so they may not be readable by different
-versions of Python as the pickle format often changes. If such an error is
-encountered, it is caught and the cache file is rebuilt automatically in the
-new format. The cache files will also be rebuilt after the ``GZIP_CACHE``
-setting has been changed.
+缓存文件的格式是Python的pickles格式，不同版本的Python可能无法读取这些文件，因为
+pickle的格式经常改变。如果遇到此类错误，系统会捕获该错误，并且以新格式自动重新生
+成缓存文件。更改 ``GZIP_CACHE`` 的设置也会重新生成缓存文件。
 
-The ``--ignore-cache`` command-line option is useful when the whole cache needs
-to be regenerated, such as when making modifications to the settings file that
-will affect the cached content, or just for debugging purposes. When Pelican
-runs in autoreload mode, modification of the settings file will make it ignore
-the cache automatically if ``AUTORELOAD_IGNORE_CACHE`` is ``True``.
+对于 ``--ignore-cache`` 命令行参数的使用，在需要重新生成整个缓存时（例如,在修改将影响缓存内容的设置文件时,
+或仅用于调试目的时），非常有用。
+当Pelican在自动重新加载模式下运行时，如果 ``AUTORELOAD_IGNORE_CACHE`` 的值为 ``True`` ，
+则修改设置文件将自动忽略缓存。
 
-Note that even when using cached content, all output is always written, so the
-modification times of the generated ``*.html`` files will always change.
-Therefore, ``rsync``-based uploading may benefit from the ``--checksum``
-option.
+请注意，即使使用缓存的内容，所有输也都会每次重写一遍，因此生成的 ``*.html`` 文件的修改次数将一直改变。
+因此，用 ``rsync`` 上传时带上 ``--checksum`` 参数很有用。
 
 .. _writing_only_selected_content:
 
 
-Writing only selected content
+仅写入选定内容
 =============================
 
 When only working on a single article or page, or making tweaks to your theme,
