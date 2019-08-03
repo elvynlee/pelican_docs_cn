@@ -1004,7 +1004,7 @@ Pelican 提供了一种翻译文章的方法。请参阅 :doc:`Content <content>
 
    指定要加载的 CSS 文件。
 
-默认情况下，有两个主题可用。您可以设置 ``THEME`` 指定它们或者
+默认情况下，有两个主题可用。你可以设置 ``THEME`` 指定它们或者
 在 ``pelican`` 命令中用 ``-t`` 参数来设定:
 
 * notmyidea
@@ -1070,7 +1070,7 @@ Pelican附带 :doc:`pelican-themes` ，一个用于管理主题的小脚本。
 
 .. data:: PIWIK_SITE_ID
 
-   被监视网站的 ID。您可以在 Piwik 管理界面 > 设置 > 网站中找到该ID。
+   被监视网站的 ID。你可以在 Piwik 管理界面 > 设置 > 网站中找到该ID。
 
 .. data:: LINKS
 
@@ -1084,7 +1084,7 @@ Pelican附带 :doc:`pelican-themes` ，一个用于管理主题的小脚本。
 .. data:: TWITTER_USERNAME
 
    允许向文章添加按钮以鼓励其他人分享此文章发推。
-   如果您希望显示此按钮，请设置添加你的Twitter用户名。
+   如果你希望显示此按钮，请设置添加你的Twitter用户名。
 
 .. data:: LINKS_WIDGET_NAME
 
@@ -1184,20 +1184,19 @@ pickle的格式经常改变。如果遇到此类错误，系统会捕获该错�
 仅写入选定内容
 =============================
 
-When only working on a single article or page, or making tweaks to your theme,
-it is often desirable to generate and review your work as quickly as possible.
-In such cases, generating and writing the entire site output is often
-unnecessary. By specifying only the desired files as output paths in the
-``WRITE_SELECTED`` list, **only** those files will be written. This list can be
-also specified on the command line using the ``--write-selected`` option, which
-accepts a comma-separated list of output file paths. By default this list is
-empty, so all output is written. See :ref:`site_generation` for more details.
+当只处理一篇文章或单个页面，或调整你的主题时，
+经常需要尽快生成和查看出来的效果。
+这种情况下，生成和写入整个站点输出通常没有必要。
+通过在 ``WRITE_SELECTED`` 列表中指定所需的文件作为输出路径，可以实现**只**写入这些文件。
+这个列表也可以用 ``--write-selected`` 参数在命令行上指定，该参数接受一个用逗号分隔的
+输出文件路径列表。默认情况下此列表为空，所以正常是所有输出文件都写入的。
+可以查看 :ref:`site_generation` 了解更多详情。
 
 
-Example settings
+设置示例
 ================
 
-.. literalinclude:: ../samples/pelican.conf.py
+.. literalinclude:: https://github.com/getpelican/pelican/blob/f61bd2ceba5be68833d6a7b9d1a6670046dc0581/samples/pelican.conf.py
     :language: python
 
 
