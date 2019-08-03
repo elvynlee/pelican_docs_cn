@@ -92,10 +92,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#id9">元数据</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#feed">Feed订阅设置</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id21">分页</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#using-pagination-patterns">Using Pagination Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">使用分页模式</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#translations">Translations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id23">翻译</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ordering-content">Ordering content</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#themes">Themes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#logging">Logging</a></li>
@@ -897,7 +897,7 @@ summary to be a copy of the original content.</p>
 <dl class="data">
 <dt>
 <code class="descname">DATE_FORMATS = {}</code></dt>
-<dd><p>如果您管理多种语言,则可以在此处设置日期格式。</p>
+<dd><p>如果你管理多种语言,则可以在此处设置日期格式。</p>
 <p>如果 <code class="docutils literal notranslate"><span class="pre">DATE_FORMATS</span></code> 未设置，Pelican将回退使用 <code class="docutils literal notranslate"><span class="pre">DEFAULT_DATE_FORMAT</span></code> 的设置。
 如果需要维护多种语言对应的不同日期格式，可以在这里用语言名称（即文章中
 的元数据 <code class="docutils literal notranslate"><span class="pre">lang</span></code> 的值）作为字典的key。</p>
@@ -1063,7 +1063,7 @@ Unix/Linux系统可以使用 <code class="docutils literal notranslate"><span cl
 <code class="descname">FEED_DOMAIN = None, i.e. base URL is &quot;/&quot;</code></dt>
 <dd><p>域名用于添加到订阅源地址前面。
 由于源URL应该始终是一个绝对地址，所以强烈建议设置此变量 (例如,”<a class="reference external" href="https://feeds.example.com">https://feeds.example.com</a>”)。
-如果您已经显式定义了SITEURL(见上文)并且希望对feeds订阅使用相同的域名，
+如果你已经显式定义了SITEURL(见上文)并且希望对feeds订阅使用相同的域名，
 则可以设置为: <code class="docutils literal notranslate"><span class="pre">FEED_DOMAIN</span> <span class="pre">=</span> <span class="pre">SITEURL</span></code> 。</p>
 </dd></dl>
 
@@ -1213,30 +1213,27 @@ Unix/Linux系统可以使用 <code class="docutils literal notranslate"><span cl
 </div>
 <div class="section" id="id21">
 <h2>分页<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h2>
-<p>The default behaviour of Pelican is to list all the article titles along with a
-short description on the index page. While this works well for small-to-medium
-sites, sites with a large quantity of articles will probably benefit from
-paginating this list.</p>
-<p>You can use the following settings to configure the pagination.</p>
+<p>Pelican的默认行为是列出所有文章标题以及索引页上的简短说明。
+这适用于中小型网站，具有大量文章的网站则对其进行分页可能会更好些。</p>
+<p>你可以使用以下设置来配置分页。</p>
 <dl class="data">
 <dt>
 <code class="descname">DEFAULT_ORPHANS = 0</code></dt>
-<dd><p>The minimum number of articles allowed on the last page. Use this when you
-don’t want the last page to only contain a handful of articles.</p>
+<dd><p>最后一页列出的文章数量的最小值。如果你不希望最后一页仅列出寥寥几篇文章时，可以设置此选项。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">DEFAULT_PAGINATION = False</code></dt>
-<dd><p>The maximum number of articles to include on a page, not including orphans.
-False to disable pagination.</p>
+<dd><p>每页所列出的文章数量的最大值，不包括上面的ORPHANS单独页。
+设置 False 为禁用分页。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">PAGINATED_TEMPLATES = {'index': None, 'tag': None, 'category': None, 'author': None}</code></dt>
-<dd><p>The templates to use pagination with, and the number of articles to include
-on a page. If this value is <code class="docutils literal notranslate"><span class="pre">None</span></code>, it defaults to <code class="docutils literal notranslate"><span class="pre">DEFAULT_PAGINATION</span></code>.</p>
+<dd><p>设置各个模板块是否单独使用分布以及每页显示的文章数。
+如果这一项的值为 <code class="docutils literal notranslate"><span class="pre">None</span></code> ，则默认为 <code class="docutils literal notranslate"><span class="pre">DEFAULT_PAGINATION</span></code> 的值。</p>
 </dd></dl>
 
 <dl class="data">
@@ -1245,30 +1242,26 @@ on a page. If this value is <code class="docutils literal notranslate"><span cla
 <dt>
 <code class="descname">(1, '{name}{extension}', '{name}{extension}'),</code></dt>
 <dt>
-<code class="descname">(2, '{name}{number}{extension}', '{name}{number}{extension}'),</code></dt>
-<dt>
-<code class="descname">)</code></dt>
-<dd><blockquote>
-<div>A set of patterns that are used to determine advanced pagination output.</div></blockquote>
+<code class="descname">(2, '{name}{number}{extension}', '{name}{number}{extension}'),)</code></dt>
+<dd><p>用于确定高级分页输出的一组模式。</p>
 </dd></dl>
 
-<div class="section" id="using-pagination-patterns">
-<h3>Using Pagination Patterns<a class="headerlink" href="#using-pagination-patterns" title="永久链接至标题">¶</a></h3>
-<p>By default, pages subsequent to <code class="docutils literal notranslate"><span class="pre">.../foo.html</span></code> are created as
-<code class="docutils literal notranslate"><span class="pre">.../foo2.html</span></code>, etc. The <code class="docutils literal notranslate"><span class="pre">PAGINATION_PATTERNS</span></code> setting can be used to
-change this. It takes a sequence of triples, where each triple consists of:</p>
+<div class="section" id="id22">
+<h3>使用分页模式<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h3>
+<p>默认情况下，  <code class="docutils literal notranslate"><span class="pre">.../foo.html</span></code>  之后的页面将创建为 <code class="docutils literal notranslate"><span class="pre">.../foo2.html</span></code> 等。
+可以使用 <code class="docutils literal notranslate"><span class="pre">PAGINATION_PATTERNS</span></code> 设置来更改此设置。
+设置需要一个包含三个参数的序列， 这三个参数是:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">minimum_page</span><span class="p">,</span> <span class="n">page_url</span><span class="p">,</span> <span class="n">page_save_as</span><span class="p">,)</span>
 </pre></div>
 </div>
-<p>For <code class="docutils literal notranslate"><span class="pre">page_url</span></code> and <code class="docutils literal notranslate"><span class="pre">page_save_as</span></code>, you may use a number of variables.
-<code class="docutils literal notranslate"><span class="pre">{url}</span></code> and <code class="docutils literal notranslate"><span class="pre">{save_as}</span></code> correspond respectively to the <code class="docutils literal notranslate"><span class="pre">*_URL</span></code> and
-<code class="docutils literal notranslate"><span class="pre">*_SAVE_AS</span></code> values of the corresponding page type (e.g. <code class="docutils literal notranslate"><span class="pre">ARTICLE_SAVE_AS</span></code>).
-If <code class="docutils literal notranslate"><span class="pre">{save_as}</span> <span class="pre">==</span> <span class="pre">foo/bar.html</span></code>, then <code class="docutils literal notranslate"><span class="pre">{name}</span> <span class="pre">==</span> <span class="pre">foo/bar</span></code> and <code class="docutils literal notranslate"><span class="pre">{extension}</span>
-<span class="pre">==</span> <span class="pre">.html</span></code>. <code class="docutils literal notranslate"><span class="pre">{base_name}</span></code> equals <code class="docutils literal notranslate"><span class="pre">{name}</span></code> except that it strips trailing
-<code class="docutils literal notranslate"><span class="pre">/index</span></code> if present. <code class="docutils literal notranslate"><span class="pre">{number}</span></code> equals the page number.</p>
-<p>For example, if you want to leave the first page unchanged, but place
-subsequent pages at <code class="docutils literal notranslate"><span class="pre">.../page/2/</span></code> etc, you could set <code class="docutils literal notranslate"><span class="pre">PAGINATION_PATTERNS</span></code>
-as follows:</p>
+<p>对于 <code class="docutils literal notranslate"><span class="pre">page_url</span></code> 和 <code class="docutils literal notranslate"><span class="pre">page_save_as</span></code> ，你可以使用许多变量。
+<code class="docutils literal notranslate"><span class="pre">{url}</span></code> 和 <code class="docutils literal notranslate"><span class="pre">{save_as}</span></code> 分别对应相应的页面类型（例如 <code class="docutils literal notranslate"><span class="pre">ARTICLE_SAVE_AS</span></code> ）
+的 <code class="docutils literal notranslate"><span class="pre">*_URL</span></code> 和 <code class="docutils literal notranslate"><span class="pre">*_SAVE_AS</span></code> 值。
+如果 <code class="docutils literal notranslate"><span class="pre">{save_as}</span> <span class="pre">==</span> <span class="pre">foo/bar.html</span></code> ，则表示 <code class="docutils literal notranslate"><span class="pre">{name}</span> <span class="pre">==</span> <span class="pre">foo/bar</span></code> 并且 <code class="docutils literal notranslate"><span class="pre">{extension}</span>
+<span class="pre">==</span> <span class="pre">.html</span></code> 。 <code class="docutils literal notranslate"><span class="pre">{base_name}</span></code> 相当于  <code class="docutils literal notranslate"><span class="pre">{name}</span></code> 只不过如果末尾有 <code class="docutils literal notranslate"><span class="pre">/index</span></code> 的话它会
+自动将其删掉。 <code class="docutils literal notranslate"><span class="pre">{number}</span></code> 相当于页码。</p>
+<p>例如, 如果要保持第一页不变, 但将后续页面放在 <code class="docutils literal notranslate"><span class="pre">.../page/2/</span></code> 等位置, 你可以如下所
+示设置 <code class="docutils literal notranslate"><span class="pre">PAGINATION_PATTERNS</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PAGINATION_PATTERNS</span> <span class="o">=</span> <span class="p">(</span>
     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{url}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{save_as}</span><span class="s1">`,</span>
     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{base_name}</span><span class="s1">/page/</span><span class="si">{number}</span><span class="s1">/&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{base_name}</span><span class="s1">/page/</span><span class="si">{number}</span><span class="s1">/index.html&#39;</span><span class="p">),</span>
@@ -1277,8 +1270,8 @@ as follows:</p>
 </div>
 </div>
 </div>
-<div class="section" id="translations">
-<h2>Translations<a class="headerlink" href="#translations" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id23">
+<h2>翻译<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h2>
 <p>Pelican offers a way to translate articles. See the <a class="reference internal" href="content.html"><span class="doc">Content</span></a>
 section for more information.</p>
 <dl class="data">
@@ -1306,14 +1299,14 @@ one another. May be a string or a collection of strings. Set to <code class="doc
 <dl class="data">
 <dt>
 <code class="descname">TRANSLATION_FEED_ATOM = 'feeds/all-{lang}.atom.xml'</code></dt>
-<dd><p>The location to save the Atom feed for translations. <a class="footnote-reference" href="#id25" id="id22">[3]</a></p>
+<dd><p>The location to save the Atom feed for translations. <a class="footnote-reference" href="#id27" id="id24">[3]</a></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">TRANSLATION_FEED_ATOM_URL = None</code></dt>
 <dd><p>Relative URL of the Atom feed for translations, including the <code class="docutils literal notranslate"><span class="pre">{lang}</span></code>
-placeholder. <a class="footnote-reference" href="#id25" id="id23">[3]</a> If not set, <code class="docutils literal notranslate"><span class="pre">TRANSLATION_FEED_ATOM</span></code> is used both for
+placeholder. <a class="footnote-reference" href="#id27" id="id25">[3]</a> If not set, <code class="docutils literal notranslate"><span class="pre">TRANSLATION_FEED_ATOM</span></code> is used both for
 save location and URL.</p>
 </dd></dl>
 
@@ -1327,14 +1320,14 @@ save location and URL.</p>
 <dt>
 <code class="descname">TRANSLATION_FEED_RSS_URL = None</code></dt>
 <dd><p>Relative URL of the RSS feed for translations, including the <code class="docutils literal notranslate"><span class="pre">{lang}</span></code>
-placeholder. <a class="footnote-reference" href="#id25" id="id24">[3]</a> If not set, <code class="docutils literal notranslate"><span class="pre">TRANSLATION_FEED_RSS</span></code> is used both for save
+placeholder. <a class="footnote-reference" href="#id27" id="id26">[3]</a> If not set, <code class="docutils literal notranslate"><span class="pre">TRANSLATION_FEED_RSS</span></code> is used both for save
 location and URL.</p>
 </dd></dl>
 
-<table class="docutils footnote" frame="void" id="id25" rules="none">
+<table class="docutils footnote" frame="void" id="id27" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[3]</td><td><em>(<a class="fn-backref" href="#id22">1</a>, <a class="fn-backref" href="#id23">2</a>, <a class="fn-backref" href="#id24">3</a>)</em> {lang} is the language code</td></tr>
+<tr><td class="label">[3]</td><td><em>(<a class="fn-backref" href="#id24">1</a>, <a class="fn-backref" href="#id25">2</a>, <a class="fn-backref" href="#id26">3</a>)</em> {lang} is the language code</td></tr>
 </tbody>
 </table>
 </div>
@@ -1588,7 +1581,7 @@ unintentionally filter out multiple message types with the same template
 </div>
 </div>
 <div class="section" id="reading-only-modified-content">
-<span id="id26"></span><h2>Reading only modified content<a class="headerlink" href="#reading-only-modified-content" title="永久链接至标题">¶</a></h2>
+<span id="id28"></span><h2>Reading only modified content<a class="headerlink" href="#reading-only-modified-content" title="永久链接至标题">¶</a></h2>
 <p>To speed up the build process, Pelican can optionally read only articles and
 pages with modified content.</p>
 <p>When Pelican is about to read some content source file:</p>
@@ -1647,7 +1640,7 @@ Therefore, <code class="docutils literal notranslate"><span class="pre">rsync</s
 option.</p>
 </div>
 <div class="section" id="writing-only-selected-content">
-<span id="id27"></span><h2>Writing only selected content<a class="headerlink" href="#writing-only-selected-content" title="永久链接至标题">¶</a></h2>
+<span id="id29"></span><h2>Writing only selected content<a class="headerlink" href="#writing-only-selected-content" title="永久链接至标题">¶</a></h2>
 <p>When only working on a single article or page, or making tweaks to your theme,
 it is often desirable to generate and review your work as quickly as possible.
 In such cases, generating and writing the entire site output is often

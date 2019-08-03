@@ -568,7 +568,7 @@ Pelican 可以根据选择将文章以年份、月份或哪天来创建存档。
 
 .. data:: DATE_FORMATS = {}
 
-   如果您管理多种语言,则可以在此处设置日期格式。
+   如果你管理多种语言,则可以在此处设置日期格式。
 
    如果 ``DATE_FORMATS`` 未设置，Pelican将回退使用 ``DEFAULT_DATE_FORMAT`` 的设置。
    如果需要维护多种语言对应的不同日期格式，可以在这里用语言名称（即文章中
@@ -742,7 +742,7 @@ Pelican会为你的所有文章生成分类订阅源和所有文章订阅源。�
 
    域名用于添加到订阅源地址前面。
    由于源URL应该始终是一个绝对地址，所以强烈建议设置此变量 (例如,"https://feeds.example.com")。
-   如果您已经显式定义了SITEURL(见上文)并且希望对feeds订阅使用相同的域名，
+   如果你已经显式定义了SITEURL(见上文)并且希望对feeds订阅使用相同的域名，
    则可以设置为: ``FEED_DOMAIN = SITEURL`` 。
 
 .. data:: FEED_ATOM = None, i.e. no Atom feed
@@ -847,55 +847,50 @@ Pelican会为你的所有文章生成分类订阅源和所有文章订阅源。�
 分页
 ==========
 
-The default behaviour of Pelican is to list all the article titles along with a
-short description on the index page. While this works well for small-to-medium
-sites, sites with a large quantity of articles will probably benefit from
-paginating this list.
+Pelican的默认行为是列出所有文章标题以及索引页上的简短说明。
+这适用于中小型网站，具有大量文章的网站则对其进行分页可能会更好些。
 
-You can use the following settings to configure the pagination.
+你可以使用以下设置来配置分页。
 
 .. data:: DEFAULT_ORPHANS = 0
 
-   The minimum number of articles allowed on the last page. Use this when you
-   don't want the last page to only contain a handful of articles.
+   最后一页列出的文章数量的最小值。如果你不希望最后一页仅列出寥寥几篇文章时，可以设置此选项。
 
 .. data:: DEFAULT_PAGINATION = False
 
-   The maximum number of articles to include on a page, not including orphans.
-   False to disable pagination.
+   每页所列出的文章数量的最大值，不包括上面的ORPHANS单独页。
+   设置 False 为禁用分页。
 
 .. data:: PAGINATED_TEMPLATES = {'index': None, 'tag': None, 'category': None, 'author': None}
 
-   The templates to use pagination with, and the number of articles to include
-   on a page. If this value is ``None``, it defaults to ``DEFAULT_PAGINATION``.
+   设置各个模板块是否单独使用分布以及每页显示的文章数。
+   如果这一项的值为 ``None`` ，则默认为 ``DEFAULT_PAGINATION`` 的值。
 
 .. data:: PAGINATION_PATTERNS = (
       (1, '{name}{extension}', '{name}{extension}'),
-      (2, '{name}{number}{extension}', '{name}{number}{extension}'),
-  )
+      (2, '{name}{number}{extension}', '{name}{number}{extension}'),)
 
-   A set of patterns that are used to determine advanced pagination output.
+   用于确定高级分页输出的一组模式。
 
 
-Using Pagination Patterns
+使用分页模式
 -------------------------
 
-By default, pages subsequent to ``.../foo.html`` are created as
-``.../foo2.html``, etc. The ``PAGINATION_PATTERNS`` setting can be used to
-change this. It takes a sequence of triples, where each triple consists of::
+默认情况下，  ``.../foo.html``  之后的页面将创建为 ``.../foo2.html`` 等。
+可以使用 ``PAGINATION_PATTERNS`` 设置来更改此设置。
+设置需要一个包含三个参数的序列， 这三个参数是::
 
   (minimum_page, page_url, page_save_as,)
 
-For ``page_url`` and ``page_save_as``, you may use a number of variables.
-``{url}`` and ``{save_as}`` correspond respectively to the ``*_URL`` and
-``*_SAVE_AS`` values of the corresponding page type (e.g. ``ARTICLE_SAVE_AS``).
-If ``{save_as} == foo/bar.html``, then ``{name} == foo/bar`` and ``{extension}
-== .html``. ``{base_name}`` equals ``{name}`` except that it strips trailing
-``/index`` if present. ``{number}`` equals the page number.
+对于 ``page_url`` 和 ``page_save_as`` ，你可以使用许多变量。
+``{url}`` 和 ``{save_as}`` 分别对应相应的页面类型（例如 ``ARTICLE_SAVE_AS`` ）
+的 ``*_URL`` 和 ``*_SAVE_AS`` 值。
+如果 ``{save_as} == foo/bar.html`` ，则表示 ``{name} == foo/bar`` 并且 ``{extension}
+== .html`` 。 ``{base_name}`` 相当于  ``{name}`` 只不过如果末尾有 ``/index`` 的话它会
+自动将其删掉。 ``{number}`` 相当于页码。
 
-For example, if you want to leave the first page unchanged, but place
-subsequent pages at ``.../page/2/`` etc, you could set ``PAGINATION_PATTERNS``
-as follows::
+例如, 如果要保持第一页不变, 但将后续页面放在 ``.../page/2/`` 等位置, 你可以如下所
+示设置 ``PAGINATION_PATTERNS`` ::
 
   PAGINATION_PATTERNS = (
       (1, '{url}', '{save_as}`,
@@ -903,7 +898,7 @@ as follows::
   )
 
 
-Translations
+翻译
 ============
 
 Pelican offers a way to translate articles. See the :doc:`Content <content>`
