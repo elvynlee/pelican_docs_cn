@@ -967,38 +967,34 @@ Pelican 提供了一种翻译文章的方法。请参阅 :doc:`Content <content>
 主题
 ======
 
-Creating Pelican themes is addressed in a dedicated section (see
-:ref:`theming-pelican`). However, here are the settings that are related to
-themes.
+我们有一章专门的章节讨论Pelican主题。(查看 :ref:`theming-pelican` ）
+不过，以下这些是与主题相关的设置。
 
 .. data:: THEME
 
-   Theme to use to produce the output. Can be a relative or absolute path to a
-   theme folder, or the name of a default theme or a theme installed via
-   ``pelican-themes`` (see below).
+   生成输出的主题。
+   可以是主题文件夹的相对路径或绝对路径，也可以是默认主题的名称
+   或是通过 ``pelican-themes`` 安装的主题(见下文)。
 
 .. data:: THEME_STATIC_DIR = 'theme'
 
-   Destination directory in the output path where Pelican will place the files
-   collected from `THEME_STATIC_PATHS`. Default is `theme`.
+   在输出路径中的一个目录，此目录供Pelican放置从 `THEME_STATIC_PATHS` 中收集的文件。
+   默认值为 `theme` 。
 
 .. data:: THEME_STATIC_PATHS = ['static']
 
-   Static theme paths you want to copy. Default value is `static`, but if your
-   theme has other static paths, you can put them here. If files or directories
-   with the same names are included in the paths defined in this settings, they
-   will be progressively overwritten.
+   要复制的静态主题路径。
+   默认值为 `static` ，但如果你的主题有其他静态路径，你可以将它们标明在这里。
+   如果在这里定义的路径中包含有相同名称的文件或目录，这些文件或目录会被一步一步覆盖掉。
 
 .. data:: THEME_TEMPLATES_OVERRIDES = []
 
-   A list of paths you want Jinja2 to search for templates before searching the
-   theme's ``templates/`` directory.  Allows for overriding individual theme
-   template files without having to fork an existing theme.  Jinja2 searches in
-   the following order: files in ``THEME_TEMPLATES_OVERRIDES`` first, then the
-   theme's ``templates/``.
+   搜索模板，你希望Jinja2在搜索主题的 ``templates/`` 目录之前所要搜索其他路径的一个列表。 
+   这样允许你重写单个主题的模板文件，而无需将主题fork过来。 Jinja2的搜索顺序如下: 
+   先搜索 ``THEME_TEMPLATES_OVERRIDES`` 中的文件，再搜索主题的 ``templates/`` 。
 
-   You can also extend templates from the theme using the ``{% extends %}``
-   directive utilizing the ``!theme`` prefix as shown in the following example:
+   你还可以使用 ``{% extends %}`` 指令，以 ``!theme`` 为前缀来扩展主题中的模板，
+   如以下示例所示:
 
    .. parsed-literal::
 
@@ -1006,112 +1002,104 @@ themes.
 
 .. data:: CSS_FILE = 'main.css'
 
-   Specify the CSS file you want to load.
+   指定要加载的 CSS 文件。
 
-By default, two themes are available. You can specify them using the ``THEME``
-setting or by passing the ``-t`` option to the ``pelican`` command:
+默认情况下，有两个主题可用。您可以设置 ``THEME`` 指定它们或者
+在 ``pelican`` 命令中用 ``-t`` 参数来设定:
 
 * notmyidea
 * simple (a synonym for "plain text" :)
 
-There are a number of other themes available at
-https://github.com/getpelican/pelican-themes. Pelican comes with
-:doc:`pelican-themes`, a small script for managing themes.
+在这个地址有许多其他主题 https://github.com/getpelican/pelican-themes. 
+Pelican附带 :doc:`pelican-themes` ，一个用于管理主题的小脚本。
 
-You can define your own theme, either by starting from scratch or by
-duplicating and modifying a pre-existing theme. Here is :doc:`a guide on how to
-create your theme <themes>`.
+你可以定义自己的主题，不管是从头开始创建，还是复制别人的主题来修改。
+这里有 :doc:`主题相关指南 <themes>` 。
 
-Following are example ways to specify your preferred theme::
+以下是指定首选主题的示例方法::
 
-    # Specify name of a built-in theme
+    # 指定内置主题的名称
     THEME = "notmyidea"
-    # Specify name of a theme installed via the pelican-themes tool
+    # 指定通过pelican-themes工具安装的主题的名称
     THEME = "chunk"
-    # Specify a customized theme, via path relative to the settings file
+    # 通过相对于设置文件的路径指定一个自定义主题
     THEME = "themes/mycustomtheme"
-    # Specify a customized theme, via absolute path
+    # 通过绝对路径指定自定义主题
     THEME = "/home/myuser/projects/mysite/themes/mycustomtheme"
 
-The built-in ``notmyidea`` theme can make good use of the following settings.
-Feel free to use them in your themes as well.
+内置的 ``notmyidea`` 主题可以作以下设置。
+你也可以在你的主题设置中用它们。
 
 .. data:: SITESUBTITLE
 
-   A subtitle to appear in the header.
+   在头部header显示一个副标题
 
 .. data:: DISQUS_SITENAME
 
-   Pelican can handle Disqus comments. Specify the Disqus sitename identifier
-   here.
+   Pelican可以处理Disqus的评论。在此处指定Disqus站点名称的标识符。
 
 .. data:: GITHUB_URL
 
+   你的GitHub地址(如果有的话)。然后它将使用此信息创建一个GitHub功能区。
    Your GitHub URL (if you have one). It will then use this information to
    create a GitHub ribbon.
 
 .. data:: GOOGLE_ANALYTICS
 
-   Set to ``UA-XXXXX-Y`` Property's tracking ID to activate Google Analytics.
+   设置为 ``UA-XXXXX-Y`` 属性的跟踪ID以激活 Google 分析。
 
 .. data:: GA_COOKIE_DOMAIN
 
-   Set cookie domain field of Google Analytics tracking code. Defaults to
-   ``auto``.
+   设置谷歌分析跟踪代码的 Cookie 域字段。默认为 ``auto`` 。
 
 .. data:: GOSQUARED_SITENAME
 
-   Set to 'XXX-YYYYYY-X' to activate GoSquared.
+   设置为 'XXX-YYYYYY-X' 以激活 GoSquared。
 
 .. data:: MENUITEMS
 
-   A list of tuples (Title, URL) for additional menu items to appear at the
-   beginning of the main menu.
+   一个其他菜单项的列表，列表中的值为元组tuple（Title，URL)，用于显示在主菜单的开头。
 
 .. data:: PIWIK_URL
 
-   URL to your Piwik server - without 'http://' at the beginning.
+   指向Piwik服务器的URL - 开头没有 'http://' 。
 
 .. data:: PIWIK_SSL_URL
 
-   If the SSL-URL differs from the normal Piwik-URL you have to include this
-   setting too. (optional)
+   如果SSL-URL与普通Piwik-URL不同，则也必须包含此设置。(可选)
 
 .. data:: PIWIK_SITE_ID
 
-   ID for the monitored website. You can find the ID in the Piwik admin
-   interface > Settings > Websites.
+   被监视网站的 ID。您可以在 Piwik 管理界面 > 设置 > 网站中找到该ID。
 
 .. data:: LINKS
 
-   A list of tuples (Title, URL) for links to appear on the header.
+   
+   一个列表，列表中的值为元组tuple（Title，URL)，用于在头部header显示链接。
 
 .. data:: SOCIAL
 
-   A list of tuples (Title, URL) to appear in the "social" section.
+   一个显示在"社交"部分的元组tuples(Title, URL)列表。
 
 .. data:: TWITTER_USERNAME
 
-   Allows for adding a button to articles to encourage others to tweet about
-   them. Add your Twitter username if you want this button to appear.
+   允许向文章添加按钮以鼓励其他人分享此文章发推。
+   如果您希望显示此按钮，请设置添加你的Twitter用户名。
 
 .. data:: LINKS_WIDGET_NAME
 
-   Allows override of the name of the links widget.  If not specified, defaults
-   to "links".
+   允许重命名链接小部件。 如果未指定，则默认值为 "links" 。
 
 .. data:: SOCIAL_WIDGET_NAME
 
-   Allows override of the name of the "social" widget.  If not specified,
-   defaults to "social".
+   允许重命名"社交"小部件。 如果未指定，则默认值为 "social" 。
 
-In addition, you can use the "wide" version of the ``notmyidea`` theme by
-adding the following to your configuration::
+另外， 你可以在设置中添加下面一行语句以使用 ``notmyidea`` 主题的"宽屏"版本::
 
     CSS_FILE = "wide.css"
 
 
-Logging
+日志
 =======
 
 Sometimes, a long list of warnings may appear during site generation. Finding

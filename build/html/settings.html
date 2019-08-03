@@ -98,7 +98,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#id23">翻译</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id28">整理内容</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id29">主题</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#logging">Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id30">日志</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reading-only-modified-content">Reading only modified content</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#writing-only-selected-content">Writing only selected content</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#example-settings">Example settings</a></li>
@@ -1360,43 +1360,39 @@ Unix/Linux系统可以使用 <code class="docutils literal notranslate"><span cl
 </div>
 <div class="section" id="id29">
 <h2>主题<a class="headerlink" href="#id29" title="永久链接至标题">¶</a></h2>
-<p>Creating Pelican themes is addressed in a dedicated section (see
-<span class="xref std std-ref">theming-pelican</span>). However, here are the settings that are related to
-themes.</p>
+<p>我们有一章专门的章节讨论Pelican主题。(查看 <span class="xref std std-ref">theming-pelican</span> ）
+不过，以下这些是与主题相关的设置。</p>
 <dl class="data">
 <dt id="THEME">
 <code class="descname">THEME</code><a class="headerlink" href="#THEME" title="永久链接至目标">¶</a></dt>
-<dd><p>Theme to use to produce the output. Can be a relative or absolute path to a
-theme folder, or the name of a default theme or a theme installed via
-<code class="docutils literal notranslate"><span class="pre">pelican-themes</span></code> (see below).</p>
+<dd><p>生成输出的主题。
+可以是主题文件夹的相对路径或绝对路径，也可以是默认主题的名称
+或是通过 <code class="docutils literal notranslate"><span class="pre">pelican-themes</span></code> 安装的主题(见下文)。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">THEME_STATIC_DIR = 'theme'</code></dt>
-<dd><p>Destination directory in the output path where Pelican will place the files
-collected from <cite>THEME_STATIC_PATHS</cite>. Default is <cite>theme</cite>.</p>
+<dd><p>在输出路径中的一个目录，此目录供Pelican放置从 <cite>THEME_STATIC_PATHS</cite> 中收集的文件。
+默认值为 <cite>theme</cite> 。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">THEME_STATIC_PATHS = ['static']</code></dt>
-<dd><p>Static theme paths you want to copy. Default value is <cite>static</cite>, but if your
-theme has other static paths, you can put them here. If files or directories
-with the same names are included in the paths defined in this settings, they
-will be progressively overwritten.</p>
+<dd><p>要复制的静态主题路径。
+默认值为 <cite>static</cite> ，但如果你的主题有其他静态路径，你可以将它们标明在这里。
+如果在这里定义的路径中包含有相同名称的文件或目录，这些文件或目录会被一步一步覆盖掉。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">THEME_TEMPLATES_OVERRIDES = []</code></dt>
-<dd><p>A list of paths you want Jinja2 to search for templates before searching the
-theme’s <code class="docutils literal notranslate"><span class="pre">templates/</span></code> directory.  Allows for overriding individual theme
-template files without having to fork an existing theme.  Jinja2 searches in
-the following order: files in <code class="docutils literal notranslate"><span class="pre">THEME_TEMPLATES_OVERRIDES</span></code> first, then the
-theme’s <code class="docutils literal notranslate"><span class="pre">templates/</span></code>.</p>
-<p>You can also extend templates from the theme using the <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">extends</span> <span class="pre">%}</span></code>
-directive utilizing the <code class="docutils literal notranslate"><span class="pre">!theme</span></code> prefix as shown in the following example:</p>
+<dd><p>搜索模板，你希望Jinja2在搜索主题的 <code class="docutils literal notranslate"><span class="pre">templates/</span></code> 目录之前所要搜索其他路径的一个列表。
+这样允许你重写单个主题的模板文件，而无需将主题fork过来。 Jinja2的搜索顺序如下:
+先搜索 <code class="docutils literal notranslate"><span class="pre">THEME_TEMPLATES_OVERRIDES</span></code> 中的文件，再搜索主题的 <code class="docutils literal notranslate"><span class="pre">templates/</span></code> 。</p>
+<p>你还可以使用 <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">extends</span> <span class="pre">%}</span></code> 指令，以 <code class="docutils literal notranslate"><span class="pre">!theme</span></code> 为前缀来扩展主题中的模板，
+如以下示例所示:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">extends</span> <span class="s1">&#39;!theme/article.html&#39;</span> <span class="o">%</span><span class="p">}</span>
 </pre></div>
 </div>
@@ -1405,141 +1401,132 @@ directive utilizing the <code class="docutils literal notranslate"><span class="
 <dl class="data">
 <dt>
 <code class="descname">CSS_FILE = 'main.css'</code></dt>
-<dd><p>Specify the CSS file you want to load.</p>
+<dd><p>指定要加载的 CSS 文件。</p>
 </dd></dl>
 
-<p>By default, two themes are available. You can specify them using the <code class="docutils literal notranslate"><span class="pre">THEME</span></code>
-setting or by passing the <code class="docutils literal notranslate"><span class="pre">-t</span></code> option to the <code class="docutils literal notranslate"><span class="pre">pelican</span></code> command:</p>
+<p>默认情况下，有两个主题可用。您可以设置 <code class="docutils literal notranslate"><span class="pre">THEME</span></code> 指定它们或者
+在 <code class="docutils literal notranslate"><span class="pre">pelican</span></code> 命令中用 <code class="docutils literal notranslate"><span class="pre">-t</span></code> 参数来设定:</p>
 <ul class="simple">
 <li>notmyidea</li>
 <li>simple (a synonym for “plain text” :)</li>
 </ul>
-<p>There are a number of other themes available at
-<a class="reference external" href="https://github.com/getpelican/pelican-themes">https://github.com/getpelican/pelican-themes</a>. Pelican comes with
-<span class="xref std std-doc">pelican-themes</span>, a small script for managing themes.</p>
-<p>You can define your own theme, either by starting from scratch or by
-duplicating and modifying a pre-existing theme. Here is <span class="xref std std-doc">a guide on how to
-create your theme</span>.</p>
-<p>Following are example ways to specify your preferred theme:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify name of a built-in theme</span>
+<p>在这个地址有许多其他主题 <a class="reference external" href="https://github.com/getpelican/pelican-themes">https://github.com/getpelican/pelican-themes</a>.
+Pelican附带 <span class="xref std std-doc">pelican-themes</span> ，一个用于管理主题的小脚本。</p>
+<p>你可以定义自己的主题，不管是从头开始创建，还是复制别人的主题来修改。
+这里有 <span class="xref std std-doc">主题相关指南</span> 。</p>
+<p>以下是指定首选主题的示例方法:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 指定内置主题的名称</span>
 <span class="n">THEME</span> <span class="o">=</span> <span class="s2">&quot;notmyidea&quot;</span>
-<span class="c1"># Specify name of a theme installed via the pelican-themes tool</span>
+<span class="c1"># 指定通过pelican-themes工具安装的主题的名称</span>
 <span class="n">THEME</span> <span class="o">=</span> <span class="s2">&quot;chunk&quot;</span>
-<span class="c1"># Specify a customized theme, via path relative to the settings file</span>
+<span class="c1"># 通过相对于设置文件的路径指定一个自定义主题</span>
 <span class="n">THEME</span> <span class="o">=</span> <span class="s2">&quot;themes/mycustomtheme&quot;</span>
-<span class="c1"># Specify a customized theme, via absolute path</span>
+<span class="c1"># 通过绝对路径指定自定义主题</span>
 <span class="n">THEME</span> <span class="o">=</span> <span class="s2">&quot;/home/myuser/projects/mysite/themes/mycustomtheme&quot;</span>
 </pre></div>
 </div>
-<p>The built-in <code class="docutils literal notranslate"><span class="pre">notmyidea</span></code> theme can make good use of the following settings.
-Feel free to use them in your themes as well.</p>
+<p>内置的 <code class="docutils literal notranslate"><span class="pre">notmyidea</span></code> 主题可以作以下设置。
+你也可以在你的主题设置中用它们。</p>
 <dl class="data">
 <dt id="SITESUBTITLE">
 <code class="descname">SITESUBTITLE</code><a class="headerlink" href="#SITESUBTITLE" title="永久链接至目标">¶</a></dt>
-<dd><p>A subtitle to appear in the header.</p>
+<dd><p>在头部header显示一个副标题</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="DISQUS_SITENAME">
 <code class="descname">DISQUS_SITENAME</code><a class="headerlink" href="#DISQUS_SITENAME" title="永久链接至目标">¶</a></dt>
-<dd><p>Pelican can handle Disqus comments. Specify the Disqus sitename identifier
-here.</p>
+<dd><p>Pelican可以处理Disqus的评论。在此处指定Disqus站点名称的标识符。</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="GITHUB_URL">
 <code class="descname">GITHUB_URL</code><a class="headerlink" href="#GITHUB_URL" title="永久链接至目标">¶</a></dt>
-<dd><p>Your GitHub URL (if you have one). It will then use this information to
+<dd><p>你的GitHub地址(如果有的话)。然后它将使用此信息创建一个GitHub功能区。
+Your GitHub URL (if you have one). It will then use this information to
 create a GitHub ribbon.</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="GOOGLE_ANALYTICS">
 <code class="descname">GOOGLE_ANALYTICS</code><a class="headerlink" href="#GOOGLE_ANALYTICS" title="永久链接至目标">¶</a></dt>
-<dd><p>Set to <code class="docutils literal notranslate"><span class="pre">UA-XXXXX-Y</span></code> Property’s tracking ID to activate Google Analytics.</p>
+<dd><p>设置为 <code class="docutils literal notranslate"><span class="pre">UA-XXXXX-Y</span></code> 属性的跟踪ID以激活 Google 分析。</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="GA_COOKIE_DOMAIN">
 <code class="descname">GA_COOKIE_DOMAIN</code><a class="headerlink" href="#GA_COOKIE_DOMAIN" title="永久链接至目标">¶</a></dt>
-<dd><p>Set cookie domain field of Google Analytics tracking code. Defaults to
-<code class="docutils literal notranslate"><span class="pre">auto</span></code>.</p>
+<dd><p>设置谷歌分析跟踪代码的 Cookie 域字段。默认为 <code class="docutils literal notranslate"><span class="pre">auto</span></code> 。</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="GOSQUARED_SITENAME">
 <code class="descname">GOSQUARED_SITENAME</code><a class="headerlink" href="#GOSQUARED_SITENAME" title="永久链接至目标">¶</a></dt>
-<dd><p>Set to ‘XXX-YYYYYY-X’ to activate GoSquared.</p>
+<dd><p>设置为 ‘XXX-YYYYYY-X’ 以激活 GoSquared。</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="MENUITEMS">
 <code class="descname">MENUITEMS</code><a class="headerlink" href="#MENUITEMS" title="永久链接至目标">¶</a></dt>
-<dd><p>A list of tuples (Title, URL) for additional menu items to appear at the
-beginning of the main menu.</p>
+<dd><p>一个其他菜单项的列表，列表中的值为元组tuple（Title，URL)，用于显示在主菜单的开头。</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="PIWIK_URL">
 <code class="descname">PIWIK_URL</code><a class="headerlink" href="#PIWIK_URL" title="永久链接至目标">¶</a></dt>
-<dd><p>URL to your Piwik server - without ‘<a class="reference external" href="http://">http://</a>’ at the beginning.</p>
+<dd><p>指向Piwik服务器的URL - 开头没有 ‘<a class="reference external" href="http://">http://</a>’ 。</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="PIWIK_SSL_URL">
 <code class="descname">PIWIK_SSL_URL</code><a class="headerlink" href="#PIWIK_SSL_URL" title="永久链接至目标">¶</a></dt>
-<dd><p>If the SSL-URL differs from the normal Piwik-URL you have to include this
-setting too. (optional)</p>
+<dd><p>如果SSL-URL与普通Piwik-URL不同，则也必须包含此设置。(可选)</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="PIWIK_SITE_ID">
 <code class="descname">PIWIK_SITE_ID</code><a class="headerlink" href="#PIWIK_SITE_ID" title="永久链接至目标">¶</a></dt>
-<dd><p>ID for the monitored website. You can find the ID in the Piwik admin
-interface &gt; Settings &gt; Websites.</p>
+<dd><p>被监视网站的 ID。您可以在 Piwik 管理界面 &gt; 设置 &gt; 网站中找到该ID。</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="LINKS">
 <code class="descname">LINKS</code><a class="headerlink" href="#LINKS" title="永久链接至目标">¶</a></dt>
-<dd><p>A list of tuples (Title, URL) for links to appear on the header.</p>
+<dd><p>一个列表，列表中的值为元组tuple（Title，URL)，用于在头部header显示链接。</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="SOCIAL">
 <code class="descname">SOCIAL</code><a class="headerlink" href="#SOCIAL" title="永久链接至目标">¶</a></dt>
-<dd><p>A list of tuples (Title, URL) to appear in the “social” section.</p>
+<dd><p>一个显示在”社交”部分的元组tuples(Title, URL)列表。</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="TWITTER_USERNAME">
 <code class="descname">TWITTER_USERNAME</code><a class="headerlink" href="#TWITTER_USERNAME" title="永久链接至目标">¶</a></dt>
-<dd><p>Allows for adding a button to articles to encourage others to tweet about
-them. Add your Twitter username if you want this button to appear.</p>
+<dd><p>允许向文章添加按钮以鼓励其他人分享此文章发推。
+如果您希望显示此按钮，请设置添加你的Twitter用户名。</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="LINKS_WIDGET_NAME">
 <code class="descname">LINKS_WIDGET_NAME</code><a class="headerlink" href="#LINKS_WIDGET_NAME" title="永久链接至目标">¶</a></dt>
-<dd><p>Allows override of the name of the links widget.  If not specified, defaults
-to “links”.</p>
+<dd><p>允许重命名链接小部件。 如果未指定，则默认值为 “links” 。</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="SOCIAL_WIDGET_NAME">
 <code class="descname">SOCIAL_WIDGET_NAME</code><a class="headerlink" href="#SOCIAL_WIDGET_NAME" title="永久链接至目标">¶</a></dt>
-<dd><p>Allows override of the name of the “social” widget.  If not specified,
-defaults to “social”.</p>
+<dd><p>允许重命名”社交”小部件。 如果未指定，则默认值为 “social” 。</p>
 </dd></dl>
 
-<p>In addition, you can use the “wide” version of the <code class="docutils literal notranslate"><span class="pre">notmyidea</span></code> theme by
-adding the following to your configuration:</p>
+<p>另外， 你可以在设置中添加下面一行语句以使用 <code class="docutils literal notranslate"><span class="pre">notmyidea</span></code> 主题的”宽屏”版本:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CSS_FILE</span> <span class="o">=</span> <span class="s2">&quot;wide.css&quot;</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="logging">
-<h2>Logging<a class="headerlink" href="#logging" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id30">
+<h2>日志<a class="headerlink" href="#id30" title="永久链接至标题">¶</a></h2>
 <p>Sometimes, a long list of warnings may appear during site generation. Finding
 the <strong>meaningful</strong> error message in the middle of tons of annoying log output
 can be quite tricky. In order to filter out redundant log messages, Pelican
@@ -1572,7 +1559,7 @@ unintentionally filter out multiple message types with the same template
 </div>
 </div>
 <div class="section" id="reading-only-modified-content">
-<span id="id30"></span><h2>Reading only modified content<a class="headerlink" href="#reading-only-modified-content" title="永久链接至标题">¶</a></h2>
+<span id="id31"></span><h2>Reading only modified content<a class="headerlink" href="#reading-only-modified-content" title="永久链接至标题">¶</a></h2>
 <p>To speed up the build process, Pelican can optionally read only articles and
 pages with modified content.</p>
 <p>When Pelican is about to read some content source file:</p>
@@ -1631,7 +1618,7 @@ Therefore, <code class="docutils literal notranslate"><span class="pre">rsync</s
 option.</p>
 </div>
 <div class="section" id="writing-only-selected-content">
-<span id="id31"></span><h2>Writing only selected content<a class="headerlink" href="#writing-only-selected-content" title="永久链接至标题">¶</a></h2>
+<span id="id32"></span><h2>Writing only selected content<a class="headerlink" href="#writing-only-selected-content" title="永久链接至标题">¶</a></h2>
 <p>When only working on a single article or page, or making tweaks to your theme,
 it is often desirable to generate and review your work as quickly as possible.
 In such cases, generating and writing the entire site output is often
