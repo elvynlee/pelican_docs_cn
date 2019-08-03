@@ -841,7 +841,7 @@ Pelican会为你的所有文章生成分类订阅源和所有文章订阅源。�
 
 如果不想生成订阅源，以上变量值设为 ``None`` 即可。
 
-.. [2] ``{slug}`` 被替换为 分类/作者/标签 的名称。
+.. [2] ``{slug}`` 替换为 分类/作者/标签 的名称。
 
 
 分页
@@ -901,46 +901,41 @@ Pelican的默认行为是列出所有文章标题以及索引页上的简短说�
 翻译
 ============
 
-Pelican offers a way to translate articles. See the :doc:`Content <content>`
-section for more information.
+Pelican 提供了一种翻译文章的方法。请参阅 :doc:`Content <content>` 部分了解更多信息。
 
 .. data:: DEFAULT_LANG = 'en'
 
-   The default language to use.
+   使用的默认语言。
 
 .. data:: ARTICLE_TRANSLATION_ID = 'slug'
 
-   The metadata attribute(s) used to identify which articles are translations
-   of one another. May be a string or a collection of strings. Set to ``None``
-   or ``False`` to disable the identification of translations.
+   标识哪些文章是彼此的翻译版本的元数据属性。
+   可以是字符串或字符串集合。设置为 ``None`` 或 ``False`` 以禁用翻译标识。
 
 .. data:: PAGE_TRANSLATION_ID = 'slug'
 
-   The metadata attribute(s) used to identify which pages are translations of
-   one another. May be a string or a collection of strings. Set to ``None`` or
-   ``False`` to disable the identification of translations.
+   标识哪些pages页是彼此的翻译版本的元数据属性。
+   可以是字符串或字符串集合。设置为 ``None`` 或 ``False`` 以禁用翻译标识。
 
 .. data:: TRANSLATION_FEED_ATOM = 'feeds/all-{lang}.atom.xml'
 
-   The location to save the Atom feed for translations. [3]_
+   用于翻译的Atom订阅源的保存位置。 [3]_
 
 .. data:: TRANSLATION_FEED_ATOM_URL = None
 
-   Relative URL of the Atom feed for translations, including the ``{lang}``
-   placeholder. [3]_ If not set, ``TRANSLATION_FEED_ATOM`` is used both for
-   save location and URL.
+   用于翻译的Atom源的相对URL，包含 ``{lang}`` 占位符。 [3]_ 
+   如果不设置，则用 ``TRANSLATION_FEED_ATOM`` 的值作为保存位置和URL地址。
 
 .. data:: TRANSLATION_FEED_RSS = None, i.e. no RSS
 
-   Where to put the RSS feed for translations.
+   用于翻译的RSS订阅源的保存位置。
 
 .. data:: TRANSLATION_FEED_RSS_URL = None
 
-   Relative URL of the RSS feed for translations, including the ``{lang}``
-   placeholder. [3]_ If not set, ``TRANSLATION_FEED_RSS`` is used both for save
-   location and URL.
+   用于翻译的RSS源的相对URL，包含 ``{lang}`` 占位符。 [3]_ 
+   如果不设置，则用 ``TRANSLATION_FEED_RSS`` 的值作为保存位置和URL地址。
 
-.. [3] {lang} is the language code
+.. [3] {lang} 是指语言代码
 
 
 Ordering content

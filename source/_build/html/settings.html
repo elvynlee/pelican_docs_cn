@@ -1207,7 +1207,7 @@ Unix/Linux系统可以使用 <code class="docutils literal notranslate"><span cl
 <table class="docutils footnote" frame="void" id="id20" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id10">1</a>, <a class="fn-backref" href="#id11">2</a>, <a class="fn-backref" href="#id12">3</a>, <a class="fn-backref" href="#id13">4</a>, <a class="fn-backref" href="#id14">5</a>, <a class="fn-backref" href="#id15">6</a>, <a class="fn-backref" href="#id16">7</a>, <a class="fn-backref" href="#id17">8</a>, <a class="fn-backref" href="#id18">9</a>, <a class="fn-backref" href="#id19">10</a>)</em> <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> 被替换为 分类/作者/标签 的名称。</td></tr>
+<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id10">1</a>, <a class="fn-backref" href="#id11">2</a>, <a class="fn-backref" href="#id12">3</a>, <a class="fn-backref" href="#id13">4</a>, <a class="fn-backref" href="#id14">5</a>, <a class="fn-backref" href="#id15">6</a>, <a class="fn-backref" href="#id16">7</a>, <a class="fn-backref" href="#id17">8</a>, <a class="fn-backref" href="#id18">9</a>, <a class="fn-backref" href="#id19">10</a>)</em> <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> 替换为 分类/作者/标签 的名称。</td></tr>
 </tbody>
 </table>
 </div>
@@ -1272,62 +1272,57 @@ Unix/Linux系统可以使用 <code class="docutils literal notranslate"><span cl
 </div>
 <div class="section" id="id23">
 <h2>翻译<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h2>
-<p>Pelican offers a way to translate articles. See the <a class="reference internal" href="content.html"><span class="doc">Content</span></a>
-section for more information.</p>
+<p>Pelican 提供了一种翻译文章的方法。请参阅 <a class="reference internal" href="content.html"><span class="doc">Content</span></a> 部分了解更多信息。</p>
 <dl class="data">
 <dt>
 <code class="descname">DEFAULT_LANG = 'en'</code></dt>
-<dd><p>The default language to use.</p>
+<dd><p>使用的默认语言。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">ARTICLE_TRANSLATION_ID = 'slug'</code></dt>
-<dd><p>The metadata attribute(s) used to identify which articles are translations
-of one another. May be a string or a collection of strings. Set to <code class="docutils literal notranslate"><span class="pre">None</span></code>
-or <code class="docutils literal notranslate"><span class="pre">False</span></code> to disable the identification of translations.</p>
+<dd><p>标识哪些文章是彼此的翻译版本的元数据属性。
+可以是字符串或字符串集合。设置为 <code class="docutils literal notranslate"><span class="pre">None</span></code> 或 <code class="docutils literal notranslate"><span class="pre">False</span></code> 以禁用翻译标识。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">PAGE_TRANSLATION_ID = 'slug'</code></dt>
-<dd><p>The metadata attribute(s) used to identify which pages are translations of
-one another. May be a string or a collection of strings. Set to <code class="docutils literal notranslate"><span class="pre">None</span></code> or
-<code class="docutils literal notranslate"><span class="pre">False</span></code> to disable the identification of translations.</p>
+<dd><p>标识哪些pages页是彼此的翻译版本的元数据属性。
+可以是字符串或字符串集合。设置为 <code class="docutils literal notranslate"><span class="pre">None</span></code> 或 <code class="docutils literal notranslate"><span class="pre">False</span></code> 以禁用翻译标识。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">TRANSLATION_FEED_ATOM = 'feeds/all-{lang}.atom.xml'</code></dt>
-<dd><p>The location to save the Atom feed for translations. <a class="footnote-reference" href="#id27" id="id24">[3]</a></p>
+<dd><p>用于翻译的Atom订阅源的保存位置。 <a class="footnote-reference" href="#id27" id="id24">[3]</a></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">TRANSLATION_FEED_ATOM_URL = None</code></dt>
-<dd><p>Relative URL of the Atom feed for translations, including the <code class="docutils literal notranslate"><span class="pre">{lang}</span></code>
-placeholder. <a class="footnote-reference" href="#id27" id="id25">[3]</a> If not set, <code class="docutils literal notranslate"><span class="pre">TRANSLATION_FEED_ATOM</span></code> is used both for
-save location and URL.</p>
+<dd><p>用于翻译的Atom源的相对URL，包含 <code class="docutils literal notranslate"><span class="pre">{lang}</span></code> 占位符。 <a class="footnote-reference" href="#id27" id="id25">[3]</a>
+如果不设置，则用 <code class="docutils literal notranslate"><span class="pre">TRANSLATION_FEED_ATOM</span></code> 的值作为保存位置和URL地址。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">TRANSLATION_FEED_RSS = None, i.e. no RSS</code></dt>
-<dd><p>Where to put the RSS feed for translations.</p>
+<dd><p>用于翻译的RSS订阅源的保存位置。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">TRANSLATION_FEED_RSS_URL = None</code></dt>
-<dd><p>Relative URL of the RSS feed for translations, including the <code class="docutils literal notranslate"><span class="pre">{lang}</span></code>
-placeholder. <a class="footnote-reference" href="#id27" id="id26">[3]</a> If not set, <code class="docutils literal notranslate"><span class="pre">TRANSLATION_FEED_RSS</span></code> is used both for save
-location and URL.</p>
+<dd><p>用于翻译的RSS源的相对URL，包含 <code class="docutils literal notranslate"><span class="pre">{lang}</span></code> 占位符。 <a class="footnote-reference" href="#id27" id="id26">[3]</a>
+如果不设置，则用 <code class="docutils literal notranslate"><span class="pre">TRANSLATION_FEED_RSS</span></code> 的值作为保存位置和URL地址。</p>
 </dd></dl>
 
 <table class="docutils footnote" frame="void" id="id27" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[3]</td><td><em>(<a class="fn-backref" href="#id24">1</a>, <a class="fn-backref" href="#id25">2</a>, <a class="fn-backref" href="#id26">3</a>)</em> {lang} is the language code</td></tr>
+<tr><td class="label">[3]</td><td><em>(<a class="fn-backref" href="#id24">1</a>, <a class="fn-backref" href="#id25">2</a>, <a class="fn-backref" href="#id26">3</a>)</em> {lang} 是指语言代码</td></tr>
 </tbody>
 </table>
 </div>
