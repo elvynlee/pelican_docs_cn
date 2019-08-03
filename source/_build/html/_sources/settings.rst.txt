@@ -206,7 +206,7 @@
    如果设置为False，则在复制 ``STATIC_PATHS`` 中找到的文件时不会跳过内容源文件。
    此设置用于向后兼容3.5版之前的Pelican版本。
    除非 ``STATIC_PATHS`` 包含一个同样位于 ``ARTICLE_PATHS`` 或 ``PAGE_PATHS`` 的
-   目录，不然此设置不会生效。如果您尝试发布站点的源文件，
+   目录，不然此设置不会生效。如果你尝试发布站点的源文件，
    请考虑使用 ``OUTPUT_SOURCES`` 设置。
 
 .. data:: STATIC_CREATE_LINKS = False
@@ -233,7 +233,7 @@
 
 .. data:: SUMMARY_MAX_LENGTH = 50
 
-   创建文章摘要时的字数，默认50（以单词测量）。这仅适用于您的内容未另外指定摘要的情况。
+   创建文章摘要时的字数，默认50（以单词测量）。这仅适用于你的内容未另外指定摘要的情况。
    设置为 ``None`` 的话将使摘要成为原始内容的副本。
    (measured in words) of the text created.  This only applies if your content
    does not otherwise specify a summary. Setting to ``None`` will cause the
@@ -308,32 +308,26 @@
 URL设置
 ============
 
-The first thing to understand is that there are currently two supported methods
-for URL formation: *relative* and *absolute*. Relative URLs are useful when
-testing locally, and absolute URLs are reliable and most useful when
-publishing. One method of supporting both is to have one Pelican configuration
-file for local development and another for publishing. To see an example of
-this type of setup, use the ``pelican-quickstart`` script as described in the
-:doc:`Installation <install>` section, which will produce two separate
-configuration files for local development and publishing, respectively.
+首先要了解的是，目前有两种URL的形成方法： *相对地址* 和 *绝对地址* 。 
+在本地测试时，相对URL非常方便，而绝对URL在发布时则最可靠且最有用。 
+支持两者的一种方法是将一个Pelican配置文件用于本地开发，另一个用于发布。 
+要查看此类设置的示例，请使用 :doc:`安装Pelican <install>` 部分中描述
+的 ``pelican-quickstart`` 脚本，该脚本将分别为本地开发和发布生成两个单独的配置文件。
 
-You can customize the URLs and locations where files will be saved. The
-``*_URL`` and ``*_SAVE_AS`` variables use Python's format strings. These
-variables allow you to place your articles in a location such as
-``{slug}/index.html`` and link to them as ``{slug}`` for clean URLs (see
-example below). These settings give you the flexibility to place your articles
-and pages anywhere you want.
+你可以自定义保存文件的URL和位置。 ``*_URL`` 和 ``*_SAVE_AS`` 变量使用Python的格式字符串。 
+这些变量允许你将文章放在诸如 ``{slug}/index.html`` 之类的位置，
+并将它们链接为 ``{slug}`` 以获得干净的URL（参见下面的示例）。 
+通过这些设置，你可以灵活地将文章和页面放置在任何位置。
 
 .. note::
-    If you specify a ``datetime`` directive, it will be substituted using the
-    input files' date metadata attribute. If the date is not specified for a
-    particular file, Pelican will rely on the file's ``mtime`` timestamp. Check
-    the `Python datetime documentation`_ for more information.
+    如果指定一个 ``datetime`` 指令， 则将使用输入文件元数据中的日期的值来替换它。
+    如果没有为特定文件指定日期， Pelican将依赖文件的 ``mtime`` 时间戳
+    有关更多信息，请查看 `Python datetime documentation`_ 。
 
 .. _Python datetime documentation:
     https://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior
 
-Also, you can use other file metadata attributes as well:
+另外，你也可以使用其他的文件元数据的属性:
 
 * slug
 * date
@@ -341,232 +335,211 @@ Also, you can use other file metadata attributes as well:
 * author
 * category
 
-Example usage::
+用法示例::
 
    ARTICLE_URL = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/'
    ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/index.html'
    PAGE_URL = 'pages/{slug}/'
    PAGE_SAVE_AS = 'pages/{slug}/index.html'
 
-This would save your articles into something like
-``/posts/2011/Aug/07/sample-post/index.html``, save your pages into
-``/pages/about/index.html``, and render them available at URLs of
-``/posts/2011/Aug/07/sample-post/`` and ``/pages/about/``, respectively.
+这会将你的文章保存成类似这样的形式 ``/posts/2011/Aug/07/sample-post/index.html`` ,
+将页面保存为 ``/pages/about/index.html`` , 并且在 
+``/posts/2011/Aug/07/sample-post/`` 和 ``/pages/about/`` 这两个URL中渲染展示。
 
 .. data:: RELATIVE_URLS = False
 
-   Defines whether Pelican should use document-relative URLs or not. Only set
-   this to ``True`` when developing/testing and only if you fully understand
-   the effect it can have on links/feeds.
+   定义 Pelican 是否使用相对文档URL。
+   只有在开发/测试时,并且只有在你完全了解它对链接/feed源的影响时,才将其设置为 ``True`` 。
 
 .. data:: ARTICLE_URL = '{slug}.html'
 
-   The URL to refer to an article.
+   要引用的文章的URL。
 
 .. data:: ARTICLE_SAVE_AS = '{slug}.html'
 
-   The place where we will save an article.
+   保存文章的位置。
 
 .. data:: ARTICLE_LANG_URL = '{slug}-{lang}.html'
 
-   The URL to refer to an article which doesn't use the default language.
+   用于引用非默认语言文章的URL。
 
 .. data:: ARTICLE_LANG_SAVE_AS = '{slug}-{lang}.html'
 
-   The place where we will save an article which doesn't use the default
-   language.
+   保存非默认语言文章的位置。
 
 .. data:: DRAFT_URL = 'drafts/{slug}.html'
 
-   The URL to refer to an article draft.
+   要引用的文章草稿的URL。
 
 .. data:: DRAFT_SAVE_AS = 'drafts/{slug}.html'
 
-   The place where we will save an article draft.
+   保存文章草稿的位置。
 
 .. data:: DRAFT_LANG_URL = 'drafts/{slug}-{lang}.html'
 
-   The URL to refer to an article draft which doesn't use the default language.
+   用于引用非默认语言文章草稿的URL。
 
 .. data:: DRAFT_LANG_SAVE_AS = 'drafts/{slug}-{lang}.html'
 
-   The place where we will save an article draft which doesn't use the default
-   language.
+   保存非默认语言文章草稿的位置。
 
 .. data:: PAGE_URL = 'pages/{slug}.html'
 
-   The URL we will use to link to a page.
+   来链接到pages页面的URL。
 
 .. data:: PAGE_SAVE_AS = 'pages/{slug}.html'
 
-   The location we will save the page. This value has to be the same as
-   PAGE_URL or you need to use a rewrite in your server config.
+   保存pages页面的位置。这里的值必须与 PAGE_URL 的值相同，否则你将需要在服务器配置中重写。
 
 .. data:: PAGE_LANG_URL = 'pages/{slug}-{lang}.html'
 
-   The URL we will use to link to a page which doesn't use the default
-   language.
+   用来链接到非默认语言的pages页面的 URL。
 
 .. data:: PAGE_LANG_SAVE_AS = 'pages/{slug}-{lang}.html'
 
-   The location we will save the page which doesn't use the default language.
+   保存非默认语言pages页面的位置。
 
 .. data:: DRAFT_PAGE_URL = 'drafts/pages/{slug}.html'
 
-   The URL used to link to a page draft.
+   链接到pages页面草稿的URL。
 
 .. data:: DRAFT_PAGE_SAVE_AS = 'drafts/pages/{slug}.html'
 
-   The actual location a page draft is saved at.
+   保存pages页面草稿的位置。
 
 .. data:: DRAFT_PAGE_LANG_URL = 'drafts/pages/{slug}-{lang}.html'
 
-   The URL used to link to a page draft which doesn't use the default
-   language.
+   链接到非默认语言pages页面草稿的URL。
 
 .. data:: DRAFT_PAGE_LANG_SAVE_AS = 'drafts/pages/{slug}-{lang}.html'
 
-   The actual location a page draft which doesn't use the default language is
-   saved at.
+   保存非默认语言pages页面草稿的位置。
 
 .. data:: AUTHOR_URL = 'author/{slug}.html'
 
-   The URL to use for an author.
+   链接到作者页的URL。
 
 .. data:: AUTHOR_SAVE_AS = 'author/{slug}.html'
 
-   The location to save an author.
+   保存作者页的位置。
 
 .. data:: CATEGORY_URL = 'category/{slug}.html'
 
-   The URL to use for a category.
+   链接到分类页的URL。
 
 .. data:: CATEGORY_SAVE_AS = 'category/{slug}.html'
 
-   The location to save a category.
+   保存分类页的位置。
 
 .. data:: TAG_URL = 'tag/{slug}.html'
 
-   The URL to use for a tag.
+   链接到标签页的URL。
 
 .. data:: TAG_SAVE_AS = 'tag/{slug}.html'
 
-   The location to save the tag page.
+   保存标签页的位置。
 
 .. note::
 
-    If you do not want one or more of the default pages to be created (e.g.,
-    you are the only author on your site and thus do not need an Authors page),
-    set the corresponding ``*_SAVE_AS`` setting to ``''`` to prevent the
-    relevant page from being generated.
+    如果你不希望创建一个或多个默认页面(例如,你是网站上的唯一作者,因此不需要作者页面),
+    请相应地将 ``*_SAVE_AS`` 设置设置为 ``''`` ,以防止生成相关页面。
 
-Pelican can optionally create per-year, per-month, and per-day archives of your
-posts. These secondary archives are disabled by default but are automatically
-enabled if you supply format strings for their respective ``_SAVE_AS``
-settings. Period archives fit intuitively with the hierarchical model of web
-URLs and can make it easier for readers to navigate through the posts you've
-written over time.
+Pelican 可以根据选择将文章以年份、月份或哪天来创建存档。
+默认情况下,这些辅助存档处于禁用状态, 但如果为它们各自的 ``_SAVE_AS`` 提供格式字符串,
+则会自动启用。这些周期存档的层级会直观地与网页URL的层级一样,使读者能够更轻松地浏览你积累写下的文章。
 
-Example usage::
+示例::
 
    YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
    MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'
 
-With these settings, Pelican will create an archive of all your posts for the
-year at (for instance) ``posts/2011/index.html`` and an archive of all your
-posts for the month at ``posts/2011/Aug/index.html``.
+通过上面两行设置，Pelican 将在（假设年份是2018年） ``posts/2018/index.html`` 创建
+你当年所有帖子的存档，并在 ``posts/2018/Aug/index.html`` 创建你八月所有帖子的存档。
 
 .. note::
-    Period archives work best when the final path segment is ``index.html``.
-    This way a reader can remove a portion of your URL and automatically arrive
-    at an appropriate archive of posts, without having to specify a page name.
+    周期存档网址最好以 ``index.html`` 结尾。这样访问者可以删除修改网址部分信息就能
+    适当地转到某个存档，而不用指定页面名称。
 
 .. data:: YEAR_ARCHIVE_URL = ''
 
-   The URL to use for per-year archives of your posts. Used only if you have
-   the ``{url}`` placeholder in ``PAGINATION_PATTERNS``.
+   按年份归类的帖子存档的访问 URL。仅当在 ``PAGINATION_PATTERNS`` 中设置
+   有 ``{url}`` 占位符时才使用。
 
 .. data:: YEAR_ARCHIVE_SAVE_AS = ''
 
-   The location to save per-year archives of your posts.
+   按年份保存的帖子存档的位置。
 
 .. data:: MONTH_ARCHIVE_URL = ''
 
-   The URL to use for per-month archives of your posts. Used only if you have
-   the ``{url}`` placeholder in ``PAGINATION_PATTERNS``.
+   按月份归类的帖子存档的访问 URL。仅当在 ``PAGINATION_PATTERNS`` 中设置
+   有 ``{url}`` 占位符时才使用。
 
 .. data:: MONTH_ARCHIVE_SAVE_AS = ''
 
-   The location to save per-month archives of your posts.
+   按月份保存的帖子存档的位置。
 
 .. data:: DAY_ARCHIVE_URL = ''
 
-   The URL to use for per-day archives of your posts. Used only if you have the
-   ``{url}`` placeholder in ``PAGINATION_PATTERNS``.
+   按天数归类的帖子存档的访问 URL。仅当在 ``PAGINATION_PATTERNS`` 中设置
+   有 ``{url}`` 占位符时才使用。
 
 .. data:: DAY_ARCHIVE_SAVE_AS = ''
 
-   The location to save per-day archives of your posts.
+   按天数保存的帖子存档的位置。
 
-``DIRECT_TEMPLATES`` work a bit differently than noted above. Only the
-``_SAVE_AS`` settings are available, but it is available for any direct
-template.
+``DIRECT_TEMPLATES`` 的工作方式与上面提到的有点不同。只有 ``_SAVE_AS`` 设置可用,
+但可用于任何直接模板。
 
 .. data:: ARCHIVES_SAVE_AS = 'archives.html'
 
-   The location to save the article archives page.
+   保存文章存档页的位置。
 
 .. data:: AUTHORS_SAVE_AS = 'authors.html'
 
-   The location to save the author list.
+   保存作者列表的位置。
 
 .. data:: CATEGORIES_SAVE_AS = 'categories.html'
 
-   The location to save the category list.
+   保存分类列表的位置。
 
 .. data:: TAGS_SAVE_AS = 'tags.html'
 
-   The location to save the tag list.
+   保存标签列表的位置。
 
 .. data:: INDEX_SAVE_AS = 'index.html'
 
-   The location to save the list of all articles.
+   保存所有文章列表的位置。
 
-URLs for direct template pages are theme-dependent. Some themes use
-corresponding ``*_URL`` setting as string, while others hard-code them:
-``'archives.html'``, ``'authors.html'``, ``'categories.html'``,
-``'tags.html'``.
+直接模板页的 URL 与主题相关。某些主题用字符串设置相应的 ``*_URL``，而
+其他主题则将这些页面硬编码为： ``'archives.html'``, ``'authors.html'``, 
+``'categories.html'``, ``'tags.html'`` 。
 
 .. data:: SLUG_REGEX_SUBSTITUTIONS = [
-        (r'[^\\w\\s-]', ''),  # remove non-alphabetical/whitespace/'-' chars
-        (r'(?u)\\A\\s*', ''),  # strip leading whitespace
-        (r'(?u)\\s*\\Z', ''),  # strip trailing whitespace
-        (r'[-\\s]+', '-'),  # reduce multiple whitespace or '-' to single '-'
+        (r'[^\\w\\s-]', ''),  # 删除非字母字符/空白符/'-'符号
+        (r'(?u)\\A\\s*', ''),  # 删除前面的空白符
+        (r'(?u)\\s*\\Z', ''),  # 删除末尾的空白符
+        (r'[-\\s]+', '-'),  # 将多个空格或"-"减少为一个"-"
     ]
 
-   Regex substitutions to make when generating slugs of articles and pages.
-   Specified as a list of pairs of ``(from, to)`` which are applied in order,
-   ignoring case. The default substitutions have the effect of removing
-   non-alphanumeric characters and converting internal whitespace to dashes.
-   Apart from these substitutions, slugs are always converted to lowercase
-   ascii characters and leading and trailing whitespace is stripped. Useful for
-   backward compatibility with existing URLs.
+   在生成文章页和pages页的 slug 时进行的正则替换。
+   指定为按顺序应用的 ``(from, to)`` 格式的列表,忽略大小写。
+   默认替换设置为删除非字母数字字符并将内部空白转换为破折号。
+   除了这些替换之外,slug内容将始终转换为小写 ascii 字符,
+   删除前面和末尾空格。用于向后兼容 URL格式。
 
 .. data:: AUTHOR_REGEX_SUBSTITUTIONS = SLUG_REGEX_SUBSTITUTIONS
 
-   Regex substitutions for author slugs. Defaults to
-   ``SLUG_REGEX_SUBSTITUTIONS``.
+   替换作者slugs内容的正则。默认值为 ``SLUG_REGEX_SUBSTITUTIONS`` 。
 
 .. data:: CATEGORY_REGEX_SUBSTITUTIONS = SLUG_REGEX_SUBSTITUTIONS
 
-   Regex substitutions for category slugs. Defaults to
-   ``SLUG_REGEX_SUBSTITUTIONS``.
+   替换分类slugs内容的正则。默认值为 ``SLUG_REGEX_SUBSTITUTIONS``.
 
 .. data:: TAG_REGEX_SUBSTITUTIONS = SLUG_REGEX_SUBSTITUTIONS
 
-   Regex substitutions for tag slugs. Defaults to ``SLUG_REGEX_SUBSTITUTIONS``.
+   替换标签slugs内容的正则。默认值为 ``SLUG_REGEX_SUBSTITUTIONS``.
 
-Time and Date
+时间和日期
 =============
 
 .. data:: TIMEZONE
