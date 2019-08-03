@@ -666,44 +666,39 @@ Pelican 可以根据选择将文章以年份、月份或哪天来创建存档。
 
 .. data:: AUTHOR
 
-   Default author (usually your name).
+   默认作者名 (通常为你的名字).
 
 .. data:: DEFAULT_METADATA = {}
 
-   The default metadata you want to use for all articles and pages.
+   应用到所有文章和页面的默认元数据项。
 
 .. data:: FILENAME_METADATA = r'(?P<date>\d{4}-\d{2}-\d{2}).*'
 
-   The regexp that will be used to extract any metadata from the filename. All
-   named groups that are matched will be set in the metadata object.  The
-   default value will only extract the date from the filename.
+   从文件名中提取元数据的正则表达式。系统将在元数据对象中设置这些被匹配到的命名组。
+   默认值设为仅从文件名中提取日期。
 
-   For example, to extract both the date and the slug::
+   例如,如果要提取日期和slug内容::
 
       FILENAME_METADATA = r'(?P<date>\d{4}-\d{2}-\d{2})_(?P<slug>.*)'
 
-   See also ``SLUGIFY_SOURCE``.
+   另外可以参阅 ``SLUGIFY_SOURCE``.
 
 .. data:: PATH_METADATA = ''
 
-   Like ``FILENAME_METADATA``, but parsed from a page's full path relative to
-   the content source directory.
+   类似于 ``FILENAME_METADATA`` ，不过这里是从 相对于内容源目录的页面的完整路径 中解析。
 
 .. data:: EXTRA_PATH_METADATA = {}
 
-   Extra metadata dictionaries keyed by relative path. Relative paths require
-   correct OS-specific directory separators (i.e. / in UNIX and \\ in Windows)
-   unlike some other Pelican file settings. Paths to a directory apply to all
-   files under it. The most-specific path wins conflicts.
+   由相对路径作为key，额外元数据作为值的字典值。
+   相对路径要求使用基于操作系统的正确的目录分隔符(即UNIX中的 / 和Windows中的 \\ ),
+   与Pelican其他某些文件的设置不同。目录路径应用于目录下的所有文件。
+   指定最明确的路径最优先。
 
-Not all metadata needs to be :ref:`embedded in source file itself
-<internal_metadata>`. For example, blog posts are often named following a
-``YYYY-MM-DD-SLUG.rst`` pattern, or nested into ``YYYY/MM/DD-SLUG``
-directories. To extract metadata from the filename or path, set
-``FILENAME_METADATA`` or ``PATH_METADATA`` to regular expressions that use
-Python's `group name notation`_ ``(?P<name>…)``. If you want to attach
-additional metadata but don't want to encode it in the path, you can set
-``EXTRA_PATH_METADATA``:
+并非所有元数据都要求要 :ref:`嵌入到源文件中 <internal_metadata>` ，例如，一般
+博客文章通常以 ``YYYY-MM-DD-SLUG.rst`` 这样的方式命名，或者嵌套在 ``YYYY/MM/DD-SLUG`` 目录
+中，如要从文件名或路径中提取元数据，可以用Python的组命名表示法  `group name notation`_ 中
+的 ``(?P<name>…)`` 在 ``FILENAME_METADATA`` 或者 ``PATH_METADATA`` 中设置正则表达式。
+如果要附加其他元数据但又不想在路径中对其进行编码，可以设置 ``EXTRA_PATH_METADATA`` :
 
 .. parsed-literal::
 
@@ -717,12 +712,11 @@ additional metadata but don't want to encode it in the path, you can set
             },
         }
 
-This can be a convenient way to shift the installed location of a particular
-file:
+这是用于移动某个特定文件的安装位置的便捷方法:
 
 .. parsed-literal::
 
-    # Take advantage of the following defaults
+    # 利用以下默认值
     # STATIC_SAVE_AS = '{path}'
     # STATIC_URL = '{path}'
     STATIC_PATHS = [
@@ -736,7 +730,7 @@ file:
    https://docs.python.org/3/library/re.html#regular-expression-syntax
 
 
-Feed settings
+Feed设置
 =============
 
 By default, Pelican uses Atom feeds. However, it is also possible to use RSS

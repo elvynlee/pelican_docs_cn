@@ -90,7 +90,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#id5">时间和日期</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#template-pages">模板页</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id9">元数据</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#feed-settings">Feed settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feed">Feed设置</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pagination">Pagination</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#using-pagination-patterns">Using Pagination Patterns</a></li>
 </ul>
@@ -988,51 +988,47 @@ Unix/Linux系统可以使用 <code class="docutils literal notranslate"><span cl
 <dl class="data">
 <dt id="AUTHOR">
 <code class="descname">AUTHOR</code><a class="headerlink" href="#AUTHOR" title="永久链接至目标">¶</a></dt>
-<dd><p>Default author (usually your name).</p>
+<dd><p>默认作者名 (通常为你的名字).</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">DEFAULT_METADATA = {}</code></dt>
-<dd><p>The default metadata you want to use for all articles and pages.</p>
+<dd><p>应用到所有文章和页面的默认元数据项。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">FILENAME_METADATA = r'(?P&lt;date&gt;d{4}-d{2}-d{2}).*'</code></dt>
-<dd><p>The regexp that will be used to extract any metadata from the filename. All
-named groups that are matched will be set in the metadata object.  The
-default value will only extract the date from the filename.</p>
-<p>For example, to extract both the date and the slug:</p>
+<dd><p>从文件名中提取元数据的正则表达式。系统将在元数据对象中设置这些被匹配到的命名组。
+默认值设为仅从文件名中提取日期。</p>
+<p>例如,如果要提取日期和slug内容:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FILENAME_METADATA</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;(?P&lt;date&gt;\d</span><span class="si">{4}</span><span class="s1">-\d</span><span class="si">{2}</span><span class="s1">-\d</span><span class="si">{2}</span><span class="s1">)_(?P&lt;slug&gt;.*)&#39;</span>
 </pre></div>
 </div>
-<p>See also <code class="docutils literal notranslate"><span class="pre">SLUGIFY_SOURCE</span></code>.</p>
+<p>另外可以参阅 <code class="docutils literal notranslate"><span class="pre">SLUGIFY_SOURCE</span></code>.</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">PATH_METADATA = ''</code></dt>
-<dd><p>Like <code class="docutils literal notranslate"><span class="pre">FILENAME_METADATA</span></code>, but parsed from a page’s full path relative to
-the content source directory.</p>
+<dd><p>类似于 <code class="docutils literal notranslate"><span class="pre">FILENAME_METADATA</span></code> ，不过这里是从 相对于内容源目录的页面的完整路径 中解析。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">EXTRA_PATH_METADATA = {}</code></dt>
-<dd><p>Extra metadata dictionaries keyed by relative path. Relative paths require
-correct OS-specific directory separators (i.e. / in UNIX and \ in Windows)
-unlike some other Pelican file settings. Paths to a directory apply to all
-files under it. The most-specific path wins conflicts.</p>
+<dd><p>由相对路径作为key，额外元数据作为值的字典值。
+相对路径要求使用基于操作系统的正确的目录分隔符(即UNIX中的 / 和Windows中的 \ ),
+与Pelican其他某些文件的设置不同。目录路径应用于目录下的所有文件。
+指定最明确的路径最优先。</p>
 </dd></dl>
 
-<p>Not all metadata needs to be <a class="reference internal" href="content.html#internal-metadata"><span class="std std-ref">embedded in source file itself</span></a>. For example, blog posts are often named following a
-<code class="docutils literal notranslate"><span class="pre">YYYY-MM-DD-SLUG.rst</span></code> pattern, or nested into <code class="docutils literal notranslate"><span class="pre">YYYY/MM/DD-SLUG</span></code>
-directories. To extract metadata from the filename or path, set
-<code class="docutils literal notranslate"><span class="pre">FILENAME_METADATA</span></code> or <code class="docutils literal notranslate"><span class="pre">PATH_METADATA</span></code> to regular expressions that use
-Python’s <a class="reference external" href="https://docs.python.org/3/library/re.html#regular-expression-syntax">group name notation</a> <code class="docutils literal notranslate"><span class="pre">(?P&lt;name&gt;…)</span></code>. If you want to attach
-additional metadata but don’t want to encode it in the path, you can set
-<code class="docutils literal notranslate"><span class="pre">EXTRA_PATH_METADATA</span></code>:</p>
+<p>并非所有元数据都要求要 <a class="reference internal" href="content.html#internal-metadata"><span class="std std-ref">嵌入到源文件中</span></a> ，例如，一般
+博客文章通常以 <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DD-SLUG.rst</span></code> 这样的方式命名，或者嵌套在 <code class="docutils literal notranslate"><span class="pre">YYYY/MM/DD-SLUG</span></code> 目录
+中，如要从文件名或路径中提取元数据，可以用Python的组命名表示法  <a class="reference external" href="https://docs.python.org/3/library/re.html#regular-expression-syntax">group name notation</a> 中
+的 <code class="docutils literal notranslate"><span class="pre">(?P&lt;name&gt;…)</span></code> 在 <code class="docutils literal notranslate"><span class="pre">FILENAME_METADATA</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">PATH_METADATA</span></code> 中设置正则表达式。
+如果要附加其他元数据但又不想在路径中对其进行编码，可以设置 <code class="docutils literal notranslate"><span class="pre">EXTRA_PATH_METADATA</span></code> :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EXTRA_PATH_METADATA</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;relative/path/to/file-1&#39;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s1">&#39;key-1a&#39;</span><span class="p">:</span> <span class="s1">&#39;value-1a&#39;</span><span class="p">,</span>
@@ -1044,9 +1040,8 @@ additional metadata but don’t want to encode it in the path, you can set
     <span class="p">}</span>
 </pre></div>
 </div>
-<p>This can be a convenient way to shift the installed location of a particular
-file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take advantage of the following defaults</span>
+<p>这是用于移动某个特定文件的安装位置的便捷方法:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 利用以下默认值</span>
 <span class="c1"># STATIC_SAVE_AS = &#39;{path}&#39;</span>
 <span class="c1"># STATIC_URL = &#39;{path}&#39;</span>
 <span class="n">STATIC_PATHS</span> <span class="o">=</span> <span class="p">[</span>
@@ -1058,8 +1053,8 @@ file:</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="feed-settings">
-<h2>Feed settings<a class="headerlink" href="#feed-settings" title="永久链接至标题">¶</a></h2>
+<div class="section" id="feed">
+<h2>Feed设置<a class="headerlink" href="#feed" title="永久链接至标题">¶</a></h2>
 <p>By default, Pelican uses Atom feeds. However, it is also possible to use RSS
 feeds if you prefer.</p>
 <p>Pelican generates category feeds as well as feeds for all your articles. It
