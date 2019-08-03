@@ -730,136 +730,121 @@ Pelican 可以根据选择将文章以年份、月份或哪天来创建存档。
    https://docs.python.org/3/library/re.html#regular-expression-syntax
 
 
-Feed设置
+Feed订阅设置
 =============
 
-By default, Pelican uses Atom feeds. However, it is also possible to use RSS
-feeds if you prefer.
+默认情况下,Pelican使用 Atom 源。如果你喜欢, 也可以使用 RSS 源。
 
-Pelican generates category feeds as well as feeds for all your articles. It
-does not generate feeds for tags by default, but it is possible to do so using
-the ``TAG_FEED_ATOM`` and ``TAG_FEED_RSS`` settings:
+Pelican会为你的所有文章生成分类订阅源和所有文章订阅源。默认不生成标签订阅源，不过可以
+用 ``TAG_FEED_ATOM`` 和 ``TAG_FEED_RSS`` 来设置生成:
 
 .. data:: FEED_DOMAIN = None, i.e. base URL is "/"
 
-   The domain prepended to feed URLs. Since feed URLs should always be
-   absolute, it is highly recommended to define this (e.g.,
-   "https://feeds.example.com"). If you have already explicitly defined SITEURL
-   (see above) and want to use the same domain for your feeds, you can just
-   set:  ``FEED_DOMAIN = SITEURL``.
+   域名用于添加到订阅源地址前面。
+   由于源URL应该始终是一个绝对地址，所以强烈建议设置此变量 (例如,"https://feeds.example.com")。
+   如果您已经显式定义了SITEURL(见上文)并且希望对feeds订阅使用相同的域名，
+   则可以设置为: ``FEED_DOMAIN = SITEURL`` 。
 
 .. data:: FEED_ATOM = None, i.e. no Atom feed
 
-   The location to save the Atom feed.
+   用于保存Atom源的位置。
 
 .. data:: FEED_ATOM_URL = None
 
-   Relative URL of the Atom feed. If not set, ``FEED_ATOM`` is used both for
-   save location and URL.
+   Atom源的相对URL地址，如果不设置，则用 ``FEED_ATOM`` 的值来表示Atom源的位置和URL地址。
 
 .. data:: FEED_RSS = None, i.e. no RSS
 
-   The location to save the RSS feed.
+   用于保存RSS源的位置。
 
 .. data:: FEED_RSS_URL = None
 
-   Relative URL of the RSS feed. If not set, ``FEED_RSS`` is used both for save
-   location and URL.
+   RSS源的相对URL地址，如果不设置，则用 ``FEED_RSS`` 的值来表示RSS源的位置和URL地址。
 
 .. data:: FEED_ALL_ATOM = 'feeds/all.atom.xml'
 
-   The location to save the all-posts Atom feed: this feed will contain all
-   posts regardless of their language.
+   用于保存'所有文章'的Atom源的位置: 这个订阅源将包括所有的文章帖子，且不区分语言版本。
 
 .. data:: FEED_ALL_ATOM_URL = None
 
-   Relative URL of the all-posts Atom feed. If not set, ``FEED_ALL_ATOM`` is
-   used both for save location and URL.
+   '所有文章'的Atom源的相对URL地址，如果不设置，则用 ``FEED_ALL_ATOM`` 的值来表
+   示这个Atom源的位置和URL地址。
 
 .. data:: FEED_ALL_RSS = None, i.e. no all-posts RSS
 
-   The location to save the the all-posts RSS feed: this feed will contain all
-   posts regardless of their language.
+   用于保存'所有文章'的RSS源的位置: 这个订阅源将包括所有的文章帖子，且不区分语言版本。
 
 .. data:: FEED_ALL_RSS_URL = None
 
-   Relative URL of the all-posts RSS feed. If not set, ``FEED_ALL_RSS`` is used
-   both for save location and URL.
+   '所有文章'的RSS源的相对URL地址，如果不设置，则用 ``FEED_ALL_RSS`` 的值来表
+   示这个RSS源的位置和URL地址。
 
 .. data:: CATEGORY_FEED_ATOM = 'feeds/{slug}.atom.xml'
 
-   The location to save the category Atom feeds. [2]_
+   用于保存 分类Atom源 的位置。 [2]_
 
 .. data:: CATEGORY_FEED_ATOM_URL = None
 
-   Relative URL of the category Atom feeds, including the ``{slug}``
-   placeholder. [2]_ If not set, ``CATEGORY_FEED_ATOM`` is used both for save
-   location and URL.
+   分类Atom源的相对URL地址, 包含 ``{slug}`` 占位符。 [2]_ 如果不设置,
+   则用 ``CATEGORY_FEED_ATOM`` 的值来表示其位置和URL地址。
 
 .. data:: CATEGORY_FEED_RSS = None, i.e. no RSS
 
-   The location to save the category RSS feeds, including the ``{slug}``
-   placeholder. [2]_
+   用于保存 分类RSS源 的位置。包含 ``{slug}`` 占位符 [2]_
 
 .. data:: CATEGORY_FEED_RSS_URL = None
 
-   Relative URL of the category RSS feeds, including the ``{slug}``
-   placeholder. [2]_ If not set, ``CATEGORY_FEED_RSS`` is used both for save
-   location and URL.
+   分类RSS源的相对URL地址, 包含 ``{slug}`` 占位符。 [2]_ 如果不设置,
+   则用 ``CATEGORY_FEED_RSS`` 的值来表示其位置和URL地址。
 
 .. data:: AUTHOR_FEED_ATOM = 'feeds/{slug}.atom.xml'
 
-   The location to save the author Atom feeds. [2]_
+   用于保存 作者Atom源 的位置。 [2]_
 
 .. data:: AUTHOR_FEED_ATOM_URL = None
 
-   Relative URL of the author Atom feeds, including the ``{slug}`` placeholder.
-   [2]_ If not set, ``AUTHOR_FEED_ATOM`` is used both for save location and
-   URL.
+   作者Atom源的相对URL地址, 包含 ``{slug}`` 占位符。 [2]_ 如果不设置,
+   则用 ``AUTHOR_FEED_ATOM`` 的值来表示其位置和URL地址。
 
 .. data:: AUTHOR_FEED_RSS = 'feeds/{slug}.rss.xml'
 
-   The location to save the author RSS feeds. [2]_
+   用于保存 作者RSS源 的位置。 [2]_
 
 .. data:: AUTHOR_FEED_RSS_URL = None
 
-   Relative URL of the author RSS feeds, including the ``{slug}`` placeholder.
-   [2]_ If not set, ``AUTHOR_FEED_RSS`` is used both for save location and URL.
+   作者RSS源的相对URL地址, 包含 ``{slug}`` 占位符。 [2]_ 如果不设置,
+   则用 ``AUTHOR_FEED_RSS`` 的值来表示其位置和URL地址。
 
 .. data:: TAG_FEED_ATOM = None, i.e. no tag feed
 
-   The location to save the tag Atom feed, including the ``{slug}``
-   placeholder. [2]_
+   用于保存 标签Atom源 的位置， 包含 ``{slug}`` 占位符 [2]_
 
 .. data:: TAG_FEED_ATOM_URL = None
 
-   Relative URL of the tag Atom feed, including the ``{slug}`` placeholder.
+   标签Atom源的相对URL地址, 包含 ``{slug}`` 占位符。
    [2]_
 
 .. data:: TAG_FEED_RSS = None, i.e. no RSS tag feed
 
-   Relative URL to output the tag RSS feed, including the ``{slug}``
-   placeholder. If not set, ``TAG_FEED_RSS`` is used both for save location and
-   URL.
+   标签RSS源的相对URL地址, 包含 ``{slug}`` 占位符。如果不设置,
+   则用 ``TAG_FEED_RSS`` 的值来表示其位置和URL地址。
 
 .. data:: FEED_MAX_ITEMS
 
-   Maximum number of items allowed in a feed. Feed item quantity is
-   unrestricted by default.
+   订阅源的条目的最大数，默认不设限制。
 
 .. data:: RSS_FEED_SUMMARY_ONLY = True
 
-   Only include item summaries in the ``description`` tag of RSS feeds. If set
-   to ``False``, the full content will be included instead. This setting
-   doesn't affect Atom feeds, only RSS ones.
+   仅在RSS源的 ``description`` 标记中包含摘要。
+   如果设置为 ``False`` ，则将改为包含全部内容。
+   此设置不会影响 Atom 源,仅影响 RSS 源。
 
-If you don't want to generate some or any of these feeds, set the above
-variables to ``None``.
+如果不想生成订阅源，以上变量值设为 ``None`` 即可。
 
-.. [2] ``{slug}`` is replaced by name of the category / author / tag.
+.. [2] ``{slug}`` 被替换为 分类/作者/标签 的名称。
 
 
-Pagination
+分页
 ==========
 
 The default behaviour of Pelican is to list all the article titles along with a

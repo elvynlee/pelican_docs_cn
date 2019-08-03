@@ -90,8 +90,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#id5">时间和日期</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#template-pages">模板页</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id9">元数据</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#feed">Feed设置</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pagination">Pagination</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#feed">Feed订阅设置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id21">分页</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#using-pagination-patterns">Using Pagination Patterns</a></li>
 </ul>
 </li>
@@ -1054,180 +1054,165 @@ Unix/Linux系统可以使用 <code class="docutils literal notranslate"><span cl
 </div>
 </div>
 <div class="section" id="feed">
-<h2>Feed设置<a class="headerlink" href="#feed" title="永久链接至标题">¶</a></h2>
-<p>By default, Pelican uses Atom feeds. However, it is also possible to use RSS
-feeds if you prefer.</p>
-<p>Pelican generates category feeds as well as feeds for all your articles. It
-does not generate feeds for tags by default, but it is possible to do so using
-the <code class="docutils literal notranslate"><span class="pre">TAG_FEED_ATOM</span></code> and <code class="docutils literal notranslate"><span class="pre">TAG_FEED_RSS</span></code> settings:</p>
+<h2>Feed订阅设置<a class="headerlink" href="#feed" title="永久链接至标题">¶</a></h2>
+<p>默认情况下,Pelican使用 Atom 源。如果你喜欢, 也可以使用 RSS 源。</p>
+<p>Pelican会为你的所有文章生成分类订阅源和所有文章订阅源。默认不生成标签订阅源，不过可以
+用 <code class="docutils literal notranslate"><span class="pre">TAG_FEED_ATOM</span></code> 和 <code class="docutils literal notranslate"><span class="pre">TAG_FEED_RSS</span></code> 来设置生成:</p>
 <dl class="data">
 <dt>
 <code class="descname">FEED_DOMAIN = None, i.e. base URL is &quot;/&quot;</code></dt>
-<dd><p>The domain prepended to feed URLs. Since feed URLs should always be
-absolute, it is highly recommended to define this (e.g.,
-“<a class="reference external" href="https://feeds.example.com">https://feeds.example.com</a>”). If you have already explicitly defined SITEURL
-(see above) and want to use the same domain for your feeds, you can just
-set:  <code class="docutils literal notranslate"><span class="pre">FEED_DOMAIN</span> <span class="pre">=</span> <span class="pre">SITEURL</span></code>.</p>
+<dd><p>域名用于添加到订阅源地址前面。
+由于源URL应该始终是一个绝对地址，所以强烈建议设置此变量 (例如,”<a class="reference external" href="https://feeds.example.com">https://feeds.example.com</a>”)。
+如果您已经显式定义了SITEURL(见上文)并且希望对feeds订阅使用相同的域名，
+则可以设置为: <code class="docutils literal notranslate"><span class="pre">FEED_DOMAIN</span> <span class="pre">=</span> <span class="pre">SITEURL</span></code> 。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">FEED_ATOM = None, i.e. no Atom feed</code></dt>
-<dd><p>The location to save the Atom feed.</p>
+<dd><p>用于保存Atom源的位置。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">FEED_ATOM_URL = None</code></dt>
-<dd><p>Relative URL of the Atom feed. If not set, <code class="docutils literal notranslate"><span class="pre">FEED_ATOM</span></code> is used both for
-save location and URL.</p>
+<dd><p>Atom源的相对URL地址，如果不设置，则用 <code class="docutils literal notranslate"><span class="pre">FEED_ATOM</span></code> 的值来表示Atom源的位置和URL地址。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">FEED_RSS = None, i.e. no RSS</code></dt>
-<dd><p>The location to save the RSS feed.</p>
+<dd><p>用于保存RSS源的位置。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">FEED_RSS_URL = None</code></dt>
-<dd><p>Relative URL of the RSS feed. If not set, <code class="docutils literal notranslate"><span class="pre">FEED_RSS</span></code> is used both for save
-location and URL.</p>
+<dd><p>RSS源的相对URL地址，如果不设置，则用 <code class="docutils literal notranslate"><span class="pre">FEED_RSS</span></code> 的值来表示RSS源的位置和URL地址。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">FEED_ALL_ATOM = 'feeds/all.atom.xml'</code></dt>
-<dd><p>The location to save the all-posts Atom feed: this feed will contain all
-posts regardless of their language.</p>
+<dd><p>用于保存’所有文章’的Atom源的位置: 这个订阅源将包括所有的文章帖子，且不区分语言版本。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">FEED_ALL_ATOM_URL = None</code></dt>
-<dd><p>Relative URL of the all-posts Atom feed. If not set, <code class="docutils literal notranslate"><span class="pre">FEED_ALL_ATOM</span></code> is
-used both for save location and URL.</p>
+<dd><p>‘所有文章’的Atom源的相对URL地址，如果不设置，则用 <code class="docutils literal notranslate"><span class="pre">FEED_ALL_ATOM</span></code> 的值来表
+示这个Atom源的位置和URL地址。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">FEED_ALL_RSS = None, i.e. no all-posts RSS</code></dt>
-<dd><p>The location to save the the all-posts RSS feed: this feed will contain all
-posts regardless of their language.</p>
+<dd><p>用于保存’所有文章’的RSS源的位置: 这个订阅源将包括所有的文章帖子，且不区分语言版本。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">FEED_ALL_RSS_URL = None</code></dt>
-<dd><p>Relative URL of the all-posts RSS feed. If not set, <code class="docutils literal notranslate"><span class="pre">FEED_ALL_RSS</span></code> is used
-both for save location and URL.</p>
+<dd><p>‘所有文章’的RSS源的相对URL地址，如果不设置，则用 <code class="docutils literal notranslate"><span class="pre">FEED_ALL_RSS</span></code> 的值来表
+示这个RSS源的位置和URL地址。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">CATEGORY_FEED_ATOM = 'feeds/{slug}.atom.xml'</code></dt>
-<dd><p>The location to save the category Atom feeds. <a class="footnote-reference" href="#id20" id="id10">[2]</a></p>
+<dd><p>用于保存 分类Atom源 的位置。 <a class="footnote-reference" href="#id20" id="id10">[2]</a></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">CATEGORY_FEED_ATOM_URL = None</code></dt>
-<dd><p>Relative URL of the category Atom feeds, including the <code class="docutils literal notranslate"><span class="pre">{slug}</span></code>
-placeholder. <a class="footnote-reference" href="#id20" id="id11">[2]</a> If not set, <code class="docutils literal notranslate"><span class="pre">CATEGORY_FEED_ATOM</span></code> is used both for save
-location and URL.</p>
+<dd><p>分类Atom源的相对URL地址, 包含 <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> 占位符。 <a class="footnote-reference" href="#id20" id="id11">[2]</a> 如果不设置,
+则用 <code class="docutils literal notranslate"><span class="pre">CATEGORY_FEED_ATOM</span></code> 的值来表示其位置和URL地址。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">CATEGORY_FEED_RSS = None, i.e. no RSS</code></dt>
-<dd><p>The location to save the category RSS feeds, including the <code class="docutils literal notranslate"><span class="pre">{slug}</span></code>
-placeholder. <a class="footnote-reference" href="#id20" id="id12">[2]</a></p>
+<dd><p>用于保存 分类RSS源 的位置。包含 <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> 占位符 <a class="footnote-reference" href="#id20" id="id12">[2]</a></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">CATEGORY_FEED_RSS_URL = None</code></dt>
-<dd><p>Relative URL of the category RSS feeds, including the <code class="docutils literal notranslate"><span class="pre">{slug}</span></code>
-placeholder. <a class="footnote-reference" href="#id20" id="id13">[2]</a> If not set, <code class="docutils literal notranslate"><span class="pre">CATEGORY_FEED_RSS</span></code> is used both for save
-location and URL.</p>
+<dd><p>分类RSS源的相对URL地址, 包含 <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> 占位符。 <a class="footnote-reference" href="#id20" id="id13">[2]</a> 如果不设置,
+则用 <code class="docutils literal notranslate"><span class="pre">CATEGORY_FEED_RSS</span></code> 的值来表示其位置和URL地址。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">AUTHOR_FEED_ATOM = 'feeds/{slug}.atom.xml'</code></dt>
-<dd><p>The location to save the author Atom feeds. <a class="footnote-reference" href="#id20" id="id14">[2]</a></p>
+<dd><p>用于保存 作者Atom源 的位置。 <a class="footnote-reference" href="#id20" id="id14">[2]</a></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">AUTHOR_FEED_ATOM_URL = None</code></dt>
-<dd><p>Relative URL of the author Atom feeds, including the <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> placeholder.
-<a class="footnote-reference" href="#id20" id="id15">[2]</a> If not set, <code class="docutils literal notranslate"><span class="pre">AUTHOR_FEED_ATOM</span></code> is used both for save location and
-URL.</p>
+<dd><p>作者Atom源的相对URL地址, 包含 <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> 占位符。 <a class="footnote-reference" href="#id20" id="id15">[2]</a> 如果不设置,
+则用 <code class="docutils literal notranslate"><span class="pre">AUTHOR_FEED_ATOM</span></code> 的值来表示其位置和URL地址。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">AUTHOR_FEED_RSS = 'feeds/{slug}.rss.xml'</code></dt>
-<dd><p>The location to save the author RSS feeds. <a class="footnote-reference" href="#id20" id="id16">[2]</a></p>
+<dd><p>用于保存 作者RSS源 的位置。 <a class="footnote-reference" href="#id20" id="id16">[2]</a></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">AUTHOR_FEED_RSS_URL = None</code></dt>
-<dd><p>Relative URL of the author RSS feeds, including the <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> placeholder.
-<a class="footnote-reference" href="#id20" id="id17">[2]</a> If not set, <code class="docutils literal notranslate"><span class="pre">AUTHOR_FEED_RSS</span></code> is used both for save location and URL.</p>
+<dd><p>作者RSS源的相对URL地址, 包含 <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> 占位符。 <a class="footnote-reference" href="#id20" id="id17">[2]</a> 如果不设置,
+则用 <code class="docutils literal notranslate"><span class="pre">AUTHOR_FEED_RSS</span></code> 的值来表示其位置和URL地址。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">TAG_FEED_ATOM = None, i.e. no tag feed</code></dt>
-<dd><p>The location to save the tag Atom feed, including the <code class="docutils literal notranslate"><span class="pre">{slug}</span></code>
-placeholder. <a class="footnote-reference" href="#id20" id="id18">[2]</a></p>
+<dd><p>用于保存 标签Atom源 的位置， 包含 <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> 占位符 <a class="footnote-reference" href="#id20" id="id18">[2]</a></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">TAG_FEED_ATOM_URL = None</code></dt>
-<dd><p>Relative URL of the tag Atom feed, including the <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> placeholder.
+<dd><p>标签Atom源的相对URL地址, 包含 <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> 占位符。
 <a class="footnote-reference" href="#id20" id="id19">[2]</a></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">TAG_FEED_RSS = None, i.e. no RSS tag feed</code></dt>
-<dd><p>Relative URL to output the tag RSS feed, including the <code class="docutils literal notranslate"><span class="pre">{slug}</span></code>
-placeholder. If not set, <code class="docutils literal notranslate"><span class="pre">TAG_FEED_RSS</span></code> is used both for save location and
-URL.</p>
+<dd><p>标签RSS源的相对URL地址, 包含 <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> 占位符。如果不设置,
+则用 <code class="docutils literal notranslate"><span class="pre">TAG_FEED_RSS</span></code> 的值来表示其位置和URL地址。</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="FEED_MAX_ITEMS">
 <code class="descname">FEED_MAX_ITEMS</code><a class="headerlink" href="#FEED_MAX_ITEMS" title="永久链接至目标">¶</a></dt>
-<dd><p>Maximum number of items allowed in a feed. Feed item quantity is
-unrestricted by default.</p>
+<dd><p>订阅源的条目的最大数，默认不设限制。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">RSS_FEED_SUMMARY_ONLY = True</code></dt>
-<dd><p>Only include item summaries in the <code class="docutils literal notranslate"><span class="pre">description</span></code> tag of RSS feeds. If set
-to <code class="docutils literal notranslate"><span class="pre">False</span></code>, the full content will be included instead. This setting
-doesn’t affect Atom feeds, only RSS ones.</p>
+<dd><p>仅在RSS源的 <code class="docutils literal notranslate"><span class="pre">description</span></code> 标记中包含摘要。
+如果设置为 <code class="docutils literal notranslate"><span class="pre">False</span></code> ，则将改为包含全部内容。
+此设置不会影响 Atom 源,仅影响 RSS 源。</p>
 </dd></dl>
 
-<p>If you don’t want to generate some or any of these feeds, set the above
-variables to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>如果不想生成订阅源，以上变量值设为 <code class="docutils literal notranslate"><span class="pre">None</span></code> 即可。</p>
 <table class="docutils footnote" frame="void" id="id20" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id10">1</a>, <a class="fn-backref" href="#id11">2</a>, <a class="fn-backref" href="#id12">3</a>, <a class="fn-backref" href="#id13">4</a>, <a class="fn-backref" href="#id14">5</a>, <a class="fn-backref" href="#id15">6</a>, <a class="fn-backref" href="#id16">7</a>, <a class="fn-backref" href="#id17">8</a>, <a class="fn-backref" href="#id18">9</a>, <a class="fn-backref" href="#id19">10</a>)</em> <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> is replaced by name of the category / author / tag.</td></tr>
+<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id10">1</a>, <a class="fn-backref" href="#id11">2</a>, <a class="fn-backref" href="#id12">3</a>, <a class="fn-backref" href="#id13">4</a>, <a class="fn-backref" href="#id14">5</a>, <a class="fn-backref" href="#id15">6</a>, <a class="fn-backref" href="#id16">7</a>, <a class="fn-backref" href="#id17">8</a>, <a class="fn-backref" href="#id18">9</a>, <a class="fn-backref" href="#id19">10</a>)</em> <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> 被替换为 分类/作者/标签 的名称。</td></tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="pagination">
-<h2>Pagination<a class="headerlink" href="#pagination" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id21">
+<h2>分页<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h2>
 <p>The default behaviour of Pelican is to list all the article titles along with a
 short description on the index page. While this works well for small-to-medium
 sites, sites with a large quantity of articles will probably benefit from
@@ -1321,14 +1306,14 @@ one another. May be a string or a collection of strings. Set to <code class="doc
 <dl class="data">
 <dt>
 <code class="descname">TRANSLATION_FEED_ATOM = 'feeds/all-{lang}.atom.xml'</code></dt>
-<dd><p>The location to save the Atom feed for translations. <a class="footnote-reference" href="#id24" id="id21">[3]</a></p>
+<dd><p>The location to save the Atom feed for translations. <a class="footnote-reference" href="#id25" id="id22">[3]</a></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">TRANSLATION_FEED_ATOM_URL = None</code></dt>
 <dd><p>Relative URL of the Atom feed for translations, including the <code class="docutils literal notranslate"><span class="pre">{lang}</span></code>
-placeholder. <a class="footnote-reference" href="#id24" id="id22">[3]</a> If not set, <code class="docutils literal notranslate"><span class="pre">TRANSLATION_FEED_ATOM</span></code> is used both for
+placeholder. <a class="footnote-reference" href="#id25" id="id23">[3]</a> If not set, <code class="docutils literal notranslate"><span class="pre">TRANSLATION_FEED_ATOM</span></code> is used both for
 save location and URL.</p>
 </dd></dl>
 
@@ -1342,14 +1327,14 @@ save location and URL.</p>
 <dt>
 <code class="descname">TRANSLATION_FEED_RSS_URL = None</code></dt>
 <dd><p>Relative URL of the RSS feed for translations, including the <code class="docutils literal notranslate"><span class="pre">{lang}</span></code>
-placeholder. <a class="footnote-reference" href="#id24" id="id23">[3]</a> If not set, <code class="docutils literal notranslate"><span class="pre">TRANSLATION_FEED_RSS</span></code> is used both for save
+placeholder. <a class="footnote-reference" href="#id25" id="id24">[3]</a> If not set, <code class="docutils literal notranslate"><span class="pre">TRANSLATION_FEED_RSS</span></code> is used both for save
 location and URL.</p>
 </dd></dl>
 
-<table class="docutils footnote" frame="void" id="id24" rules="none">
+<table class="docutils footnote" frame="void" id="id25" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[3]</td><td><em>(<a class="fn-backref" href="#id21">1</a>, <a class="fn-backref" href="#id22">2</a>, <a class="fn-backref" href="#id23">3</a>)</em> {lang} is the language code</td></tr>
+<tr><td class="label">[3]</td><td><em>(<a class="fn-backref" href="#id22">1</a>, <a class="fn-backref" href="#id23">2</a>, <a class="fn-backref" href="#id24">3</a>)</em> {lang} is the language code</td></tr>
 </tbody>
 </table>
 </div>
@@ -1603,7 +1588,7 @@ unintentionally filter out multiple message types with the same template
 </div>
 </div>
 <div class="section" id="reading-only-modified-content">
-<span id="id25"></span><h2>Reading only modified content<a class="headerlink" href="#reading-only-modified-content" title="永久链接至标题">¶</a></h2>
+<span id="id26"></span><h2>Reading only modified content<a class="headerlink" href="#reading-only-modified-content" title="永久链接至标题">¶</a></h2>
 <p>To speed up the build process, Pelican can optionally read only articles and
 pages with modified content.</p>
 <p>When Pelican is about to read some content source file:</p>
@@ -1662,7 +1647,7 @@ Therefore, <code class="docutils literal notranslate"><span class="pre">rsync</s
 option.</p>
 </div>
 <div class="section" id="writing-only-selected-content">
-<span id="id26"></span><h2>Writing only selected content<a class="headerlink" href="#writing-only-selected-content" title="永久链接至标题">¶</a></h2>
+<span id="id27"></span><h2>Writing only selected content<a class="headerlink" href="#writing-only-selected-content" title="永久链接至标题">¶</a></h2>
 <p>When only working on a single article or page, or making tweaks to your theme,
 it is often desirable to generate and review your work as quickly as possible.
 In such cases, generating and writing the entire site output is often
