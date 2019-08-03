@@ -620,7 +620,7 @@ Pelican 可以根据选择将文章以年份、月份或哪天来创建存档。
    阅 `locale(1)`_ 。
 
 
-.. [#] Default is the system locale.
+.. [#] 默认为系统区域.
 
 .. _Python strftime documentation: https://docs.python.org/library/datetime.html#strftime-strptime-behavior
 
@@ -636,15 +636,13 @@ Pelican 可以根据选择将文章以年份、月份或哪天来创建存档。
 
 .. data:: TEMPLATE_PAGES = None
 
-   A mapping containing template pages that will be rendered with the blog
-   entries. See :ref:`template_pages`.
+   一个包含了 和博客条目一起渲染展示的模板页面 的映射。请参阅 :ref:`template_pages` 。
 
-   If you want to generate custom pages besides your blog entries, you can
-   point any Jinja2 template file with a path pointing to the file and the
-   destination path for the generated file.
+   如果要生成博客条目以外的自定义页面，可以使用任何 Jinja2 模板文件，只要给其指定
+   指向该文件的路径和生成该文件的目标路径。
 
-   For instance, if you have a blog with three static pages — a list of books,
-   your resume, and a contact page — you could have::
+   例如,如果你想给博客建三个静态页面 (一个读书列表页、一个个人简历页和联系人页面)，
+   你可以像这样::
 
        TEMPLATE_PAGES = {'src/books.html': 'dest/books.html',
                          'src/resume.html': 'dest/resume.html',
@@ -652,20 +650,18 @@ Pelican 可以根据选择将文章以年份、月份或哪天来创建存档。
 
 .. data:: TEMPLATE_EXTENSIONS = ['.html']
 
-   The extensions to use when looking up template files from template names.
+   从模板名称查找模板文件时使用的扩展名。
 
 .. data:: DIRECT_TEMPLATES = ['index', 'authors', 'categories', 'tags', 'archives']
 
-   List of templates that are used directly to render content. Typically direct
-   templates are used to generate index pages for collections of content (e.g.,
-   category and tag index pages). If the author, category and tag collections are not
-   needed, set ``DIRECT_TEMPLATES = ['index', 'archives']``
+   直接用于呈现内容的模板列表。
+   通常，直接模板用于生成内容集合的索引页(例如类别和标记索引页)。
+   如果不需要作者、类别和标记等集合页，可以设置 ``DIRECT_TEMPLATES = ['index', 'archives']``
 
-   ``DIRECT_TEMPLATES`` are searched for over paths maintained in
-   ``THEME_TEMPLATES_OVERRIDES``.
+   系统会从 ``THEME_TEMPLATES_OVERRIDES`` 维护的路径值中搜索 ``DIRECT_TEMPLATES`` 。
 
 
-Metadata
+元数据
 ========
 
 .. data:: AUTHOR

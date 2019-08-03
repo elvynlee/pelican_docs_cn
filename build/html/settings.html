@@ -89,7 +89,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#url">URL设置</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id5">时间和日期</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#template-pages">模板页</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#metadata">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">元数据</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#feed-settings">Feed settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pagination">Pagination</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#using-pagination-patterns">Using Pagination Patterns</a></li>
@@ -946,7 +946,7 @@ Unix/Linux系统可以使用 <code class="docutils literal notranslate"><span cl
 <table class="docutils footnote" frame="void" id="id7" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id6">[1]</a></td><td>Default is the system locale.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id6">[1]</a></td><td>默认为系统区域.</td></tr>
 </tbody>
 </table>
 </div>
@@ -955,13 +955,11 @@ Unix/Linux系统可以使用 <code class="docutils literal notranslate"><span cl
 <dl class="data">
 <dt>
 <code class="descname">TEMPLATE_PAGES = None</code></dt>
-<dd><p>A mapping containing template pages that will be rendered with the blog
-entries. See <a class="reference internal" href="#template-pages"><span class="std std-ref">模板页</span></a>.</p>
-<p>If you want to generate custom pages besides your blog entries, you can
-point any Jinja2 template file with a path pointing to the file and the
-destination path for the generated file.</p>
-<p>For instance, if you have a blog with three static pages — a list of books,
-your resume, and a contact page — you could have:</p>
+<dd><p>一个包含了 和博客条目一起渲染展示的模板页面 的映射。请参阅 <a class="reference internal" href="#template-pages"><span class="std std-ref">模板页</span></a> 。</p>
+<p>如果要生成博客条目以外的自定义页面，可以使用任何 Jinja2 模板文件，只要给其指定
+指向该文件的路径和生成该文件的目标路径。</p>
+<p>例如,如果你想给博客建三个静态页面 (一个读书列表页、一个个人简历页和联系人页面)，
+你可以像这样:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TEMPLATE_PAGES</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;src/books.html&#39;</span><span class="p">:</span> <span class="s1">&#39;dest/books.html&#39;</span><span class="p">,</span>
                   <span class="s1">&#39;src/resume.html&#39;</span><span class="p">:</span> <span class="s1">&#39;dest/resume.html&#39;</span><span class="p">,</span>
                   <span class="s1">&#39;src/contact.html&#39;</span><span class="p">:</span> <span class="s1">&#39;dest/contact.html&#39;</span><span class="p">}</span>
@@ -972,23 +970,21 @@ your resume, and a contact page — you could have:</p>
 <dl class="data">
 <dt>
 <code class="descname">TEMPLATE_EXTENSIONS = ['.html']</code></dt>
-<dd><p>The extensions to use when looking up template files from template names.</p>
+<dd><p>从模板名称查找模板文件时使用的扩展名。</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">DIRECT_TEMPLATES = ['index', 'authors', 'categories', 'tags', 'archives']</code></dt>
-<dd><p>List of templates that are used directly to render content. Typically direct
-templates are used to generate index pages for collections of content (e.g.,
-category and tag index pages). If the author, category and tag collections are not
-needed, set <code class="docutils literal notranslate"><span class="pre">DIRECT_TEMPLATES</span> <span class="pre">=</span> <span class="pre">['index',</span> <span class="pre">'archives']</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">DIRECT_TEMPLATES</span></code> are searched for over paths maintained in
-<code class="docutils literal notranslate"><span class="pre">THEME_TEMPLATES_OVERRIDES</span></code>.</p>
+<dd><p>直接用于呈现内容的模板列表。
+通常，直接模板用于生成内容集合的索引页(例如类别和标记索引页)。
+如果不需要作者、类别和标记等集合页，可以设置 <code class="docutils literal notranslate"><span class="pre">DIRECT_TEMPLATES</span> <span class="pre">=</span> <span class="pre">['index',</span> <span class="pre">'archives']</span></code></p>
+<p>系统会从 <code class="docutils literal notranslate"><span class="pre">THEME_TEMPLATES_OVERRIDES</span></code> 维护的路径值中搜索 <code class="docutils literal notranslate"><span class="pre">DIRECT_TEMPLATES</span></code> 。</p>
 </dd></dl>
 
 </div>
-<div class="section" id="metadata">
-<h2>Metadata<a class="headerlink" href="#metadata" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id9">
+<h2>元数据<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
 <dl class="data">
 <dt id="AUTHOR">
 <code class="descname">AUTHOR</code><a class="headerlink" href="#AUTHOR" title="永久链接至目标">¶</a></dt>
@@ -1136,14 +1132,14 @@ both for save location and URL.</p>
 <dl class="data">
 <dt>
 <code class="descname">CATEGORY_FEED_ATOM = 'feeds/{slug}.atom.xml'</code></dt>
-<dd><p>The location to save the category Atom feeds. <a class="footnote-reference" href="#id19" id="id9">[2]</a></p>
+<dd><p>The location to save the category Atom feeds. <a class="footnote-reference" href="#id20" id="id10">[2]</a></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">CATEGORY_FEED_ATOM_URL = None</code></dt>
 <dd><p>Relative URL of the category Atom feeds, including the <code class="docutils literal notranslate"><span class="pre">{slug}</span></code>
-placeholder. <a class="footnote-reference" href="#id19" id="id10">[2]</a> If not set, <code class="docutils literal notranslate"><span class="pre">CATEGORY_FEED_ATOM</span></code> is used both for save
+placeholder. <a class="footnote-reference" href="#id20" id="id11">[2]</a> If not set, <code class="docutils literal notranslate"><span class="pre">CATEGORY_FEED_ATOM</span></code> is used both for save
 location and URL.</p>
 </dd></dl>
 
@@ -1151,56 +1147,56 @@ location and URL.</p>
 <dt>
 <code class="descname">CATEGORY_FEED_RSS = None, i.e. no RSS</code></dt>
 <dd><p>The location to save the category RSS feeds, including the <code class="docutils literal notranslate"><span class="pre">{slug}</span></code>
-placeholder. <a class="footnote-reference" href="#id19" id="id11">[2]</a></p>
+placeholder. <a class="footnote-reference" href="#id20" id="id12">[2]</a></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">CATEGORY_FEED_RSS_URL = None</code></dt>
 <dd><p>Relative URL of the category RSS feeds, including the <code class="docutils literal notranslate"><span class="pre">{slug}</span></code>
-placeholder. <a class="footnote-reference" href="#id19" id="id12">[2]</a> If not set, <code class="docutils literal notranslate"><span class="pre">CATEGORY_FEED_RSS</span></code> is used both for save
+placeholder. <a class="footnote-reference" href="#id20" id="id13">[2]</a> If not set, <code class="docutils literal notranslate"><span class="pre">CATEGORY_FEED_RSS</span></code> is used both for save
 location and URL.</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">AUTHOR_FEED_ATOM = 'feeds/{slug}.atom.xml'</code></dt>
-<dd><p>The location to save the author Atom feeds. <a class="footnote-reference" href="#id19" id="id13">[2]</a></p>
+<dd><p>The location to save the author Atom feeds. <a class="footnote-reference" href="#id20" id="id14">[2]</a></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">AUTHOR_FEED_ATOM_URL = None</code></dt>
 <dd><p>Relative URL of the author Atom feeds, including the <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> placeholder.
-<a class="footnote-reference" href="#id19" id="id14">[2]</a> If not set, <code class="docutils literal notranslate"><span class="pre">AUTHOR_FEED_ATOM</span></code> is used both for save location and
+<a class="footnote-reference" href="#id20" id="id15">[2]</a> If not set, <code class="docutils literal notranslate"><span class="pre">AUTHOR_FEED_ATOM</span></code> is used both for save location and
 URL.</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">AUTHOR_FEED_RSS = 'feeds/{slug}.rss.xml'</code></dt>
-<dd><p>The location to save the author RSS feeds. <a class="footnote-reference" href="#id19" id="id15">[2]</a></p>
+<dd><p>The location to save the author RSS feeds. <a class="footnote-reference" href="#id20" id="id16">[2]</a></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">AUTHOR_FEED_RSS_URL = None</code></dt>
 <dd><p>Relative URL of the author RSS feeds, including the <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> placeholder.
-<a class="footnote-reference" href="#id19" id="id16">[2]</a> If not set, <code class="docutils literal notranslate"><span class="pre">AUTHOR_FEED_RSS</span></code> is used both for save location and URL.</p>
+<a class="footnote-reference" href="#id20" id="id17">[2]</a> If not set, <code class="docutils literal notranslate"><span class="pre">AUTHOR_FEED_RSS</span></code> is used both for save location and URL.</p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">TAG_FEED_ATOM = None, i.e. no tag feed</code></dt>
 <dd><p>The location to save the tag Atom feed, including the <code class="docutils literal notranslate"><span class="pre">{slug}</span></code>
-placeholder. <a class="footnote-reference" href="#id19" id="id17">[2]</a></p>
+placeholder. <a class="footnote-reference" href="#id20" id="id18">[2]</a></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">TAG_FEED_ATOM_URL = None</code></dt>
 <dd><p>Relative URL of the tag Atom feed, including the <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> placeholder.
-<a class="footnote-reference" href="#id19" id="id18">[2]</a></p>
+<a class="footnote-reference" href="#id20" id="id19">[2]</a></p>
 </dd></dl>
 
 <dl class="data">
@@ -1228,10 +1224,10 @@ doesn’t affect Atom feeds, only RSS ones.</p>
 
 <p>If you don’t want to generate some or any of these feeds, set the above
 variables to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-<table class="docutils footnote" frame="void" id="id19" rules="none">
+<table class="docutils footnote" frame="void" id="id20" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id9">1</a>, <a class="fn-backref" href="#id10">2</a>, <a class="fn-backref" href="#id11">3</a>, <a class="fn-backref" href="#id12">4</a>, <a class="fn-backref" href="#id13">5</a>, <a class="fn-backref" href="#id14">6</a>, <a class="fn-backref" href="#id15">7</a>, <a class="fn-backref" href="#id16">8</a>, <a class="fn-backref" href="#id17">9</a>, <a class="fn-backref" href="#id18">10</a>)</em> <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> is replaced by name of the category / author / tag.</td></tr>
+<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id10">1</a>, <a class="fn-backref" href="#id11">2</a>, <a class="fn-backref" href="#id12">3</a>, <a class="fn-backref" href="#id13">4</a>, <a class="fn-backref" href="#id14">5</a>, <a class="fn-backref" href="#id15">6</a>, <a class="fn-backref" href="#id16">7</a>, <a class="fn-backref" href="#id17">8</a>, <a class="fn-backref" href="#id18">9</a>, <a class="fn-backref" href="#id19">10</a>)</em> <code class="docutils literal notranslate"><span class="pre">{slug}</span></code> is replaced by name of the category / author / tag.</td></tr>
 </tbody>
 </table>
 </div>
@@ -1330,14 +1326,14 @@ one another. May be a string or a collection of strings. Set to <code class="doc
 <dl class="data">
 <dt>
 <code class="descname">TRANSLATION_FEED_ATOM = 'feeds/all-{lang}.atom.xml'</code></dt>
-<dd><p>The location to save the Atom feed for translations. <a class="footnote-reference" href="#id23" id="id20">[3]</a></p>
+<dd><p>The location to save the Atom feed for translations. <a class="footnote-reference" href="#id24" id="id21">[3]</a></p>
 </dd></dl>
 
 <dl class="data">
 <dt>
 <code class="descname">TRANSLATION_FEED_ATOM_URL = None</code></dt>
 <dd><p>Relative URL of the Atom feed for translations, including the <code class="docutils literal notranslate"><span class="pre">{lang}</span></code>
-placeholder. <a class="footnote-reference" href="#id23" id="id21">[3]</a> If not set, <code class="docutils literal notranslate"><span class="pre">TRANSLATION_FEED_ATOM</span></code> is used both for
+placeholder. <a class="footnote-reference" href="#id24" id="id22">[3]</a> If not set, <code class="docutils literal notranslate"><span class="pre">TRANSLATION_FEED_ATOM</span></code> is used both for
 save location and URL.</p>
 </dd></dl>
 
@@ -1351,14 +1347,14 @@ save location and URL.</p>
 <dt>
 <code class="descname">TRANSLATION_FEED_RSS_URL = None</code></dt>
 <dd><p>Relative URL of the RSS feed for translations, including the <code class="docutils literal notranslate"><span class="pre">{lang}</span></code>
-placeholder. <a class="footnote-reference" href="#id23" id="id22">[3]</a> If not set, <code class="docutils literal notranslate"><span class="pre">TRANSLATION_FEED_RSS</span></code> is used both for save
+placeholder. <a class="footnote-reference" href="#id24" id="id23">[3]</a> If not set, <code class="docutils literal notranslate"><span class="pre">TRANSLATION_FEED_RSS</span></code> is used both for save
 location and URL.</p>
 </dd></dl>
 
-<table class="docutils footnote" frame="void" id="id23" rules="none">
+<table class="docutils footnote" frame="void" id="id24" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[3]</td><td><em>(<a class="fn-backref" href="#id20">1</a>, <a class="fn-backref" href="#id21">2</a>, <a class="fn-backref" href="#id22">3</a>)</em> {lang} is the language code</td></tr>
+<tr><td class="label">[3]</td><td><em>(<a class="fn-backref" href="#id21">1</a>, <a class="fn-backref" href="#id22">2</a>, <a class="fn-backref" href="#id23">3</a>)</em> {lang} is the language code</td></tr>
 </tbody>
 </table>
 </div>
@@ -1612,7 +1608,7 @@ unintentionally filter out multiple message types with the same template
 </div>
 </div>
 <div class="section" id="reading-only-modified-content">
-<span id="id24"></span><h2>Reading only modified content<a class="headerlink" href="#reading-only-modified-content" title="永久链接至标题">¶</a></h2>
+<span id="id25"></span><h2>Reading only modified content<a class="headerlink" href="#reading-only-modified-content" title="永久链接至标题">¶</a></h2>
 <p>To speed up the build process, Pelican can optionally read only articles and
 pages with modified content.</p>
 <p>When Pelican is about to read some content source file:</p>
@@ -1671,7 +1667,7 @@ Therefore, <code class="docutils literal notranslate"><span class="pre">rsync</s
 option.</p>
 </div>
 <div class="section" id="writing-only-selected-content">
-<span id="id25"></span><h2>Writing only selected content<a class="headerlink" href="#writing-only-selected-content" title="永久链接至标题">¶</a></h2>
+<span id="id26"></span><h2>Writing only selected content<a class="headerlink" href="#writing-only-selected-content" title="永久链接至标题">¶</a></h2>
 <p>When only working on a single article or page, or making tweaks to your theme,
 it is often desirable to generate and review your work as quickly as possible.
 In such cases, generating and writing the entire site output is often
