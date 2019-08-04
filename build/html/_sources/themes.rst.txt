@@ -81,27 +81,23 @@ draft_pages     pages页面草稿列表
 排序
 -------
 
-URL wrappers (currently categories, tags, and authors), have comparison methods
-that allow them to be easily sorted by name::
+URL包装器（当前为分类、标签和作者），内含比较方法，可以很方便地按名称排序::
 
     {% for tag, articles in tags|sort %}
 
-If you want to sort based on different criteria, `Jinja's sort command`__ has a
-number of options.
+如果要根据不同的条件进行排序， `Jinja的排序命令`__ 中有许多选项可用。
 
 __ http://jinja.pocoo.org/docs/templates/#sort
 
 
-Date Formatting
+格式化日期
 ---------------
 
-Pelican formats the date according to your settings and locale
-(``DATE_FORMATS``/``DEFAULT_DATE_FORMAT``) and provides a ``locale_date``
-attribute. On the other hand, the ``date`` attribute will be a `datetime`_
-object. If you need custom formatting for a date different than your settings,
-use the Jinja filter ``strftime`` that comes with Pelican. Usage is same as
-Python `strftime`_ format, but the filter will do the right thing and format
-your date according to the locale given in your settings::
+Pelican根据你的设置和区域设置 (``DATE_FORMATS``/``DEFAULT_DATE_FORMAT``) 以及提供一
+个 ``locale_date`` 属性以供你对日期进行格式化设置。
+另外，日期 ``date`` 属性是一个 `datetime`_ 对象。
+如果你要自定义区别于你的设置中的格式的日期格式，请使用Pelican附带的Jinja过滤器 ``strftime`` 。
+用法与Python的 `strftime`_ 格式相同，筛选器会根据配置的区域来正确设置你的日期格式::
 
     {{ article.date|strftime('%d %B %Y') }}
 
@@ -109,123 +105,93 @@ your date according to the locale given in your settings::
 .. _strftime: https://docs.python.org/2/library/datetime.html#strftime-strptime-behavior
 
 
-index.html
-----------
+模板页index.html
+--------------------
 
-This is the home page or index of your blog, generated at ``index.html``.
+这是生成的你的博客主页或索引页 ``index.html`` 。
 
-If pagination is active, subsequent pages will reside in
-``index{number}.html``.
+如果分页功能处于启用状态，则后续的页面将类似 ``index{number}.html`` 这种形式。
 
 ======================  ===================================================
-Variable                Description
+变量                     描述
 ======================  ===================================================
-articles_paginator      A paginator object for the list of articles
-articles_page           The current page of articles
-articles_previous_page  The previous page of articles (``None`` if page does
-                        not exist)
-articles_next_page      The next page of articles (``None`` if page does
-                        not exist)
-dates_paginator         A paginator object for the article list, ordered by
-                        date, ascending.
-dates_page              The current page of articles, ordered by date,
-                        ascending.
-dates_previous_page     The previous page of articles, ordered by date,
-                        ascending (``None`` if page does not exist)
-dates_next_page         The next page of articles, ordered by date,
-                        ascending (``None`` if page does not exist)
-page_name               'index' -- useful for pagination links
+articles_paginator      文章列表的分页对象
+articles_page           文章的当前页码
+articles_previous_page  文章的前一页(如果页面不存在，则为"无")
+articles_next_page      文章的下一页(如果页面不存在，则为"无")
+dates_paginator         文章列表的分页对象，按日期升序排序
+dates_page              文章的当前页，按日期升序排序。
+dates_previous_page     文章的前一页，按日期升序排序(如果页面不存在，则为"无")
+dates_next_page         文章的下一页，按日期升序排序(如果页面不存在，则为"无")
+page_name               'index' -- 用于分页链接
 ======================  ===================================================
 
 
-author.html
--------------
+模板页author.html
+-----------------------
 
-This template will be processed for each of the existing authors, with output
-generated according to the ``AUTHOR_SAVE_AS`` setting (`Default:`
-``author/{slug}.html``). If pagination is active, subsequent pages will by
-default reside at ``author/{slug}{number}.html``.
+此模板将应用于每个作者，根据 ``AUTHOR_SAVE_AS`` 设置 (`默认值:` ``author/{slug}.html``) 生成输出。
+如果分页功能处于启用状态，则后续的页面默认类似为 ``author/{slug}{number}.html`` 这种形式。
 
 ======================  ===================================================
-Variable                Description
+变量                     描述
 ======================  ===================================================
-author                  The name of the author being processed
-articles                Articles by this author
-dates                   Articles by this author, but ordered by date,
-                        ascending
-articles_paginator      A paginator object for the list of articles
-articles_page           The current page of articles
-articles_previous_page  The previous page of articles (``None`` if page does
-                        not exist)
-articles_next_page      The next page of articles (``None`` if page does
-                        not exist)
-dates_paginator         A paginator object for the article list, ordered by
-                        date, ascending.
-dates_page              The current page of articles, ordered by date,
-                        ascending.
-dates_previous_page     The previous page of articles, ordered by date,
-                        ascending (``None`` if page does not exist)
-dates_next_page         The next page of articles, ordered by date,
-                        ascending (``None`` if page does not exist)
-page_name               AUTHOR_URL where everything after `{slug}` is
-                        removed -- useful for pagination links
+author                  作者姓名
+articles                作者的文章
+dates                   作者的文章，按日期升序排序
+articles_paginator      文章列表的分页对象
+articles_page           文章的当前页面
+articles_previous_page  文章的前一页(如果页面不存在，则为"无")
+articles_next_page      文章的下一页(如果页面不存在，则为"无")
+dates_paginator         文章列表的分页对象，按日期升序排序
+dates_page              文章的当前页，按日期升序排序。
+dates_previous_page     文章的前一页，按日期升序排序(如果页面不存在，则为"无")
+dates_next_page         文章的下一页，按日期升序排序(如果页面不存在，则为"无")
+page_name               AUTHOR_URL 其中 `{slug}` 之后的所有内容都被删除 - 对于分页链接有用
 ======================  ===================================================
 
 
-category.html
--------------
+模板页category.html
+-----------------------
 
-This template will be processed for each of the existing categories, with
-output generated according to the ``CATEGORY_SAVE_AS`` setting (`Default:`
-``category/{slug}.html``). If pagination is active, subsequent pages will by
-default reside at ``category/{slug}{number}.html``.
+此模板将应用于每个现有类别，根据 ``CATEGORY_SAVE_AS`` 设置 (`默认值:` ``category/{slug}.html``) 生成输出。
+如果分页功能处于启用状态，则后续的页面默认类似为 ``category/{slug}{number}.html`` 这种形式。
 
 ======================  ===================================================
-Variable                Description
+变量                     描述
 ======================  ===================================================
-category                The name of the category being processed
-articles                Articles for this category
-dates                   Articles for this category, but ordered by date,
-                        ascending
-articles_paginator      A paginator object for the list of articles
-articles_page           The current page of articles
-articles_previous_page  The previous page of articles (``None`` if page does
-                        not exist)
-articles_next_page      The next page of articles (``None`` if page does
-                        not exist)
-dates_paginator         A paginator object for the list of articles,
-                        ordered by date, ascending
-dates_page              The current page of articles, ordered by date,
-                        ascending
-dates_previous_page     The previous page of articles, ordered by date,
-                        ascending (``None`` if page does not exist)
-dates_next_page         The next page of articles, ordered by date,
-                        ascending (``None`` if page does not exist)
-page_name               CATEGORY_URL where everything after `{slug}` is
-                        removed -- useful for pagination links
+category                分类名
+articles                分类文章
+dates                   分类的文章，按日期升序排序
+articles_paginator      文章列表的分页对象
+articles_page           文章的当前页面
+articles_previous_page  文章的前一页(如果页面不存在，则为"无")
+articles_next_page      文章的下一页(如果页面不存在，则为"无")
+dates_paginator         文章列表的分页对象，按日期升序排序
+dates_page              文章的当前页，按日期升序排序。
+dates_previous_page     文章的前一页，按日期升序排序(如果页面不存在，则为"无")
+dates_next_page         文章的下一页，按日期升序排序(如果页面不存在，则为"无")
+page_name               CATEGORY_URL 其中 `{slug}` 之后的所有内容都被删除 - 对于分页链接有用
 ======================  ===================================================
 
 
-article.html
--------------
+模板页article.html
+-----------------------
 
-This template will be processed for each article, with output generated
-according to the ``ARTICLE_SAVE_AS`` setting (`Default:` ``{slug}.html``). The
-following variables are available when rendering.
+此模板将应用于每篇文章, 根据 ``ARTICLE_SAVE_AS`` 设置 (`默认值:` ``{slug}.html``) 生成输出。
+可以使用以下变量。
 
 =============   ===================================================
-Variable        Description
+变量                     描述
 =============   ===================================================
-article         The article object to be displayed
-category        The name of the category for the current article
+article         显示的文章
+category        当前文章的分类名称
 =============   ===================================================
 
-Any metadata that you put in the header of the article source file will be
-available as fields on the ``article`` object. The field name will be the same
-as the name of the metadata field, except in all-lowercase characters.
+在文章源文件头部区域添加的任何元数据都将被视为 ``article`` 对象的字段。
+字段名称将与元数据所用的名称相同，不过是采用小写字母形式。
 
-For example, you could add a field called `FacebookImage` to your article
-metadata, as shown below:
+例如，你可以在文章元数据中添加一个 `FacebookImage` 的字段，如下所示:
 
 .. code-block:: markdown
 
@@ -237,90 +203,73 @@ metadata, as shown below:
     Author: Francis Cabrel
     FacebookImage: http://franciscabrel.com/images/pythonlove.png
 
-This new metadata will be made available as `article.facebookimage` in your
-`article.html` template. This would allow you, for example, to specify an image
-for the Facebook open graph tags that will change for each article:
+这个新的元数据将作为 `article.facebookimage` 在 `article.html` 模板中提供调用。
+例如,这允许你为Facebook的公开图形标签指定一张图片，该图片随每篇文章而不同:
 
 .. code-block:: html+jinja
 
     <meta property="og:image" content="{{ article.facebookimage }}"/>
 
 
-page.html
----------
+模板页page.html
+-------------------
 
-This template will be processed for each page, with output generated according
-to the ``PAGE_SAVE_AS`` setting (`Default:` ``pages/{slug}.html``). The
-following variables are available when rendering.
+此模板将应用于每个page页面，根据 ``PAGE_SAVE_AS`` 设置 (`默认值:` ``pages/{slug}.html``) 生成输出。
+可以使用以下变量。
 
 =============   ===================================================
-Variable        Description
+变量                     描述
 =============   ===================================================
-page            The page object to be displayed. You can access its
-                title, slug, and content.
+page            显示的页面对象。你可以访问其标题、slug和内容。
 =============   ===================================================
 
 
-tag.html
---------
+模板页tag.html
+------------------
 
-This template will be processed for each tag, with output generated according
-to the ``TAG_SAVE_AS`` setting (`Default:` ``tag/{slug}.html``). If pagination
-is active, subsequent pages will by default reside at
-``tag/{slug}{number}.html``.
+此模板将应用于每个标签tag，根据 ``TAG_SAVE_AS`` 设置 (`默认值:` ``tag/{slug}.html``) 生成输出。
+如果分页功能处于启用状态，则后续的页面默认类似为 ``tag/{slug}{number}.html`` 这种形式。
 
 ======================  ===================================================
-Variable                Description
+变量                     描述
 ======================  ===================================================
-tag                     The name of the tag being processed
-articles                Articles related to this tag
-dates                   Articles related to this tag, but ordered by date,
-                        ascending
-articles_paginator      A paginator object for the list of articles
-articles_page           The current page of articles
-articles_previous_page  The previous page of articles (``None`` if page does
-                        not exist)
-articles_next_page      The next page of articles (``None`` if page does
-                        not exist)
-dates_paginator         A paginator object for the list of articles,
-                        ordered by date, ascending
-dates_page              The current page of articles, ordered by date,
-                        ascending
-dates_previous_page     The previous page of articles, ordered by date,
-                        ascending (``None`` if page does not exist)
-dates_next_page         The next page of articles, ordered by date,
-                        ascending (``None`` if page does not exist)
-page_name               TAG_URL where everything after `{slug}` is removed
-                        -- useful for pagination links
+tag                     标签名称
+articles                与此标签相关的文章
+dates                   与此标签相关的文章，按日期升序排序
+articles_paginator      文章列表的分页对象
+articles_page           文章的当前页面
+articles_previous_page  文章的前一页(如果页面不存在，则为"无")
+articles_next_page      文章的下一页(如果页面不存在，则为"无")
+dates_paginator         文章列表的分页对象，按日期升序排序
+dates_page              文章的当前页，按日期升序排序。
+dates_previous_page     文章的前一页，按日期升序排序(如果页面不存在，则为"无")
+dates_next_page         文章的下一页，按日期升序排序(如果页面不存在，则为"无")
+page_name               TAG_URL 其中 `{slug}` 之后的所有内容都被删除
 ======================  ===================================================
 
 
-period_archives.html
---------------------
+模板页period_archives.html
+------------------------------
 
-This template will be processed for each year of your posts if a path for
-``YEAR_ARCHIVE_SAVE_AS`` is defined, each month if ``MONTH_ARCHIVE_SAVE_AS`` is
-defined, and each day if ``DAY_ARCHIVE_SAVE_AS`` is defined.
+这个模板页面，如果定义了 ``YEAR_ARCHIVE_SAVE_AS`` 的路径，则按年份处理输出文章，
+如果定义了 ``MONTH_ARCHIVE_SAVE_AS`` ，则按月份，定义 ``DAY_ARCHIVE_SAVE_AS`` 按天数。
 
 ===================     ===================================================
-Variable                Description
+变量                     描述
 ===================     ===================================================
-period                  A tuple of the form (`year`, `month`, `day`) that
-                        indicates the current time period. `year` and `day`
-                        are numbers while `month` is a string. This tuple
-                        only contains `year` if the time period is a
-                        given year. It contains both `year` and `month`
-                        if the time period is over years and months and
-                        so on.
+period                  一个元组tuple( `年` , `月` , `日` )，表示当前时间段。 
+                        `年` 和 `日` 格式是数字，而 `月` 是字符串。
+                        当时间段给定只有年份时，此元组也才只包含 `年` 。
+                        如果时间段给定有年和月等，元组将包含 `年` 和 `月` 。
 
 ===================     ===================================================
 
-You can see an example of how to use `period` in the `"simple" theme
-period_archives.html template
-<https://github.com/getpelican/pelican/blob/master/pelican/themes/simple/templates/period_archives.html>`_.
+你可以在 `"simple" 主题的 period_archives.html 模板
+<https://github.com/getpelican/pelican/blob/master/pelican/themes/simple/templates/period_archives.html>`_
+查看使用 `period` 的示例。
 
 
-Objects
+对象
 =======
 
 Detail objects attributes that are available and useful in templates. Not all

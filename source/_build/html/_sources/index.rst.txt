@@ -53,6 +53,7 @@ Pelican 4 目前支持:
    content
    publish
    settings
+   themes
    
 
 .. Links
