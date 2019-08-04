@@ -57,6 +57,7 @@ Pelican 4 目前支持:
    plugins
    pelican-themes
    importer
+   faq
    
 
 .. Links
