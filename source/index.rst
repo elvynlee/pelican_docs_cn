@@ -54,6 +54,7 @@ Pelican 4 目前支持:
    publish
    settings
    themes
+   plugins
    
 
 .. Links
