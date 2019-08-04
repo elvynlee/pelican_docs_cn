@@ -389,16 +389,12 @@ ATOM仍然是默认值。旧主题需要对此进行更新。
 继承
 ===========
 
-Since version 3.0, Pelican supports inheritance from the ``simple`` theme, so
-you can re-use the ``simple`` theme templates in your own themes.
+3.0版本开始，Pelican支持从 ``simple`` 主题继承，因此你可以在自己的主题中继承使用 ``simple`` 主题模板。
 
-If one of the mandatory files in the ``templates/`` directory of your theme is
-missing, it will be replaced by the matching template from the ``simple``
-theme. So if the HTML structure of a template in the ``simple`` theme is right
-for you, you don't have to write a new template from scratch.
+如果丢失了主题的 ``templates/`` 目录下的某个必需文件，pelican会使用 ``simple`` 主题中的匹配模板文件来替换。
+所以如果你觉得 ``simple`` 主题的HTML框架模板合适可用，你就不用从头开始编写新模板。
 
-You can also extend templates from the ``simple`` theme in your own themes by
-using the ``{% extends %}`` directive as in the following example:
+你还可以用 ``{% extends %}`` 指令从 ``simple`` 主题扩展模板来自定义你自己的主题，请看以下示例:
 
 .. code-block:: html+jinja
 
@@ -407,15 +403,15 @@ using the ``{% extends %}`` directive as in the following example:
     {% extends "index.html" %}   <!-- "regular" extending -->
 
 
-Example
+例子
 -------
 
-With this system, it is possible to create a theme with just two files.
+使用此系统，可以仅用两个文件就创建主题。
 
 base.html
 """""""""
 
-The first file is the ``templates/base.html`` template:
+第一个文件是 ``templates/base.html`` 模板文件:
 
 .. code-block:: html+jinja
 
@@ -426,22 +422,18 @@ The first file is the ``templates/base.html`` template:
        <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css" />
     {% endblock %}
 
-1. On the first line, we extend the ``base.html`` template from the ``simple``
-   theme, so we don't have to rewrite the entire file.
-2. On the third line, we open the ``head`` block which has already been defined
-   in the ``simple`` theme.
-3. On the fourth line, the function ``super()`` keeps the content previously
-   inserted in the ``head`` block.
-4. On the fifth line, we append a stylesheet to the page.
-5. On the last line, we close the ``head`` block.
+1. 第一行，我们从 ``simple`` 主题中扩展出 ``base.html`` 模板，就不必重写整个文件。
+2. 第三行，我们调用头部 ``head`` 区块，这里已经在 ``simple`` 主题被定义过。
+3. 第四行，函数 ``super()`` 保留了先前插入到头部 ``head`` 区块的内容。
+4. 第五行，我们在此页面附加一个样式表文件。
+5. 最后一行，依照代码规则关闭 ``head`` 块.
 
-This file will be extended by all the other templates, so the stylesheet will
-be linked from all pages.
+所有其他的模板文件都会调用这个文件，所以里面的CSS样式表文件也可以应用到所有其他页面。
 
 style.css
 """""""""
 
-The second file is the ``static/css/style.css`` CSS stylesheet:
+第二个文件是 ``static/css/style.css`` CSS 样式表文件:
 
 .. code-block:: css
 
@@ -484,7 +476,7 @@ The second file is the ``static/css/style.css`` CSS stylesheet:
         margin-top : 1em ;
     }
 
-Download
+下载
 """"""""
 
-You can download this example theme :download:`here <_static/theme-basic.zip>`.
+你可以从 :download:`这里 <https://docs.getpelican.com/en/stable/_downloads/theme-basic.zip>` 下载这个范例主题。

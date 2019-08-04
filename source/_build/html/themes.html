@@ -108,10 +108,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#feeds">Feeds订阅源</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id14">继承</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#example">Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id15">例子</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#base-html">base.html</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#style-css">style.css</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#download">Download</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">下载</a></li>
 </ul>
 </li>
 </ul>
@@ -813,25 +813,21 @@ ATOM仍然是默认值。旧主题需要对此进行更新。
 </div>
 <div class="section" id="id14">
 <h2>继承<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
-<p>Since version 3.0, Pelican supports inheritance from the <code class="docutils literal notranslate"><span class="pre">simple</span></code> theme, so
-you can re-use the <code class="docutils literal notranslate"><span class="pre">simple</span></code> theme templates in your own themes.</p>
-<p>If one of the mandatory files in the <code class="docutils literal notranslate"><span class="pre">templates/</span></code> directory of your theme is
-missing, it will be replaced by the matching template from the <code class="docutils literal notranslate"><span class="pre">simple</span></code>
-theme. So if the HTML structure of a template in the <code class="docutils literal notranslate"><span class="pre">simple</span></code> theme is right
-for you, you don’t have to write a new template from scratch.</p>
-<p>You can also extend templates from the <code class="docutils literal notranslate"><span class="pre">simple</span></code> theme in your own themes by
-using the <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">extends</span> <span class="pre">%}</span></code> directive as in the following example:</p>
+<p>3.0版本开始，Pelican支持从 <code class="docutils literal notranslate"><span class="pre">simple</span></code> 主题继承，因此你可以在自己的主题中继承使用 <code class="docutils literal notranslate"><span class="pre">simple</span></code> 主题模板。</p>
+<p>如果丢失了主题的 <code class="docutils literal notranslate"><span class="pre">templates/</span></code> 目录下的某个必需文件，pelican会使用 <code class="docutils literal notranslate"><span class="pre">simple</span></code> 主题中的匹配模板文件来替换。
+所以如果你觉得 <code class="docutils literal notranslate"><span class="pre">simple</span></code> 主题的HTML框架模板合适可用，你就不用从头开始编写新模板。</p>
+<p>你还可以用 <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">extends</span> <span class="pre">%}</span></code> 指令从 <code class="docutils literal notranslate"><span class="pre">simple</span></code> 主题扩展模板来自定义你自己的主题，请看以下示例:</p>
 <div class="highlight-html+jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;!simple/index.html&quot;</span> <span class="cp">%}</span>   <span class="c">&lt;!-- extends the ``index.html`` template from the ``simple`` theme --&gt;</span>
 
 <span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;index.html&quot;</span> <span class="cp">%}</span>   <span class="c">&lt;!-- &quot;regular&quot; extending --&gt;</span>
 </pre></div>
 </div>
-<div class="section" id="example">
-<h3>Example<a class="headerlink" href="#example" title="永久链接至标题">¶</a></h3>
-<p>With this system, it is possible to create a theme with just two files.</p>
+<div class="section" id="id15">
+<h3>例子<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
+<p>使用此系统，可以仅用两个文件就创建主题。</p>
 <div class="section" id="base-html">
 <h4>base.html<a class="headerlink" href="#base-html" title="永久链接至标题">¶</a></h4>
-<p>The first file is the <code class="docutils literal notranslate"><span class="pre">templates/base.html</span></code> template:</p>
+<p>第一个文件是 <code class="docutils literal notranslate"><span class="pre">templates/base.html</span></code> 模板文件:</p>
 <div class="highlight-html+jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;!simple/base.html&quot;</span> <span class="cp">%}</span>
 
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">head</span> <span class="cp">%}</span>
@@ -841,21 +837,17 @@ using the <code class="docutils literal notranslate"><span class="pre">{%</span>
 </pre></div>
 </div>
 <ol class="arabic simple">
-<li>On the first line, we extend the <code class="docutils literal notranslate"><span class="pre">base.html</span></code> template from the <code class="docutils literal notranslate"><span class="pre">simple</span></code>
-theme, so we don’t have to rewrite the entire file.</li>
-<li>On the third line, we open the <code class="docutils literal notranslate"><span class="pre">head</span></code> block which has already been defined
-in the <code class="docutils literal notranslate"><span class="pre">simple</span></code> theme.</li>
-<li>On the fourth line, the function <code class="docutils literal notranslate"><span class="pre">super()</span></code> keeps the content previously
-inserted in the <code class="docutils literal notranslate"><span class="pre">head</span></code> block.</li>
-<li>On the fifth line, we append a stylesheet to the page.</li>
-<li>On the last line, we close the <code class="docutils literal notranslate"><span class="pre">head</span></code> block.</li>
+<li>第一行，我们从 <code class="docutils literal notranslate"><span class="pre">simple</span></code> 主题中扩展出 <code class="docutils literal notranslate"><span class="pre">base.html</span></code> 模板，就不必重写整个文件。</li>
+<li>第三行，我们调用头部 <code class="docutils literal notranslate"><span class="pre">head</span></code> 区块，这里已经在 <code class="docutils literal notranslate"><span class="pre">simple</span></code> 主题被定义过。</li>
+<li>第四行，函数 <code class="docutils literal notranslate"><span class="pre">super()</span></code> 保留了先前插入到头部 <code class="docutils literal notranslate"><span class="pre">head</span></code> 区块的内容。</li>
+<li>第五行，我们在此页面附加一个样式表文件。</li>
+<li>最后一行，依照代码规则关闭 <code class="docutils literal notranslate"><span class="pre">head</span></code> 块.</li>
 </ol>
-<p>This file will be extended by all the other templates, so the stylesheet will
-be linked from all pages.</p>
+<p>所有其他的模板文件都会调用这个文件，所以里面的CSS样式表文件也可以应用到所有其他页面。</p>
 </div>
 <div class="section" id="style-css">
 <h4>style.css<a class="headerlink" href="#style-css" title="永久链接至标题">¶</a></h4>
-<p>The second file is the <code class="docutils literal notranslate"><span class="pre">static/css/style.css</span></code> CSS stylesheet:</p>
+<p>第二个文件是 <code class="docutils literal notranslate"><span class="pre">static/css/style.css</span></code> CSS 样式表文件:</p>
 <div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">body</span> <span class="p">{</span>
     <span class="k">font-family</span> <span class="p">:</span> <span class="kc">monospace</span> <span class="p">;</span>
     <span class="k">font-size</span> <span class="p">:</span> <span class="mi">100</span><span class="kt">%</span> <span class="p">;</span>
@@ -897,9 +889,9 @@ be linked from all pages.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="download">
-<h4>Download<a class="headerlink" href="#download" title="永久链接至标题">¶</a></h4>
-<p>You can download this example theme <code class="xref download docutils literal notranslate"><span class="pre">here</span></code>.</p>
+<div class="section" id="id16">
+<h4>下载<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h4>
+<p>你可以从 <a class="reference download external" download="" href="https://docs.getpelican.com/en/stable/_downloads/theme-basic.zip"><code class="xref download docutils literal notranslate"><span class="pre">这里</span></code></a> 下载这个范例主题。</p>
 </div>
 </div>
 </div>
