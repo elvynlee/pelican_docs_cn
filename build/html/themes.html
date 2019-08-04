@@ -88,8 +88,8 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">创建主题</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">主题框架</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#templates-variables">模板和变量</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#common-variables">Common variables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sorting">Sorting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">常用变量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">排序</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#date-formatting">Date Formatting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#index-html">index.html</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#author-html">author.html</a></li>
@@ -220,71 +220,64 @@
 </div>
 <div class="section" id="templates-variables">
 <span id="id3"></span><h2>模板和变量<a class="headerlink" href="#templates-variables" title="永久链接至标题">¶</a></h2>
-<p>The idea is to use a simple syntax that you can embed into your HTML pages.
-This document describes which templates should exist in a theme, and which
-variables will be passed to each template at generation time.</p>
-<p>All templates will receive the variables defined in your settings file, as long
-as they are in all-caps. You can access them directly.</p>
-<div class="section" id="common-variables">
-<h3>Common variables<a class="headerlink" href="#common-variables" title="永久链接至标题">¶</a></h3>
-<p>All of these settings will be available to all templates.</p>
+<p>其理念是让你可以使用简单的语法嵌入到 HTML 页面中。
+本文档描述的是主题中应存在哪些模板，生成站点时会将哪些变量传递给每个模板。</p>
+<p>只要设置文件中定义的变量拼写全大写，所有模板都将接收它们。你可以直接访问它们。</p>
+<div class="section" id="id4">
+<h3>常用变量<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>所有这些设置将适用于所有模板。</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="19%" />
-<col width="81%" />
+<col width="16%" />
+<col width="84%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Variable</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head">变量</th>
+<th class="head">描述</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>output_file</td>
-<td>The name of the file currently being generated. For
-instance, when Pelican is rendering the home page,
-output_file will be “index.html”.</td>
+<td>当前正在生成的文件的名称。例如，当pelican渲染主页，输出
+文件output_file将为 “index.html” 。</td>
 </tr>
 <tr class="row-odd"><td>articles</td>
-<td>The list of articles, ordered descending by date.
-All the elements are <cite>Article</cite> objects, so you can
-access their attributes (e.g. title, summary, author
-etc.). Sometimes this is shadowed (for instance in
-the tags page). You will then find info about it
-in the <cite>all_articles</cite> variable.</td>
+<td><p class="first">文章列表，按日期降序排序。 所有元素都是 <cite>Article</cite> 文章对象，
+因此你可以访问它们的属性（例如标题、摘要、作者等）。有时
+这些信息被隐去（比如在标签页）。不过你可以在所有文章</p>
+<blockquote class="last">
+<div><cite>all_articles</cite> 变量中找到有关的信息。</div></blockquote>
+</td>
 </tr>
 <tr class="row-even"><td>dates</td>
-<td>The same list of articles, but ordered by date,
-ascending.</td>
+<td>同样是文章列表，不过按日期升序排序。</td>
 </tr>
 <tr class="row-odd"><td>drafts</td>
-<td>The list of draft articles</td>
+<td>文章草稿列表。</td>
 </tr>
 <tr class="row-even"><td>authors</td>
-<td>A list of (author, articles) tuples, containing all
-the authors and corresponding articles (values)</td>
+<td>一个元组tuples（作者，文章）列表，包含所有作者和相应的文章（值）。</td>
 </tr>
 <tr class="row-odd"><td>categories</td>
-<td>A list of (category, articles) tuples, containing
-all the categories and corresponding articles (values)</td>
+<td>一个元组tuples（分类，文章）列表，包含所有分类和相应的文章（值 ）。</td>
 </tr>
 <tr class="row-even"><td>tags</td>
-<td>A list of (tag, articles) tuples, containing all
-the tags and corresponding articles (values)</td>
+<td>一个元组tuples（标签，文章）列表，包含所有标签和相应的文章（值 ）。</td>
 </tr>
 <tr class="row-odd"><td>pages</td>
-<td>The list of pages</td>
+<td>pages页面列表</td>
 </tr>
 <tr class="row-even"><td>hidden_pages</td>
-<td>The list of hidden pages</td>
+<td>隐藏的pages页面列表</td>
 </tr>
 <tr class="row-odd"><td>draft_pages</td>
-<td>The list of draft pages</td>
+<td>pages页面草稿列表</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="sorting">
-<h3>Sorting<a class="headerlink" href="#sorting" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id5">
+<h3>排序<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
 <p>URL wrappers (currently categories, tags, and authors), have comparison methods
 that allow them to be easily sorted by name:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">tag</span><span class="p">,</span> <span class="n">articles</span> <span class="ow">in</span> <span class="n">tags</span><span class="o">|</span><span class="n">sort</span> <span class="o">%</span><span class="p">}</span>
@@ -759,7 +752,7 @@ objects.</td>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>name</td>
-<td>Name of this object <a class="footnote-reference" href="#id6" id="id5">[1]</a>.</td>
+<td>Name of this object <a class="footnote-reference" href="#id8" id="id7">[1]</a>.</td>
 </tr>
 <tr class="row-odd"><td>page_name</td>
 <td>Author page name.</td>
@@ -775,10 +768,10 @@ objects.</td>
 </tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id6" rules="none">
+<table class="docutils footnote" frame="void" id="id8" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[1]</a></td><td>for Author object, coming from <cite>:authors:</cite> or <cite>AUTHOR</cite>.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id7">[1]</a></td><td>for Author object, coming from <cite>:authors:</cite> or <cite>AUTHOR</cite>.</td></tr>
 </tbody>
 </table>
 </div>

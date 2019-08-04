@@ -47,47 +47,38 @@
 模板和变量
 =======================
 
-The idea is to use a simple syntax that you can embed into your HTML pages.
-This document describes which templates should exist in a theme, and which
-variables will be passed to each template at generation time.
+其理念是让你可以使用简单的语法嵌入到 HTML 页面中。
+本文档描述的是主题中应存在哪些模板，生成站点时会将哪些变量传递给每个模板。
 
-All templates will receive the variables defined in your settings file, as long
-as they are in all-caps. You can access them directly.
+只要设置文件中定义的变量拼写全大写，所有模板都将接收它们。你可以直接访问它们。
 
 
-Common variables
+常用变量
 ----------------
 
-All of these settings will be available to all templates.
+所有这些设置将适用于所有模板。
 
 =============   ===================================================
-Variable        Description
+变量             描述
 =============   ===================================================
-output_file     The name of the file currently being generated. For
-                instance, when Pelican is rendering the home page,
-                output_file will be "index.html".
-articles        The list of articles, ordered descending by date.
-                All the elements are `Article` objects, so you can
-                access their attributes (e.g. title, summary, author
-                etc.). Sometimes this is shadowed (for instance in
-                the tags page). You will then find info about it
-                in the `all_articles` variable.
-dates           The same list of articles, but ordered by date,
-                ascending.
-drafts          The list of draft articles
-authors         A list of (author, articles) tuples, containing all
-                the authors and corresponding articles (values)
-categories      A list of (category, articles) tuples, containing
-                all the categories and corresponding articles (values)
-tags            A list of (tag, articles) tuples, containing all
-                the tags and corresponding articles (values)
-pages           The list of pages
-hidden_pages    The list of hidden pages
-draft_pages     The list of draft pages
+output_file     当前正在生成的文件的名称。例如，当pelican渲染主页，输出
+                文件output_file将为 "index.html" 。
+articles        文章列表，按日期降序排序。 所有元素都是 `Article` 文章对象，
+                因此你可以访问它们的属性（例如标题、摘要、作者等）。有时
+                这些信息被隐去（比如在标签页）。不过你可以在所有文章 
+                 `all_articles` 变量中找到有关的信息。
+dates           同样是文章列表，不过按日期升序排序。
+drafts          文章草稿列表。
+authors         一个元组tuples（作者，文章）列表，包含所有作者和相应的文章（值）。
+categories      一个元组tuples（分类，文章）列表，包含所有分类和相应的文章（值 ）。
+tags            一个元组tuples（标签，文章）列表，包含所有标签和相应的文章（值 ）。
+pages           pages页面列表
+hidden_pages    隐藏的pages页面列表
+draft_pages     pages页面草稿列表
 =============   ===================================================
 
 
-Sorting
+排序
 -------
 
 URL wrappers (currently categories, tags, and authors), have comparison methods
