@@ -365,12 +365,12 @@ url                    page页的URL
 .. _PATH: settings.html#PATH
 
 
-订阅源
-=======
+Feeds订阅源
+============
 
-The feed variables changed in 3.0. Each variable now explicitly lists ATOM or
-RSS in the name. ATOM is still the default. Old themes will need to be updated.
-Here is a complete list of the feed variables::
+feed变量在版本3.0中发生更改。每个变量现在都在名称中明确指出是ATOM还是RSS。
+ATOM仍然是默认值。旧主题需要对此进行更新。
+下面是feed变量的一个完整列表::
 
     FEED_ATOM
     FEED_RSS
@@ -386,7 +386,7 @@ Here is a complete list of the feed variables::
     TRANSLATION_FEED_RSS
 
 
-Inheritance
+继承
 ===========
 
 Since version 3.0, Pelican supports inheritance from the ``simple`` theme, so
