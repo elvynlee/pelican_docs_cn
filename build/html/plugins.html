@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="pelican-主题" href="pelican-themes.html" />
     <link rel="prev" title="创建主题" href="themes.html" /> 
 </head>
 
@@ -98,6 +99,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="pelican-themes.html">pelican-主题</a></li>
 </ul>
 
             
@@ -413,7 +415,7 @@
 <p>首先你可能需要添加对你自己设定的输入格式的支持。
 虽然在Pelican核心中添加此功能也行，但不明智。
 我们还是通过插件来定义一个新的阅读器好些。</p>
-<p>主要是因为插件编写很容易，而且插件未激活时是不会影响pelican的运行速度的</p>
+<p>主要是因为插件编写很容易，而且插件未激活时不会影响pelican的运行速度</p>
 <p>我们直接来看例子吧:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pelican</span> <span class="k">import</span> <span class="n">signals</span>
 <span class="kn">from</span> <span class="nn">pelican.readers</span> <span class="k">import</span> <span class="n">BaseReader</span>
@@ -471,6 +473,8 @@
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pelican-themes.html" class="btn btn-neutral float-right" title="pelican-主题" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="themes.html" class="btn btn-neutral float-left" title="创建主题" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

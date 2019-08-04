@@ -55,6 +55,7 @@ Pelican 4 目前支持:
    settings
    themes
    plugins
+   pelican-themes
    
 
 .. Links
