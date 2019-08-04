@@ -66,7 +66,7 @@ output_file     当前正在生成的文件的名称。例如，当pelican渲染
 articles        文章列表，按日期降序排序。 所有元素都是 `Article` 文章对象，
                 因此你可以访问它们的属性（例如标题、摘要、作者等）。有时
                 这些信息被隐去（比如在标签页）。不过你可以在所有文章 
-                 `all_articles` 变量中找到有关的信息。
+                `all_articles` 变量中找到有关的信息。
 dates           同样是文章列表，不过按日期升序排序。
 drafts          文章草稿列表。
 authors         一个元组tuples（作者，文章）列表，包含所有作者和相应的文章（值）。
@@ -272,49 +272,40 @@ period                  一个元组tuple( `年` , `月` , `日` )，表示当�
 对象
 =======
 
-Detail objects attributes that are available and useful in templates. Not all
-attributes are listed here, this is a selection of attributes considered useful
-in a template.
+详细说明模板中可用且有用的对象属性。这里并没有列出所有的属性，这里选择性地列出模板中通常会用到的属性。
 
 .. _object-article:
 
-Article
+文章
 -------
 
-The string representation of an Article is the `source_path` attribute.
+这里'文章'的表述基于 `source_path` 属性的字符串值。
 
 ======================  ===================================================
-Attribute               Description
+属性                     描述
 ======================  ===================================================
-author                  The :ref:`Author <object-author_cat_tag>` of
-                        this article.
-authors                 A list of :ref:`Authors <object-author_cat_tag>`
-                        of this article.
-category                The :ref:`Category <object-author_cat_tag>`
-                        of this article.
-content                 The rendered content of the article.
-date                    Datetime object representing the article date.
-date_format             Either default date format or locale date format.
-default_template        Default template name.
-in_default_lang         Boolean representing if the article is written
-                        in the default language.
-lang                    Language of the article.
-locale_date             Date formatted by the `date_format`.
-metadata                Article header metadata `dict`.
-save_as                 Location to save the article page.
-slug                    Page slug.
-source_path             Full system path of the article source file.
-relative_source_path    Relative path from PATH_ to the article source file.
-status                  The article status, can be any of 'published' or
-                        'draft'.
-summary                 Rendered summary content.
-tags                    List of :ref:`Tag <object-author_cat_tag>`
-                        objects.
-template                Template name to use for rendering.
-title                   Title of the article.
-translations            List of translations
-                        :ref:`Article <object-article>` objects.
-url                     URL to the article page.
+author                  文章的 :ref:`作者 <object-author_cat_tag>`
+authors                 文章的 :ref:`作者 <object-author_cat_tag>` 列表
+category                文章的 :ref:`分类 <object-author_cat_tag>`
+content                 文章渲染内容
+date                    表示文章日期的日期时间对象
+date_format             默认日期格式或区域设置日期格式
+default_template        默认模板名称
+in_default_lang         表示文章是否采用默认语言编写的布尔值
+lang                    文章所用语言
+locale_date             按 `date_format` 格式化的日期
+metadata                文章头部元数据 `dict` 
+save_as                 保存文章页的位置
+slug                    页面的slug内容
+source_path             文章源文件的完整系统路径
+relative_source_path    基于 PATH_ 的文章源文件的相对路径
+status                  文章状态，可以是'已发布'或'草稿'
+summary                 展示的摘要内容
+tags                    :ref:`标签 <object-author_cat_tag>` 对象列表
+template                使用的模板名称
+title                   文章标题
+translations            翻译 :ref:`文章 <object-article>` 对象列表
+url                     文章页的URL
 ======================  ===================================================
 
 .. _PATH: settings.html#PATH
@@ -322,65 +313,60 @@ url                     URL to the article page.
 
 .. _object-author_cat_tag:
 
-Author / Category / Tag
+作者 / 分类 / 标签
 -----------------------
 
-The string representation of those objects is the `name` attribute.
+这里三个对象的表述基于 `name` 属性的字符串值。
 
 ===================     ===================================================
-Attribute               Description
+属性                     描述
 ===================     ===================================================
-name                    Name of this object [1]_.
-page_name               Author page name.
-save_as                 Location to save the author page.
-slug                    Page slug.
-url                     URL to the author page.
+name                    对象的名称 [1]_.
+page_name               作者页面名称
+save_as                 保存作者页面的位置
+slug                    页面的slug内容
+url                     作者页的URL
 ===================     ===================================================
 
-.. [1] for Author object, coming from `:authors:` or `AUTHOR`.
+.. [1] 对于 Author 对象, 来自 `:authors:` or `AUTHOR`.
 
 .. _object-page:
 
-Page
-----
+页面Page
+----------
 
-The string representation of a Page is the `source_path` attribute.
+这里'页面page'的表述基于 `source_path` 属性的字符串值。
 
 =====================  ===================================================
-Attribute              Description
+属性                     描述
 =====================  ===================================================
-author                 The :ref:`Author <object-author_cat_tag>` of
-                       this page.
-content                The rendered content of the page.
-date                   Datetime object representing the page date.
-date_format            Either default date format or locale date format.
-default_template       Default template name.
-in_default_lang        Boolean representing if the article is written
-                       in the default language.
-lang                   Language of the article.
-locale_date            Date formatted by the `date_format`.
-metadata               Page header metadata `dict`.
-save_as                Location to save the page.
-slug                   Page slug.
-source_path            Full system path of the page source file.
-relative_source_path   Relative path from PATH_ to the page source file.
-status                 The page status, can be any of 'published', 'hidden' or
-                       'draft'.
-summary                Rendered summary content.
-tags                   List of :ref:`Tag <object-author_cat_tag>`
-                       objects.
-template               Template name to use for rendering.
-title                  Title of the page.
-translations           List of translations
-                       :ref:`Article <object-article>` objects.
-url                    URL to the page.
+author                 该页 :ref:`作者 <object-author_cat_tag>`
+content                页面渲染内容
+date                   表示page页日期的日期时间对象
+date_format            默认日期格式或区域设置日期格式
+default_template       默认模板名称
+in_default_lang        表示文章是否采用默认语言编写的布尔值
+lang                   文章所用语言
+locale_date            按 `date_format` 格式化的日期
+metadata               文章头部元数据 `dict` 
+save_as                保存page页的位置
+slug                   page页的slug内容
+source_path            page页源文件的完整系统路径
+relative_source_path   基于 PATH_ 的page页源文件的相对路径
+status                 page页状态，可以是'已发布'、'隐藏'或'草稿'
+summary                展示的摘要内容
+tags                   :ref:`标签 <object-author_cat_tag>` 对象列表
+template               使用的模板名称
+title                  page页标题
+translations           翻译 :ref:`文章 <object-article>` 对象列表
+url                    page页的URL
 =====================  ===================================================
 
 .. _PATH: settings.html#PATH
 
 
-Feeds
-=====
+订阅源
+=======
 
 The feed variables changed in 3.0. Each variable now explicitly lists ATOM or
 RSS in the name. ATOM is still the default. Old themes will need to be updated.

@@ -101,12 +101,12 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#id8">对象</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#article">Article</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#author-category-tag">Author / Category / Tag</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#page">Page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#object-article">文章</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#object-author-cat-tag">作者 / 分类 / 标签</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#page">页面Page</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#feeds">Feeds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">订阅源</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#inheritance">Inheritance</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#example">Example</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#base-html">base.html</a></li>
@@ -242,12 +242,10 @@
 文件output_file将为 “index.html” 。</td>
 </tr>
 <tr class="row-odd"><td>articles</td>
-<td><p class="first">文章列表，按日期降序排序。 所有元素都是 <cite>Article</cite> 文章对象，
+<td>文章列表，按日期降序排序。 所有元素都是 <cite>Article</cite> 文章对象，
 因此你可以访问它们的属性（例如标题、摘要、作者等）。有时
-这些信息被隐去（比如在标签页）。不过你可以在所有文章</p>
-<blockquote class="last">
-<div><cite>all_articles</cite> 变量中找到有关的信息。</div></blockquote>
-</td>
+这些信息被隐去（比如在标签页）。不过你可以在所有文章
+<cite>all_articles</cite> 变量中找到有关的信息。</td>
 </tr>
 <tr class="row-even"><td>dates</td>
 <td>同样是文章列表，不过按日期升序排序。</td>
@@ -593,222 +591,208 @@ FacebookImage: http://franciscabrel.com/images/pythonlove.png
 </div>
 <div class="section" id="id8">
 <h2>对象<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
-<p>Detail objects attributes that are available and useful in templates. Not all
-attributes are listed here, this is a selection of attributes considered useful
-in a template.</p>
-<div class="section" id="article">
-<span id="object-article"></span><h3>Article<a class="headerlink" href="#article" title="永久链接至标题">¶</a></h3>
-<p>The string representation of an Article is the <cite>source_path</cite> attribute.</p>
+<p>详细说明模板中可用且有用的对象属性。这里并没有列出所有的属性，这里选择性地列出模板中通常会用到的属性。</p>
+<div class="section" id="object-article">
+<span id="id9"></span><h3>文章<a class="headerlink" href="#object-article" title="永久链接至标题">¶</a></h3>
+<p>这里’文章’的表述基于 <cite>source_path</cite> 属性的字符串值。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="30%" />
 <col width="70%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Attribute</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head">属性</th>
+<th class="head">描述</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>author</td>
-<td>The <a class="reference internal" href="#object-author-cat-tag"><span class="std std-ref">Author</span></a> of
-this article.</td>
+<td>文章的 <a class="reference internal" href="#object-author-cat-tag"><span class="std std-ref">作者</span></a></td>
 </tr>
 <tr class="row-odd"><td>authors</td>
-<td>A list of <a class="reference internal" href="#object-author-cat-tag"><span class="std std-ref">Authors</span></a>
-of this article.</td>
+<td>文章的 <a class="reference internal" href="#object-author-cat-tag"><span class="std std-ref">作者</span></a> 列表</td>
 </tr>
 <tr class="row-even"><td>category</td>
-<td>The <a class="reference internal" href="#object-author-cat-tag"><span class="std std-ref">Category</span></a>
-of this article.</td>
+<td>文章的 <a class="reference internal" href="#object-author-cat-tag"><span class="std std-ref">分类</span></a></td>
 </tr>
 <tr class="row-odd"><td>content</td>
-<td>The rendered content of the article.</td>
+<td>文章渲染内容</td>
 </tr>
 <tr class="row-even"><td>date</td>
-<td>Datetime object representing the article date.</td>
+<td>表示文章日期的日期时间对象</td>
 </tr>
 <tr class="row-odd"><td>date_format</td>
-<td>Either default date format or locale date format.</td>
+<td>默认日期格式或区域设置日期格式</td>
 </tr>
 <tr class="row-even"><td>default_template</td>
-<td>Default template name.</td>
+<td>默认模板名称</td>
 </tr>
 <tr class="row-odd"><td>in_default_lang</td>
-<td>Boolean representing if the article is written
-in the default language.</td>
+<td>表示文章是否采用默认语言编写的布尔值</td>
 </tr>
 <tr class="row-even"><td>lang</td>
-<td>Language of the article.</td>
+<td>文章所用语言</td>
 </tr>
 <tr class="row-odd"><td>locale_date</td>
-<td>Date formatted by the <cite>date_format</cite>.</td>
+<td>按 <cite>date_format</cite> 格式化的日期</td>
 </tr>
 <tr class="row-even"><td>metadata</td>
-<td>Article header metadata <cite>dict</cite>.</td>
+<td>文章头部元数据 <cite>dict</cite></td>
 </tr>
 <tr class="row-odd"><td>save_as</td>
-<td>Location to save the article page.</td>
+<td>保存文章页的位置</td>
 </tr>
 <tr class="row-even"><td>slug</td>
-<td>Page slug.</td>
+<td>页面的slug内容</td>
 </tr>
 <tr class="row-odd"><td>source_path</td>
-<td>Full system path of the article source file.</td>
+<td>文章源文件的完整系统路径</td>
 </tr>
 <tr class="row-even"><td>relative_source_path</td>
-<td>Relative path from <a class="reference external" href="settings.html#PATH">PATH</a> to the article source file.</td>
+<td>基于 <a class="reference external" href="settings.html#PATH">PATH</a> 的文章源文件的相对路径</td>
 </tr>
 <tr class="row-odd"><td>status</td>
-<td>The article status, can be any of ‘published’ or
-‘draft’.</td>
+<td>文章状态，可以是’已发布’或’草稿’</td>
 </tr>
 <tr class="row-even"><td>summary</td>
-<td>Rendered summary content.</td>
+<td>展示的摘要内容</td>
 </tr>
 <tr class="row-odd"><td>tags</td>
-<td>List of <a class="reference internal" href="#object-author-cat-tag"><span class="std std-ref">Tag</span></a>
-objects.</td>
+<td><a class="reference internal" href="#object-author-cat-tag"><span class="std std-ref">标签</span></a> 对象列表</td>
 </tr>
 <tr class="row-even"><td>template</td>
-<td>Template name to use for rendering.</td>
+<td>使用的模板名称</td>
 </tr>
 <tr class="row-odd"><td>title</td>
-<td>Title of the article.</td>
+<td>文章标题</td>
 </tr>
 <tr class="row-even"><td>translations</td>
-<td>List of translations
-<a class="reference internal" href="#object-article"><span class="std std-ref">Article</span></a> objects.</td>
+<td>翻译 <a class="reference internal" href="#object-article"><span class="std std-ref">文章</span></a> 对象列表</td>
 </tr>
 <tr class="row-odd"><td>url</td>
-<td>URL to the article page.</td>
+<td>文章页的URL</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="author-category-tag">
-<span id="object-author-cat-tag"></span><h3>Author / Category / Tag<a class="headerlink" href="#author-category-tag" title="永久链接至标题">¶</a></h3>
-<p>The string representation of those objects is the <cite>name</cite> attribute.</p>
+<div class="section" id="object-author-cat-tag">
+<span id="id10"></span><h3>作者 / 分类 / 标签<a class="headerlink" href="#object-author-cat-tag" title="永久链接至标题">¶</a></h3>
+<p>这里三个对象的表述基于 <cite>name</cite> 属性的字符串值。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="27%" />
 <col width="73%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Attribute</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head">属性</th>
+<th class="head">描述</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>name</td>
-<td>Name of this object <a class="footnote-reference" href="#id10" id="id9">[1]</a>.</td>
+<td>对象的名称 <a class="footnote-reference" href="#id12" id="id11">[1]</a>.</td>
 </tr>
 <tr class="row-odd"><td>page_name</td>
-<td>Author page name.</td>
+<td>作者页面名称</td>
 </tr>
 <tr class="row-even"><td>save_as</td>
-<td>Location to save the author page.</td>
+<td>保存作者页面的位置</td>
 </tr>
 <tr class="row-odd"><td>slug</td>
-<td>Page slug.</td>
+<td>页面的slug内容</td>
 </tr>
 <tr class="row-even"><td>url</td>
-<td>URL to the author page.</td>
+<td>作者页的URL</td>
 </tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id10" rules="none">
+<table class="docutils footnote" frame="void" id="id12" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id9">[1]</a></td><td>for Author object, coming from <cite>:authors:</cite> or <cite>AUTHOR</cite>.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id11">[1]</a></td><td>对于 Author 对象, 来自 <cite>:authors:</cite> or <cite>AUTHOR</cite>.</td></tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="page">
-<span id="object-page"></span><h3>Page<a class="headerlink" href="#page" title="永久链接至标题">¶</a></h3>
-<p>The string representation of a Page is the <cite>source_path</cite> attribute.</p>
+<span id="object-page"></span><h3>页面Page<a class="headerlink" href="#page" title="永久链接至标题">¶</a></h3>
+<p>这里’页面page’的表述基于 <cite>source_path</cite> 属性的字符串值。</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="28%" />
-<col width="72%" />
+<col width="29%" />
+<col width="71%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Attribute</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head">属性</th>
+<th class="head">描述</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>author</td>
-<td>The <a class="reference internal" href="#object-author-cat-tag"><span class="std std-ref">Author</span></a> of
-this page.</td>
+<td>该页 <a class="reference internal" href="#object-author-cat-tag"><span class="std std-ref">作者</span></a></td>
 </tr>
 <tr class="row-odd"><td>content</td>
-<td>The rendered content of the page.</td>
+<td>页面渲染内容</td>
 </tr>
 <tr class="row-even"><td>date</td>
-<td>Datetime object representing the page date.</td>
+<td>表示page页日期的日期时间对象</td>
 </tr>
 <tr class="row-odd"><td>date_format</td>
-<td>Either default date format or locale date format.</td>
+<td>默认日期格式或区域设置日期格式</td>
 </tr>
 <tr class="row-even"><td>default_template</td>
-<td>Default template name.</td>
+<td>默认模板名称</td>
 </tr>
 <tr class="row-odd"><td>in_default_lang</td>
-<td>Boolean representing if the article is written
-in the default language.</td>
+<td>表示文章是否采用默认语言编写的布尔值</td>
 </tr>
 <tr class="row-even"><td>lang</td>
-<td>Language of the article.</td>
+<td>文章所用语言</td>
 </tr>
 <tr class="row-odd"><td>locale_date</td>
-<td>Date formatted by the <cite>date_format</cite>.</td>
+<td>按 <cite>date_format</cite> 格式化的日期</td>
 </tr>
 <tr class="row-even"><td>metadata</td>
-<td>Page header metadata <cite>dict</cite>.</td>
+<td>文章头部元数据 <cite>dict</cite></td>
 </tr>
 <tr class="row-odd"><td>save_as</td>
-<td>Location to save the page.</td>
+<td>保存page页的位置</td>
 </tr>
 <tr class="row-even"><td>slug</td>
-<td>Page slug.</td>
+<td>page页的slug内容</td>
 </tr>
 <tr class="row-odd"><td>source_path</td>
-<td>Full system path of the page source file.</td>
+<td>page页源文件的完整系统路径</td>
 </tr>
 <tr class="row-even"><td>relative_source_path</td>
-<td>Relative path from <a class="reference external" href="settings.html#PATH">PATH</a> to the page source file.</td>
+<td>基于 <a class="reference external" href="settings.html#PATH">PATH</a> 的page页源文件的相对路径</td>
 </tr>
 <tr class="row-odd"><td>status</td>
-<td>The page status, can be any of ‘published’, ‘hidden’ or
-‘draft’.</td>
+<td>page页状态，可以是’已发布’、’隐藏’或’草稿’</td>
 </tr>
 <tr class="row-even"><td>summary</td>
-<td>Rendered summary content.</td>
+<td>展示的摘要内容</td>
 </tr>
 <tr class="row-odd"><td>tags</td>
-<td>List of <a class="reference internal" href="#object-author-cat-tag"><span class="std std-ref">Tag</span></a>
-objects.</td>
+<td><a class="reference internal" href="#object-author-cat-tag"><span class="std std-ref">标签</span></a> 对象列表</td>
 </tr>
 <tr class="row-even"><td>template</td>
-<td>Template name to use for rendering.</td>
+<td>使用的模板名称</td>
 </tr>
 <tr class="row-odd"><td>title</td>
-<td>Title of the page.</td>
+<td>page页标题</td>
 </tr>
 <tr class="row-even"><td>translations</td>
-<td>List of translations
-<a class="reference internal" href="#object-article"><span class="std std-ref">Article</span></a> objects.</td>
+<td>翻译 <a class="reference internal" href="#object-article"><span class="std std-ref">文章</span></a> 对象列表</td>
 </tr>
 <tr class="row-odd"><td>url</td>
-<td>URL to the page.</td>
+<td>page页的URL</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="section" id="feeds">
-<h2>Feeds<a class="headerlink" href="#feeds" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id14">
+<h2>订阅源<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
 <p>The feed variables changed in 3.0. Each variable now explicitly lists ATOM or
 RSS in the name. ATOM is still the default. Old themes will need to be updated.
 Here is a complete list of the feed variables:</p>
