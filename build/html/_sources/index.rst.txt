@@ -63,7 +63,7 @@ Pelican 4 目前支持:
    internals
    report
    changelog
-   
+   links
 
 .. Links
 
