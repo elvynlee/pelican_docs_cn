@@ -59,6 +59,7 @@ Pelican 4 目前支持:
    importer
    faq
    tips
+   contribute
    
 
 .. Links
