@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>设置 &mdash; pelican_cn 4.1.0 文档</title>
+  <title>设置选项 &mdash; pelican_cn 4.1.0 文档</title>
   
 
   
@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="创建主题" href="themes.html" />
+    <link rel="next" title="关于主题" href="themes.html" />
     <link rel="prev" title="发布网站" href="publish.html" /> 
 </head>
 
@@ -82,10 +82,10 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html">安装 Pelican</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">安装Pelican</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content.html">编写内容</a></li>
 <li class="toctree-l1"><a class="reference internal" href="publish.html">发布网站</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">设置</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">设置选项</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id3">基本设置</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#url">URL设置</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id5">时间和日期</a></li>
@@ -105,15 +105,15 @@
 <li class="toctree-l2"><a class="reference internal" href="#id33">设置示例</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="themes.html">创建主题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">关于主题</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plugins.html">插件</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pelican-themes.html">pelican-主题</a></li>
-<li class="toctree-l1"><a class="reference internal" href="importer.html">导入现有站点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pelican-themes.html">pelican-themes命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="importer.html">导入站点</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">常见问题（FAQ）</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tips.html">用法技巧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">使用技巧</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contribute.html">贡献和反馈指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="internals.html">Pelican内部原理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="report.html">关于Pelican的一些历史</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Pelican的一些历史</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">发布记录</a></li>
 </ul>
 
@@ -160,7 +160,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>设置</li>
+      <li>设置选项</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -180,7 +180,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>设置<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<h1>设置选项<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <p>可以通过命令行给Pelican指定一份设置文件，用以配置Pelican:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pelican</span> <span class="n">content</span> <span class="o">-</span><span class="n">s</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">your</span><span class="o">/</span><span class="n">pelicanconf</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
@@ -1283,7 +1283,7 @@ Unix/Linux系统可以使用 <code class="docutils literal notranslate"><span cl
 </div>
 <div class="section" id="id23">
 <h2>翻译<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h2>
-<p>Pelican 提供了一种翻译文章的方法。请参阅 <a class="reference internal" href="content.html"><span class="doc">Content</span></a> 部分了解更多信息。</p>
+<p>Pelican 提供了一种翻译文章的方法。请参阅 <a class="reference internal" href="content.html"><span class="doc">编写内容</span></a> 部分了解更多信息。</p>
 <dl class="data">
 <dt>
 <code class="descname">DEFAULT_LANG = 'en'</code></dt>
@@ -1371,7 +1371,7 @@ Unix/Linux系统可以使用 <code class="docutils literal notranslate"><span cl
 </div>
 <div class="section" id="id29">
 <h2>主题<a class="headerlink" href="#id29" title="永久链接至标题">¶</a></h2>
-<p>我们有一章专门的章节讨论Pelican主题。(查看 <a class="reference internal" href="themes.html#theming-pelican"><span class="std std-ref">创建主题</span></a> ）
+<p>我们有一章专门的章节讨论Pelican主题。(查看 <a class="reference internal" href="themes.html#theming-pelican"><span class="std std-ref">关于主题</span></a> ）
 不过，以下这些是与主题相关的设置。</p>
 <dl class="data">
 <dt id="THEME">
@@ -1422,7 +1422,7 @@ Unix/Linux系统可以使用 <code class="docutils literal notranslate"><span cl
 <li>simple (a synonym for “plain text” :)</li>
 </ul>
 <p>在这个地址有许多其他主题 <a class="reference external" href="https://github.com/getpelican/pelican-themes">https://github.com/getpelican/pelican-themes</a>.
-Pelican附带 <a class="reference internal" href="pelican-themes.html"><span class="doc">pelican-主题</span></a> ，一个用于管理主题的小脚本。</p>
+Pelican附带 <a class="reference internal" href="pelican-themes.html"><span class="doc">pelican-themes命令</span></a> ，一个用于管理主题的小脚本。</p>
 <p>你可以定义自己的主题，不管是从头开始创建，还是复制别人的主题来修改。
 这里有 <a class="reference internal" href="themes.html"><span class="doc">主题相关指南</span></a> 。</p>
 <p>以下是指定首选主题的示例方法:</p>
@@ -1633,7 +1633,7 @@ pickle的格式经常改变。如果遇到此类错误，系统会捕获该错�
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="themes.html" class="btn btn-neutral float-right" title="创建主题" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="themes.html" class="btn btn-neutral float-right" title="关于主题" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="publish.html" class="btn btn-neutral float-left" title="发布网站" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

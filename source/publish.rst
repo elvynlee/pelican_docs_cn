@@ -7,7 +7,7 @@
 ===============
 
 当你安装了Pelican并且编写了一些内容（例如，以Markdown或reST格式）后，
-你可以通过 ``pelican`` 命令指定内容文件的路径和设置文件 :doc:`settings<settings>` 的路径（可选），
+你可以通过 ``pelican`` 命令指定内容文件的路径和 :doc:`设置文件<settings>` 的路径（可选），
 将你的内容转换为HTML文件::
 
     pelican /path/to/your/content/ [-s path/to/your/settings.py]
@@ -81,7 +81,7 @@ Pelican生成的文件是静态文件，所以很容易可以查看。
     rsync -avc --delete output/ host.example.com:/var/www/your-site/
 
 还有许多其他部署方式，其中一些可以在初始化运行 ``pelican-quickstart`` 命令设置站点时进行配置。
-有关通过GitHub Pages发布的详细信息，请参阅 :doc:`Tips<tips>` 页面。
+有关通过GitHub Pages发布的详细信息，请参阅 :doc:`使用技巧<tips>` 页面。
 
 自动化
 ==========

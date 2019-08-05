@@ -1,4 +1,4 @@
-设置
+设置选项
 ########
 
 可以通过命令行给Pelican指定一份设置文件，用以配置Pelican::
@@ -901,7 +901,7 @@ Pelican的默认行为是列出所有文章标题以及索引页上的简短说�
 翻译
 ============
 
-Pelican 提供了一种翻译文章的方法。请参阅 :doc:`Content <content>` 部分了解更多信息。
+Pelican 提供了一种翻译文章的方法。请参阅 :doc:`编写内容 <content>` 部分了解更多信息。
 
 .. data:: DEFAULT_LANG = 'en'
 

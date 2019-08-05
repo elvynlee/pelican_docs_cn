@@ -1,6 +1,6 @@
 .. _theming-pelican:
 
-创建主题
+关于主题
 ###############
 
 要生成其HTML输出，Pelican使用具有灵活性和语法简单等特点的 `Jinja <http://jinja.pocoo.org/>`_ 模

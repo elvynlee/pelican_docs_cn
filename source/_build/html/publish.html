@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="设置" href="settings.html" />
+    <link rel="next" title="设置选项" href="settings.html" />
     <link rel="prev" title="编写内容" href="content.html" /> 
 </head>
 
@@ -82,7 +82,7 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html">安装 Pelican</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">安装Pelican</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content.html">编写内容</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">发布网站</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#site-generation">生成网站</a><ul>
@@ -97,17 +97,17 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="settings.html">设置</a></li>
-<li class="toctree-l1"><a class="reference internal" href="themes.html">创建主题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">设置选项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">关于主题</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plugins.html">插件</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pelican-themes.html">pelican-主题</a></li>
-<li class="toctree-l1"><a class="reference internal" href="importer.html">导入现有站点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pelican-themes.html">pelican-themes命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="importer.html">导入站点</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">常见问题（FAQ）</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tips.html">用法技巧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">使用技巧</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contribute.html">贡献和反馈指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="internals.html">Pelican内部原理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="report.html">关于Pelican的一些历史</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Release history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Pelican的一些历史</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">发布记录</a></li>
 </ul>
 
             
@@ -177,7 +177,7 @@
 <div class="section" id="site-generation">
 <span id="id2"></span><h2>生成网站<a class="headerlink" href="#site-generation" title="永久链接至标题">¶</a></h2>
 <p>当你安装了Pelican并且编写了一些内容（例如，以Markdown或reST格式）后，
-你可以通过 <code class="docutils literal notranslate"><span class="pre">pelican</span></code> 命令指定内容文件的路径和设置文件 <a class="reference internal" href="settings.html"><span class="doc">settings</span></a> 的路径（可选），
+你可以通过 <code class="docutils literal notranslate"><span class="pre">pelican</span></code> 命令指定内容文件的路径和 <a class="reference internal" href="settings.html"><span class="doc">设置文件</span></a> 的路径（可选），
 将你的内容转换为HTML文件:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pelican</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">your</span><span class="o">/</span><span class="n">content</span><span class="o">/</span> <span class="p">[</span><span class="o">-</span><span class="n">s</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">your</span><span class="o">/</span><span class="n">settings</span><span class="o">.</span><span class="n">py</span><span class="p">]</span>
 </pre></div>
@@ -246,7 +246,7 @@
 </pre></div>
 </div>
 <p>还有许多其他部署方式，其中一些可以在初始化运行 <code class="docutils literal notranslate"><span class="pre">pelican-quickstart</span></code> 命令设置站点时进行配置。
-有关通过GitHub Pages发布的详细信息，请参阅 <a class="reference internal" href="tips.html"><span class="doc">Tips</span></a> 页面。</p>
+有关通过GitHub Pages发布的详细信息，请参阅 <a class="reference internal" href="tips.html"><span class="doc">使用技巧</span></a> 页面。</p>
 </div>
 <div class="section" id="id5">
 <h2>自动化<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
@@ -340,7 +340,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="settings.html" class="btn btn-neutral float-right" title="设置" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="settings.html" class="btn btn-neutral float-right" title="设置选项" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="content.html" class="btn btn-neutral float-left" title="编写内容" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -1,4 +1,4 @@
-安装 Pelican
+安装Pelican
 ##################
 
 Pelican目前在Python 2.7.x和3.5+上运行最佳；Python早期版本不支持Pelican。
@@ -28,7 +28,7 @@ Pelican的项目源代码，则可以使用distutils方法安装Pelican::
     pip install -e "git+https://github.com/getpelican/pelican.git#egg=pelican"
 
 安装了Pelican后，可以运行 ``pelican --help`` 来查看基本参数和用法。
-更多详细信息，请参阅 :doc:`发布<publish>` 部分。
+更多详细信息，请参阅 :doc:`发布网站<publish>` 部分。
 
 可选模块
 -----------------

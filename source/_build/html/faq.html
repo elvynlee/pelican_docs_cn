@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="用法技巧" href="tips.html" />
-    <link rel="prev" title="导入现有站点" href="importer.html" /> 
+    <link rel="next" title="使用技巧" href="tips.html" />
+    <link rel="prev" title="导入站点" href="importer.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -82,14 +82,14 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html">安装 Pelican</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">安装Pelican</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content.html">编写内容</a></li>
 <li class="toctree-l1"><a class="reference internal" href="publish.html">发布网站</a></li>
-<li class="toctree-l1"><a class="reference internal" href="settings.html">设置</a></li>
-<li class="toctree-l1"><a class="reference internal" href="themes.html">创建主题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">设置选项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">关于主题</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plugins.html">插件</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pelican-themes.html">pelican-主题</a></li>
-<li class="toctree-l1"><a class="reference internal" href="importer.html">导入现有站点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pelican-themes.html">pelican-themes命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="importer.html">导入站点</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">常见问题（FAQ）</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">沟通问题，疑问或建议的最佳方式是什么？</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">我如何提供帮助</a></li>
@@ -113,11 +113,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#id15">如何阻止Pelican尝试将我的静态文件解析为内容？</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="tips.html">用法技巧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">使用技巧</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contribute.html">贡献和反馈指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="internals.html">Pelican内部原理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="report.html">关于Pelican的一些历史</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Release history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Pelican的一些历史</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">发布记录</a></li>
 </ul>
 
             
@@ -196,8 +196,8 @@
 提交问题报告之前，请首先检查现有问题列表（包括正讨论的和已关闭的），以避免提交重复问题。</p>
 <p>如果你想贡献代码，请fork一下这个 <a class="reference external" href="https://github.com/getpelican/pelican/">the git repository</a> ，
 创建一个新的分支，对其进行修改，然后发出一个pull请求。会有人尽快审核你的代码。
-有关更多详细信息，请参阅 <a class="reference internal" href="contribute.html"><span class="doc">如何贡献代码</span></a> 部分。</p>
-<p>您还可以通过创建主题和改进文档来做出贡献。</p>
+有关更多详细信息，请参阅 <a class="reference internal" href="contribute.html"><span class="doc">如何贡献</span></a> 部分。</p>
+<p>你还可以通过创建主题和改进文档来做出贡献。</p>
 </div>
 <div class="section" id="pelican">
 <h2>Pelican设置文件是强制性必需的吗？<a class="headerlink" href="#pelican" title="永久链接至标题">¶</a></h2>
@@ -213,7 +213,7 @@
 <div class="section" id="pygments">
 <h2>我在创建自己的主题。 如何使用Pygments进行语法高亮显示？<a class="headerlink" href="#pygments" title="永久链接至标题">¶</a></h2>
 <p>Pygments为生成的内容添加了一些类。 主题使用这些类通过CSS来设置代码语法高亮显示的样式。
-具体来说，您可以通过主题CSS文件中的 <code class="docutils literal notranslate"><span class="pre">.highlight</span> <span class="pre">pre</span></code> 类来自定义语法高亮显示的外观。
+具体来说，你可以通过主题CSS文件中的 <code class="docutils literal notranslate"><span class="pre">.highlight</span> <span class="pre">pre</span></code> 类来自定义语法高亮显示的外观。
 例如，要查看各种样式如何用于呈现Django代码，
 请使用 <a class="reference external" href="http://pygments.org/demo/">Pygments项目演示站点</a> 右上角的样式选择器下拉菜单选择</p>
 <p>你可以使用以下命令从Pygments内置样式（在本例中为 “monokai” ）生成初始CSS文件，
@@ -226,7 +226,7 @@
 </div>
 <div class="section" id="id6">
 <h2>我如何创建自己的主题？<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
-<p>请参阅 <a class="reference internal" href="themes.html#theming-pelican"><span class="std std-ref">创建主题</span></a>.</p>
+<p>请参阅 <a class="reference internal" href="themes.html#theming-pelican"><span class="std std-ref">关于主题</span></a>.</p>
 </div>
 <div class="section" id="markdown">
 <h2>我想使用Markdown，但是我收到了一个错误。<a class="headerlink" href="#markdown" title="永久链接至标题">¶</a></h2>
@@ -404,10 +404,10 @@ Thank you for visiting. Welcome!
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="tips.html" class="btn btn-neutral float-right" title="用法技巧" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="tips.html" class="btn btn-neutral float-right" title="使用技巧" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="importer.html" class="btn btn-neutral float-left" title="导入现有站点" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="importer.html" class="btn btn-neutral float-left" title="导入站点" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
