@@ -60,6 +60,7 @@ Pelican 4 目前支持:
    faq
    tips
    contribute
+   internals
    
 
 .. Links
