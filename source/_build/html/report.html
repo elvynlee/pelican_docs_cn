@@ -97,7 +97,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">关于Pelican的一些历史</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">用例</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">设计过程</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">更多细节</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#in-more-detail">In more detail</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Release history</a></li>
@@ -200,37 +200,55 @@
 所以 我决定重做一切，并将其拆分为多个不同的文件。</p>
 <p>我已经将逻辑分离到不同的类和概念中:</p>
 <ul class="simple">
-<li><strong>Writers</strong> 负责文件的所有写入过程。它负责编写文件: .html文件, RSS源等。由于这些操作很常用，因此对象创建一次后将传递给生成器Generators。</li>
-<li><strong>Readers</strong> 用于读取各种格式 (目前是Markdown 和 reStructuredText格式，不过系统是可扩展的）。
-给定一个文件，它们返回元数据（作者，标签，分类等）和内容（以HTML格式）。</li>
-<li><strong>Generators</strong> 生成不同的输出。例如，Pelican附带 <code class="docutils literal notranslate"><span class="pre">ArticlesGenerator</span></code> 和 <code class="docutils literal notranslate"><span class="pre">PageGenerator</span></code> 。
-给定配置，它们可以做任何你想它们做的事情。大多数情况下，它们是根据输入的内容生成文件。</li>
+<li><em>writers</em> are responsible of all the writing process of the files.
+They are responsible of writing .html files, RSS feeds and so on. Since those
+operations are commonly used, the object is created once, and then passed to
+the generators.</li>
+<li><em>readers</em> are used to read from various formats (Markdown and
+reStructuredText for now, but the system is extensible). Given a file, they
+return metadata (author, tags, category, etc) and content (HTML formatted).</li>
+<li><em>generators</em> generate the different outputs. For instance, Pelican
+comes with an ArticlesGenerator and PagesGenerator, into others. Given a
+configuration, they can do whatever you want them to do. Most of the time
+it’s generating files from inputs (user inputs and files).</li>
 </ul>
-<p>我还处理内容对象。这些对象可以是文章 <code class="docutils literal notranslate"><span class="pre">Articles</span></code> ，page页 <code class="docutils literal notranslate"><span class="pre">Pages</span></code> ，引用 <code class="docutils literal notranslate"><span class="pre">Quotes</span></code> 或任何你想要的东西。
-它们在 <code class="docutils literal notranslate"><span class="pre">contents.py</span></code> 模块中定义，代表程序要使用的某些内容。</p>
+<p>I also deal with contents objects. They can be <code class="docutils literal notranslate"><span class="pre">Articles</span></code>, <code class="docutils literal notranslate"><span class="pre">Pages</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Quotes</span></code>, or whatever you want. They are defined in the <code class="docutils literal notranslate"><span class="pre">contents.py</span></code>
+module and represent some content to be used by the program.</p>
 </div>
-<div class="section" id="id3">
-<h2>更多细节<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<p>下面是 Pelican 中涉及的类的概述。</p>
-<img alt="https://docs.getpelican.com/en/stable/_images/uml.jpg" src="https://docs.getpelican.com/en/stable/_images/uml.jpg" />
-<p>上面界面其实并不存在，我添加它只是为了澄清整个架构。我是使用鸭子类型的风格来写的，不是基于接口的形式。</p>
-<p>在内部，遵循以下过程:</p>
+<div class="section" id="in-more-detail">
+<h2>In more detail<a class="headerlink" href="#in-more-detail" title="永久链接至标题">¶</a></h2>
+<p>Here is an overview of the classes involved in Pelican.</p>
+<img alt="_static/uml.jpg" src="_static/uml.jpg" />
+<p>The interface does not really exist, and I have added it only to clarify the
+whole picture. I do use duck typing and not interfaces.</p>
+<p>Internally, the following process is followed:</p>
 <ul class="simple">
-<li>首先，解析命令行，并使用用户的一些内容初始化不同的生成器对象</li>
-<li>创建一个上下文 <code class="docutils literal notranslate"><span class="pre">context</span></code> 。 它包含命令行中的设置和设置文件（如果提供有）。</li>
-<li>调用每个生成器的 <code class="docutils literal notranslate"><span class="pre">generate_context</span></code> 方法，更新上下文。</li>
-<li>编写器被创建并被赋予每个生成器的 <code class="docutils literal notranslate"><span class="pre">generate_output</span></code> 方法。</li>
+<li>First of all, the command line is parsed, and some content from the user is
+used to initialize the different generator objects.</li>
+<li>A <code class="docutils literal notranslate"><span class="pre">context</span></code> is created. It contains the settings from the command line and
+a settings file if provided.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">generate_context</span></code> method of each generator is called, updating
+the context.</li>
+<li>The writer is created and given to the <code class="docutils literal notranslate"><span class="pre">generate_output</span></code> method of each
+generator.</li>
 </ul>
-<p>我进行了两次调用，因为当生成器生成输出时，上下文不会改变是很重要的。
-换句话说，第一种方法 <code class="docutils literal notranslate"><span class="pre">generate_context</span></code> 应该修改上下文，而第二种 <code class="docutils literal notranslate"><span class="pre">generate_output</span></code> 方法则不应该。</p>
-<p>然后，由生成器在 <code class="docutils literal notranslate"><span class="pre">generate_context</span></code> 和 <code class="docutils literal notranslate"><span class="pre">generate_content</span></code> 方法中执行所需的操作。
-参考一下 <code class="docutils literal notranslate"><span class="pre">ArticlesGenerator</span></code> 类将有助于理解其他一些概念。
-以下是调用 <code class="docutils literal notranslate"><span class="pre">generate_context</span></code> 方法时发生的事:</p>
+<p>I make two calls because it is important that when the output is generated by
+the generators, the context will not change. In other words, the first method
+<code class="docutils literal notranslate"><span class="pre">generate_context</span></code> should modify the context, whereas the second
+<code class="docutils literal notranslate"><span class="pre">generate_output</span></code> method should not.</p>
+<p>Then, it is up to the generators to do what the want, in the
+<code class="docutils literal notranslate"><span class="pre">generate_context</span></code> and <code class="docutils literal notranslate"><span class="pre">generate_content</span></code> method. Taking the
+<code class="docutils literal notranslate"><span class="pre">ArticlesGenerator</span></code> class will help to understand some others concepts. Here
+is what happens when calling the <code class="docutils literal notranslate"><span class="pre">generate_context</span></code> method:</p>
 <ul class="simple">
-<li>读取文件夹 “path” ，查找reStructuredText文件，加载每个文件，然后用它构造一个内容对象（ <code class="docutils literal notranslate"><span class="pre">Article</span></code> ）。 这些功能用 <code class="docutils literal notranslate"><span class="pre">Reader</span></code> 对象实现。</li>
-<li>用所有这些文章更新 <code class="docutils literal notranslate"><span class="pre">context</span></code> 。</li>
+<li>Read the folder “path”, looking for restructured text files, load each of
+them, and construct a content object (<code class="docutils literal notranslate"><span class="pre">Article</span></code>) with it. To do so, use
+<code class="docutils literal notranslate"><span class="pre">Reader</span></code> objects.</li>
+<li>Update the <code class="docutils literal notranslate"><span class="pre">context</span></code> with all those articles.</li>
 </ul>
-<p>然后， <code class="docutils literal notranslate"><span class="pre">generate_content</span></code> 方法使用 <code class="docutils literal notranslate"><span class="pre">context</span></code> 和 <code class="docutils literal notranslate"><span class="pre">writer</span></code> 来生成想要的输出。</p>
+<p>Then, the <code class="docutils literal notranslate"><span class="pre">generate_content</span></code> method uses the <code class="docutils literal notranslate"><span class="pre">context</span></code> and the <code class="docutils literal notranslate"><span class="pre">writer</span></code>
+to generate the wanted output.</p>
 </div>
 </div>
 

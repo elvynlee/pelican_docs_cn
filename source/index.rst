@@ -61,6 +61,8 @@ Pelican 4 目前支持:
    tips
    contribute
    internals
+   report
+   changelog
    
 
 .. Links
