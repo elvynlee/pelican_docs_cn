@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>插件 &mdash; pelican_cn 4.1.0 文档</title>
+  <title>插件介绍 &mdash; pelican_cn 4.1.0 文档</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="pelican-主题" href="pelican-themes.html" />
-    <link rel="prev" title="创建主题" href="themes.html" /> 
+    <link rel="next" title="pelican-themes命令" href="pelican-themes.html" />
+    <link rel="prev" title="关于主题" href="themes.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -82,12 +82,12 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html">安装 Pelican</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">安装Pelican</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content.html">编写内容</a></li>
 <li class="toctree-l1"><a class="reference internal" href="publish.html">发布网站</a></li>
-<li class="toctree-l1"><a class="reference internal" href="settings.html">设置</a></li>
-<li class="toctree-l1"><a class="reference internal" href="themes.html">创建主题</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">插件</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">设置选项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">关于主题</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">插件介绍</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">如何使用插件</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id3">哪里可以找到插件</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id4">如何创建插件</a></li>
@@ -99,7 +99,15 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="pelican-themes.html">pelican-主题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pelican-themes.html">pelican-themes命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="importer.html">导入站点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">常见问题（FAQ）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">使用技巧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">贡献和反馈指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals.html">Pelican内部原理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Pelican的一些历史</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">发布记录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">文档英文版链接</a></li>
 </ul>
 
             
@@ -145,7 +153,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>插件</li>
+      <li>插件介绍</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -165,7 +173,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="plugins">
-<span id="id1"></span><h1>插件<a class="headerlink" href="#plugins" title="永久链接至标题">¶</a></h1>
+<span id="id1"></span><h1>插件介绍<a class="headerlink" href="#plugins" title="永久链接至标题">¶</a></h1>
 <p>Pelican从3.0版本开始支持插件。 插件是一种无需直接修改Pelican核心而向Pelican添加功能的方法。</p>
 <div class="section" id="id2">
 <h2>如何使用插件<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
@@ -453,7 +461,7 @@
 </div>
 <div class="section" id="id8">
 <h3>添加新生成器<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
-<p>添加一个新的生成器也很简单。 你可能需要查看 <span class="xref std std-doc">internals</span> 以获取有关如何创建自己的生成器的更多信息。</p>
+<p>添加一个新的生成器也很简单。 你可能需要查看 <a class="reference internal" href="internals.html"><span class="doc">Pelican内部原理</span></a> 以获取有关如何创建自己的生成器的更多信息。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_generators</span><span class="p">(</span><span class="n">pelican_object</span><span class="p">):</span>
     <span class="c1"># define a new generator here if you need to</span>
     <span class="k">return</span> <span class="n">MyGenerator</span>
@@ -474,10 +482,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="pelican-themes.html" class="btn btn-neutral float-right" title="pelican-主题" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="pelican-themes.html" class="btn btn-neutral float-right" title="pelican-themes命令" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="themes.html" class="btn btn-neutral float-left" title="创建主题" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="themes.html" class="btn btn-neutral float-left" title="关于主题" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
