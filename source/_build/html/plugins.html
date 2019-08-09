@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>插件 &mdash; pelican_cn 4.1.0 文档</title>
+  <title>插件介绍 &mdash; pelican_cn 4.1.0 文档</title>
   
 
   
@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
     <link rel="next" title="pelican-themes命令" href="pelican-themes.html" />
@@ -87,7 +88,7 @@
 <li class="toctree-l1"><a class="reference internal" href="publish.html">发布网站</a></li>
 <li class="toctree-l1"><a class="reference internal" href="settings.html">设置选项</a></li>
 <li class="toctree-l1"><a class="reference internal" href="themes.html">关于主题</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">插件</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">插件介绍</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">如何使用插件</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id3">哪里可以找到插件</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id4">如何创建插件</a></li>
@@ -107,6 +108,7 @@
 <li class="toctree-l1"><a class="reference internal" href="internals.html">Pelican内部原理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="report.html">Pelican的一些历史</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">发布记录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">文档英文版链接</a></li>
 </ul>
 
             
@@ -152,7 +154,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>插件</li>
+      <li>插件介绍</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -172,7 +174,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="plugins">
-<span id="id1"></span><h1>插件<a class="headerlink" href="#plugins" title="永久链接至标题">¶</a></h1>
+<span id="id1"></span><h1>插件介绍<a class="headerlink" href="#plugins" title="永久链接至标题">¶</a></h1>
 <p>Pelican从3.0版本开始支持插件。 插件是一种无需直接修改Pelican核心而向Pelican添加功能的方法。</p>
 <div class="section" id="id2">
 <h2>如何使用插件<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
@@ -230,9 +232,9 @@
 <p>下面是当前可用的信号列表:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="23%" />
-<col width="19%" />
-<col width="58%" />
+<col width="24%" />
+<col width="20%" />
+<col width="56%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">信号</th>
@@ -296,8 +298,8 @@
 </tr>
 <tr class="row-even"><td>get_generators</td>
 <td>pelican object</td>
-<td>在 Pelican.get_generator_classes 中调用
-可以返回一个或多个生成器Generator，返回多个生成器时以元组tuple或列表list的方式返回。</td>
+<td>在 Pelican.get_generator_classes 中调用可以返
+回一个或多个生成器Generator，返回多个生成器时以元组tuple或列表list的方式返回。</td>
 </tr>
 <tr class="row-odd"><td>get_writer</td>
 <td>pelican object</td>

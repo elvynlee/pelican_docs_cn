@@ -86,8 +86,8 @@ article_generator_pretaxonomy       article_generator              在分类列�
 article_generator_finalized         article_generator              在 ArticlesGenerator.generate_context 结尾处调用
 article_generator_write_article     article_generator, content     在编写每篇文章之前调用，文章作为内容传递
 article_writer_finalized            article_generator, writer      在所有文章和相关页面编写完但文章生成器未关闭之前调用
-get_generators                      pelican object                 在 Pelican.get_generator_classes 中调用
-                                                                   可以返回一个或多个生成器Generator，返回多个生成器时以元组tuple或列表list的方式返回。
+get_generators                      pelican object                 在 Pelican.get_generator_classes 中调用可以返
+                                                                   回一个或多个生成器Generator，返回多个生成器时以元组tuple或列表list的方式返回。
 get_writer                          pelican object                 在 Pelican.get_writer 中调用，可以返回一个自定义编写器Writer。
 page_generator_context              page_generator, metadata
 page_generator_preread              page_generator                 在 PageGenerator.generate_context 读取一个page页之前调用；
