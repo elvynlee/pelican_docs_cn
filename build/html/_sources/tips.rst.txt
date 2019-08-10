@@ -122,7 +122,7 @@ GitHub页面将显示上面内容中我们自定义的404页面，
 
 注意：使用正斜杠， ``/`` ，即使在Windows系统也是。
 
-你还可以在任意站点的根目录下放置 ``favicon.ico``网站图标文件 或 ``robots.txt`` 网站针对蜘蛛的设置文件
+你还可以在任意站点的根目录下放置 ``favicon.ico`` 网站图标文件或 ``robots.txt`` 网站针对蜘蛛的设置文件
 然后在 ``EXTRA_PATH_METADATA`` 设置中添加这些文件。
 
 如何添加YouTube视频或Vimeo视频

@@ -235,9 +235,6 @@
 
    创建文章摘要时的字数，默认50（以单词测量）。这仅适用于你的内容未另外指定摘要的情况。
    设置为 ``None`` 的话将使摘要成为原始内容的副本。
-   (measured in words) of the text created.  This only applies if your content
-   does not otherwise specify a summary. Setting to ``None`` will cause the
-   summary to be a copy of the original content.
 
 .. data:: WITH_FUTURE_DATES = True
 
@@ -1196,10 +1193,69 @@ pickle的格式经常改变。如果遇到此类错误，系统会捕获该错�
 设置示例
 ================
 
-.. literalinclude:: https://github.com/getpelican/pelican/blob/f61bd2ceba5be68833d6a7b9d1a6670046dc0581/samples/pelican.conf.py
-    :language: python
+以下配置文件示例为块引用，这里是原文件链接_ 。
 
+.. code-block:: python
+    :linenos:
+    
+    # -*- coding: utf-8 -*-
+    from __future__ import unicode_literals
 
+    AUTHOR = 'Alexis Métaireau'
+    SITENAME = "Alexis' log"
+    SITESUBTITLE = 'A personal blog.'
+    SITEURL = 'http://blog.notmyidea.org'
+    TIMEZONE = "Europe/Paris"
+
+    # can be useful in development, but set to False when you're ready to publish
+    RELATIVE_URLS = True
+
+    GITHUB_URL = 'http://github.com/ametaireau/'
+    DISQUS_SITENAME = "blog-notmyidea"
+    REVERSE_CATEGORY_ORDER = True
+    LOCALE = "C"
+    DEFAULT_PAGINATION = 4
+    DEFAULT_DATE = (2012, 3, 2, 14, 1, 1)
+
+    FEED_ALL_RSS = 'feeds/all.rss.xml'
+    CATEGORY_FEED_RSS = 'feeds/{slug}.rss.xml'
+
+    LINKS = (('Biologeek', 'http://biologeek.org'),
+            ('Filyb', "http://filyb.info/"),
+            ('Libert-fr', "http://www.libert-fr.com"),
+            ('N1k0', "http://prendreuncafe.com/blog/"),
+            ('Tarek Ziadé', "http://ziade.org/blog"),
+            ('Zubin Mithra', "http://zubin71.wordpress.com/"),)
+
+    SOCIAL = (('twitter', 'http://twitter.com/ametaireau'),
+            ('lastfm', 'http://lastfm.com/user/akounet'),
+            ('github', 'http://github.com/ametaireau'),)
+
+    # global metadata to all the contents
+    DEFAULT_METADATA = {'yeah': 'it is'}
+
+    # path-specific metadata
+    EXTRA_PATH_METADATA = {
+        'extra/robots.txt': {'path': 'robots.txt'},
+        }
+
+    # static paths will be copied without parsing their contents
+    STATIC_PATHS = [
+        'pictures',
+        'extra/robots.txt',
+        ]
+
+    # custom page generated with a jinja2 template
+    TEMPLATE_PAGES = {'pages/jinja2_template.html': 'jinja2_template.html'}
+
+    # code blocks with line numbers
+    PYGMENTS_RST_OPTIONS = {'linenos': 'table'}
+
+    # foobar will not be used, because it's not in caps. All configuration keys
+    # have to be in caps
+    foobar = "barbaz"
+
+.. _这里是原文件链接: https://github.com/getpelican/pelican/blob/f61bd2ceba5be68833d6a7b9d1a6670046dc0581/samples/pelican.conf.py
 .. _Jinja custom filters documentation: http://jinja.pocoo.org/docs/api/#custom-filters
 .. _Jinja Environment documentation: http://jinja.pocoo.org/docs/dev/api/#jinja2.Environment
 .. _Docutils Configuration: http://docutils.sourceforge.net/docs/user/config.html
