@@ -100,7 +100,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#python-2-3">Python 2/3兼容性开发技巧</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id5">记录日志技巧</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id6">限制无关的日志消息</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id11">在日志中输出回溯</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">在日志中输出回溯</a></li>
 </ul>
 </li>
 </ul>
@@ -310,7 +310,7 @@ $ LC_ALL=en_US.utf8 pelican -o pelican/tests/output/basic/ \
 </div>
 <p>另外，如果你需要格式化通用消息的显示，你还可以在 <code class="docutils literal notranslate"><span class="pre">extra</span></code> 的字典中将 <code class="docutils literal notranslate"><span class="pre">'limit_args'</span></code> 设置为一个参数元组tuple。</p>
 <p>消息显示限制为 <code class="docutils literal notranslate"><span class="pre">5</span></code> 条，即，前四条具有相同 <code class="docutils literal notranslate"><span class="pre">'limit_msg'</span></code> 的日志消息正常输出显示，但是第
-五条日志将使用  <code class="docutils literal notranslate"><span class="pre">'limit_msg'</span></code> 替代显示（如果有 <a href="#id7"><span class="problematic" id="id8">``</span></a>’limit_args’<a href="#id9"><span class="problematic" id="id10">``</span></a>的话也带上limit_args）。
+五条日志将使用  <code class="docutils literal notranslate"><span class="pre">'limit_msg'</span></code> 替代显示（如果有 <code class="docutils literal notranslate"><span class="pre">'limit_args'</span></code> 的话也带上limit_args）。
 在第五条之后，将忽略相应的日志消息。</p>
 <p>例如，如果要记录丢失的资源，可以用以下代码:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">resource</span> <span class="ow">in</span> <span class="n">resources</span><span class="p">:</span>
@@ -329,8 +329,8 @@ WARNING: 好多资源都找不到啦找不到啦！
 </pre></div>
 </div>
 </div>
-<div class="section" id="id11">
-<h3>在日志中输出回溯<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id7">
+<h3>在日志中输出回溯<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
 <p>如果你在 <code class="docutils literal notranslate"><span class="pre">except</span></code> 语句块中加日志记录，你可能也希望让它提供回溯信息。
 你可以通过将 <code class="docutils literal notranslate"><span class="pre">exc_info</span></code> 关键字参数设置为 <code class="docutils literal notranslate"><span class="pre">True</span></code> 来实现。
 不过，默认情况下应该不需要这样做，因为回溯消息会很长，而且普通用户可能会对此感到困惑。

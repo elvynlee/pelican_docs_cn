@@ -1540,9 +1540,8 @@ create a GitHub ribbon.</p>
 <p>有时,在生成网站时可能会出现许多警告信息。
 在大量恼人的日志中找到**有意义的**错误消息可能相当棘手。
 为了过滤掉冗余日志消息，Pelican 附带了 <code class="docutils literal notranslate"><span class="pre">LOG_FILTER</span></code> 设置。</p>
-<blockquote>
-<div><code class="docutils literal notranslate"><span class="pre">LOG_FILTER</span></code> 应为一个列表，其中的值为元组tuples <code class="docutils literal notranslate"><span class="pre">(level,</span> <span class="pre">msg)</span></code> ,</div></blockquote>
-<p>每个元组由日志级别（最高为 <code class="docutils literal notranslate"><span class="pre">warning</span></code> ）和要忽略的消息组成。
+<p><code class="docutils literal notranslate"><span class="pre">LOG_FILTER</span></code> 应为一个列表，其中的值为元组tuples <code class="docutils literal notranslate"><span class="pre">(level,</span> <span class="pre">msg)</span></code> ,
+每个元组由日志级别（最高为 <code class="docutils literal notranslate"><span class="pre">warning</span></code> ）和要忽略的消息组成。
 只需要将想隐藏掉的消息填进这个列表，它们就会被过滤掉。</p>
 <p>例如:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
@@ -1595,7 +1594,7 @@ create a GitHub ribbon.</p>
 器返回的原始内容和元数据添加至缓存。如果此设置改为 <code class="docutils literal notranslate"><span class="pre">'generator'</span></code> ，则将已处理的内容
 对象添加至缓存。缓存已处理的内容对象可能会与插件和 <code class="docutils literal notranslate"><span class="pre">WITH_FUTURE_DATES</span></code> 功能都有冲突
 (与插件起冲突是因为可能会跳过某些读取相关信号)，(与 <code class="docutils literal notranslate"><span class="pre">WITH_FUTURE_DATES</span></code> 功能冲突是
-因为缓存内容对象的``draft`` 草稿状态不会随时间自动更改)。</p>
+因为缓存内容对象的 <code class="docutils literal notranslate"><span class="pre">draft</span></code> 草稿状态不会随时间自动更改)。</p>
 <p>检查修改时间相比对比文件哈希值更快， 但检查修改时间有时并不可靠，因为 <code class="docutils literal notranslate"><span class="pre">mtime</span></code> 时间戳
 信息有可能会丢失，例如，当使用 <code class="docutils literal notranslate"><span class="pre">cp</span></code> 或 <code class="docutils literal notranslate"><span class="pre">rsync</span></code> 命令复制内容源文件却没有
 用 <code class="docutils literal notranslate"><span class="pre">mtime</span></code> 保留模式时（ <code class="docutils literal notranslate"><span class="pre">rsync</span></code> 可以通过传递 <code class="docutils literal notranslate"><span class="pre">--archive</span></code> 标志来调用)。</p>
