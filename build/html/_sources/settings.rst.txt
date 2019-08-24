@@ -254,7 +254,7 @@
 
 .. data:: SLUGIFY_SOURCE = 'title'
 
-   指定从中里自动生成slug内容。 可以设置为 ``title`` 以使用'Title：'元数据标签
+   指定从哪里自动生成slug内容。 可以设置为 ``title`` 以使用'Title：'元数据标签
    或者使用 ``basename`` 以使用文章的文件名来创建slug。
 
 .. data:: CACHE_CONTENT = False
